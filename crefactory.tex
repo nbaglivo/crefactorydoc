@@ -48,13 +48,21 @@ Implementar una interfaz que permita al usuario el manejo de macros y false cond
 
 Desarrollar una manera de visualizar la ocurrencia de errores y excepciones que sea adecuada, clara y funcional. Debe permitir reconocer r\'apidamente al agente que causa el error y que provea suficiente informaci\'on para que el usuario pueda resolverlo.
 
-\section{Reuni\'on uno: Carga de archivos}
+\section{Problema uno: Carga de archivos}
 
 \subsection{Contexto}
-¿ C\'omo estaba la aplicaci\'on ? ¿ Por qu\'e eso es un problema ?
+La carga de archivos en la interfaz original era de la siguiente manera:
+
+\includegraphics{images/codigo_original/carga.jpeg}
+
+Se deb\'ia escribir el path absoluto hacia donde estaban los archivos. Y ah\'i se listaban todos los archivos del directorio. Como el path se debe ingresar a mano es propenso a errores.
+As\'i mismo el path inicial estaba hardcoded el cual no existe en todas las pc y producía el siguiente error.
+
+\includegraphics{images/codigo_original/error.jpeg}
 
 \subsection{Soluci\'on planteada}
-Cu\'al fue la soluci\'on al problema
+El problema se solucion\'o agregando una ventana de exploraci\'on de archivos. Este permite explorar el filesystem y seleccionar el arhivo deseado. Permitiendo seleccionar m\'as de uno al mismo tiempo.
+La ventaja de esta aproximaci\'on es que no se debe recordar donde est\'an los archivos deseados.
 
 \section{Reuni\'on dos: Nueva interfaz para la configuraci\'on}
 
