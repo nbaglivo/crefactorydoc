@@ -15,6 +15,7 @@
 
 \tableofcontents
 
+\newpage
 \section{Organizaci\'on del documento}
 Contar como esta organizado el documento
 
@@ -38,6 +39,14 @@ Por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no mostraba 
 
 \subsection{Objetivos}
 Objetivos generales
+
+Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis en facilidad de uso, provedur\'ia de feedback, manejo de excepciones, di\'alogo simple y natural, salidas evidentes, prevenci\'on de errores y ayudas.
+
+Particularmente se desea mejorar la carga de archivos e include\_directories para que cumpla las siguientes condiciones: prevenci\'on de errores, facilidad de uso, simplicidad y menor sorpresa al usuario.
+
+Implementar una interfaz que permita al usuario el manejo de macros y false conditions de una manera sencilla e intuitiva, de manera que pueda agregarlas o quitarlas a gusto.
+
+Desarrollar una manera de visualizar la ocurrencia de errores y excepciones que sea adecuada, clara y funcional. Debe permitir reconocer r\'apidamente al agente que causa el error y que provea suficiente informaci\'on para que el usuario pueda resolverlo.
 
 \section{Reuni\'on uno: Carga de archivos}
 
@@ -82,8 +91,10 @@ Cu\'al fue la solucion al problema
 \section{Minutas}
 
 \subsection{Reunión del lunes 10/09}
-Se vio una introducción al proyecto y un vistazo general de como está organizado.
-Se vio como levantar el ambiente.
+\begin{itemize}
+  \item Se vio una introducción al proyecto y un vistazo general de como está organizado.
+  \item Se vio como levantar el ambiente.
+\end{itemize}
 
 Se habló sobre las siguientes características que tendríamos que ir implementando a lo largo de la cursada:
 \begin{itemize}
@@ -100,25 +111,31 @@ Quedamos en modificar el diálogo de carga de archivo para que permita explorar 
 \subsection{Reunión del Jueves 18/10}
 Se hablaron los siguientes puntos:
 \begin{itemize}
- \item Mejorar include Directory => Add Directamente
+ \item Mejorar include Directory => Add Directamente.
  \item Marcar si un directorio es ReadOnly.
  \item Excepción si no se incluye los inludeDirectories necesarios. 
  \item Manejo de todas las excepciones posibles.
- \item Bajar un ejemplo opensource en C para probar
- \item Prestar atención a preprocess y a FullNameOfFile
+ \item Bajar un ejemplo opensource en C para probar.
+ \item Prestar atención a preprocess y a FullNameOfFile.
 \end{itemize}
 
 \subsection{Reunión del lunes 29/10}
-Leer documentación y mirar ejemplos en el código fuente de Visual Works para ver como hacer un correcto manejo de excepciones.
-Cuando se produce un error poder mostrar el archivo que lo produjo y hacer highlight en la línea de código.
+\begin{itemize}
+ \item Leer documentación y mirar ejemplos en el código fuente de Visual Works para ver como hacer un correcto manejo de excepciones.
+ \item Cuando se produce un error poder mostrar el archivo que lo produjo y hacer highlight en la línea de código.
+\end{itemize}
 
 \subsection{Reunión del 12/11}
-Que pasen los tests de CRefactory
-Si no puedo parsear una configuración, debo ponerla como condición falsa.  El problema es que el error puede ocurrir en muchos lugares.  Debemos comenzar probando con el test19.c (el que tiene el \#ifdef\_cplusplus).
+\begin{itemize}
+\item Que pasen los tests de CRefactory.
+\item Si no puedo parsear una configuración, debo ponerla como condición falsa.  El problema es que el error puede ocurrir en muchos lugares.\item Debemos comenzar probando con el test19.c (el que tiene el \#ifdef\_cplusplus).
+\end{itemize}
 
 \subsection{Reunión del 29/11}
-Cachear la excepción al agregar False Conditions. Mirar en el preprocessor, en la linea: completeConditionalsFrom: OutputStream
-
+\begin{itemize}
+\item Cachear la excepción al agregar False Conditions. 
+\item Mirar en el preprocessor, en la linea: completeConditionalsFrom: OutputStream.
+\end{itemize}
 
 \section{Logros alcanzados}
 
