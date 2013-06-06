@@ -50,19 +50,37 @@ Desarrollar una manera de visualizar la ocurrencia de errores y excepciones que 
 
 \section{Problema uno: Carga de archivos}
 
+El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C con el que se va a trabajar y las carpetas donde se encuentran los archivos de cabecera (include directories).
+
 \subsection{Contexto}
 La carga de archivos en la interfaz original era de la siguiente manera:
 
-\includegraphics{images/codigo_original/carga.jpeg}
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.85]{images/codigo_original/carga.jpeg}
+    \caption{Carga de archivo}
+\end{figure}
 
-Se deb\'ia escribir el path absoluto hacia donde estaban los archivos. Y ah\'i se listaban todos los archivos del directorio. Como el path se debe ingresar a mano es propenso a errores.
-As\'i mismo el path inicial estaba hardcoded el cual no existe en todas las pc y producía el siguiente error.
+Se deb\'ia escribir a mano el path absoluto hacia donde estaban los archivos. Esto es propenso a errores ya que se pueden cometer errores de tipeo o incluso no recordarlo exactamente.
+As\'i mismo el path inicial estaba hardcoded con lo cual producía el siguiente error.
 
-\includegraphics{images/codigo_original/error.jpeg}
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.85]{images/codigo_original/error.jpeg}
+    \caption{Carga de archivo}
+\end{figure}
 
 \subsection{Soluci\'on planteada}
 El problema se solucion\'o agregando una ventana de exploraci\'on de archivos. Este permite explorar el filesystem y seleccionar el arhivo deseado. Permitiendo seleccionar m\'as de uno al mismo tiempo.
-La ventaja de esta aproximaci\'on es que no se debe recordar donde est\'an los archivos deseados.
+La ventaja de esta aproximaci\'on es que no se debe recordar el path absoluto.
+
+Qued\'o de la siguiente manera:
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.50]{images/codigo_modificado/seleccionar_directorio.jpg}
+     \caption{Carga de archivo}
+\end{figure}
 
 \section{Reuni\'on dos: Nueva interfaz para la configuraci\'on}
 
