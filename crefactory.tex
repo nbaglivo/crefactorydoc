@@ -90,29 +90,57 @@ Qued\'o de la siguiente manera:
 \subsection{Soluci\'on planteada}
 Cu\'al fue la soluci\'on al problema
 
-\section{Reuni\'on tres: Manejo de excepciones}
+\section{Problema tres: Manejo de excepciones}
+
+El manejo de excepciones es una t\'ecnica de programaci\'on que permite controlar los errores ocasionados durante la ejecucici\'on del programa.
+A continuaci\'on se detallan los problemas que presentaban la ausencia del manejo de estas en la interface de CRefactory y como fueron solucionados estos problemas.
 
 \subsection{Contexto}
-¿ C\'omo estaba la aplicacion ? ¿ Por qu\'e eso es un problema ?
+Ante un error de parseo la aplicación dejaba de funcionar. No había ningún tipo de manejo de excepciones. No encontrar un archivo de cabecera en los directorios incluidos significaba que el programa se cerrar\'a abruptamente, sin ningún tipo de feedback para que el usuario pueda rastrear el error. Se hizo evidente la necesidad de que el usuario debía poder rastrear el error y corregirlo sin que falle la herramienta.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.85]{images/codigo_original/error_header_no_agregado.jpeg}
+     \caption{Error por header no incluido}
+\end{figure}
 
 \subsection{Soluci\'on planteada}
-Cu\'al fue la soluci\'on al problema
+Lo que se hizo en un principio fue implementar los manejadores para las excepciones. Por lo que cuando se produc\'ia una excepci\'on se mostraba una ventana con una descripci\'on del error. As\'i dandole feedback al usuario para que puediera corregir el error. Por ejemplo, cuando no se inclu\'ia el directorio donde buscar un header necesario se mostraba una ventana advirtiendo del error y dandole al usuario la posibilidad de corregirlo agregando el directorio necesario en la ventana de configuraci\'on.
+
+Imagen de la ventana mostrando el error.
 
 \section{Reuni\'on cuatro: Ventana de error}
 
+Una ventana de error es una herramienta muy util en interfaces graficas para reconocer el error ocurrido identificando asi la mejor manera de solucionarlo.
+A continuaci\'on se explica como se trataba antes la excepci\'on, que problemas traia esto y como fueron solucionados.
+
 \subsection{Contexto}
-¿ C\'omo estaba la aplicaci\'on ? ¿ Por qu\'e eso es un problema ?
+El problema de la soluci\'on planteada en el punto anterior es que no mostraba en que parte del c\'odigo fuente se produjo el error. Por lo tanto no siempre el usuario pod\'ia recuperarse totalmente.
 
 \subsection{Soluci\'on planteada}
-Cu\'al fue la solucion al problema
+Esto llev\'o a modificar la ventana de notificaci\'on de error por una donde diera la posibilidad de visualizar el c\'odigo fuente con el error que se produjo. 
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.50]{images/codigo_modificado/error_header_no_encontrado.jpg}
+     \caption{Resaltado del error}
+\end{figure}
 
 \section{Reuni\'on cinco: Highlight del error}
 
+Cuando ocurre un error es útil conocer que linea o lineas de código son las que lo provocaron. Para poder identificar una porción de código, estuvimos de acuerdo en que sería muy útil contar con algún tipo de resaltado de texto. A continuación se explica cómo se mostraba el código antes, que problemas traía ésto y cómo fueron solucionados.
+
 \subsection{Contexto}
-¿ C\'omo estaba la aplicaci\'on ? ¿ Por qu\'e eso es un problema ?
+Anteriormente, luego de un error se mostraba el c\'odigo pero no era claro que l\'ineas lo hab\'ian producido. Esto era un problema ya que la idea del manejo de excepciones no es solo identificar el error sino encontrar la manera de solucionarlo. Y muchas veces para solucionar un problema es necesario saber exactamente en que porci\'on del c\'odigo se origin\'o.
 
 \subsection{Soluci\'on planteada}
-Cu\'al fue la solucion al problema
+El problema se solucion\'o implementando en la interfaz el resaltado de las l\'ineas donde el produjo el error. Gracias a esto el programador puede solucionar los errores con mucha mayor facilidad.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.50]{images/codigo_modificado/highlight_preparser.jpg}
+     \caption{Resaltado del error}
+\end{figure}
 
 \section{Minutas}
 
