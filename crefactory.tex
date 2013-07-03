@@ -17,7 +17,11 @@
 
 \newpage
 \section{Organizaci\'on del documento}
-Contar como esta organizado el documento
+Primero se dará una introduccion para poner en contexto al problema planteado por la c\'atedra junto con la  motivaci\'on para la realizaci\'on del trabajo. Se detallar\'an los objetivos del mismo así como tambi\'en la manera de trabajo del grupo.
+
+Luego, se ir\'an detallando en orden de aparici\'on los problemas con los que nos fuimos enfrentando a lo largo de la cursada. Por cada uno de ellos se explicar\'a en que consiste junto a la soluci\'on planteada.
+
+Por \'ultimo se detallar\'an las conclusiones y el trabajo a futuro.
 
 \section{Introducción}
 El refactoring de c\'odigo es una técnica para la reestructuración del código existente de un producto de software, alterando su estructura interna sin cambiar su comportamiento externo con el objetivo de mejorar atributos no funcionales del software como pueden ser la legibilidad, la mantenibilidad o incluso la extensibidad del mismo. Existen una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactoring de c\'odigo, CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.
@@ -29,18 +33,18 @@ Permite realizar refactoring de variables ( cambio de nombre, crear estructuras 
 \subsection{Motivaci\'on}
 ¿ Cu\'al es el problema en general ? ¿ Qu\'e motivo al proyecto ?
 
-CRefactory funcionaba correctamente, pero estaba lejos de ser la herramienta ideal de trabajo, ya que su interfaz no era amigable con el usuario. En primer lugar, era muy poco pr\'actica la carga de archivos, ya que era necesario escribir el path de los archivos a mano, y no se poseia ningun tipo de feedback para saber si se habia referenciado correctamente dicho archivo. Se vi\'o la necesidad de mejorar la manera en que se cargaran los archivos.
+CRefactory funcionaba correctamente, pero estaba lejos de ser la herramienta ideal de trabajo, ya que su interfaz no era amigable con el usuario. En primer lugar, era muy poco pr\'actica la carga de archivos, ya que era necesario escribir el path de los archivos a mano, y no se pose\'ia ning\'un tipo de feedback para saber si se habia referenciado correctamente dicho archivo. Se vi\'o la necesidad de mejorar la manera en que se cargaraban los archivos.
 
 En segundo lugar, la herramienta no era capaz de agregar false conditions o macros por medio de la interfaz, con lo cual se desaprovechaba  parte del poder de CRefactory. Era necesario de implementar esto de una manera amigable al usuario por medio de una interfaz gr\'afica.
 
 En tercer lugar, no se entend\'ia que ocurr\'ia en caso de que se produzca una excepci\'on. Se necesitaba implementar una manera f\'acil y amigable para que se traten las mismas y as\'i detectar el error. Se necesitaba un mejor manejo de las excepciones y una interfaz para tratarlas.
-Por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no mostraba el contenido del mismo y por ende no mostraba la l\'nea de c\'odigo que produjo el error. As\'i que tambi\'en se necesito implementar highlighting para la detecci\'on de error en parseo.
+Por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no mostraba el contenido del mismo y por ende no mostraba la l\'nea de c\'odigo que produjo el error. Por lo que tambi\'en fue necesario implementar highlighting para la detecci\'on de error en parseo.
 
 
 \subsection{Objetivos}
 Objetivos generales
 
-Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis en facilidad de uso, provedur\'ia de feedback, manejo de excepciones, di\'alogo simple y natural, salidas evidentes, prevenci\'on de errores y ayudas.
+Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis en facilidad de uso, proveer feedback, manejo de excepciones, di\'alogo simple y natural, salidas evidentes, prevenci\'on de errores y ayudas.
 
 Particularmente se desea mejorar la carga de archivos e include\_directories para que cumpla las siguientes condiciones: prevenci\'on de errores, facilidad de uso, simplicidad y menor sorpresa al usuario.
 
@@ -50,11 +54,11 @@ Desarrollar una manera de visualizar la ocurrencia de errores y excepciones que 
 
 \subsection{Manera de trabajo}
 
-Para realizar el trabajo decidimos utilizar una metodología agil de tipo Scrum. Trabajamos de la siguiente manera: 
+Para realizar el trabajo decidimos utilizar una metodología \'agil de tipo Scrum. Trabajamos de la siguiente manera: 
 
-Realizamos reuniones semanales con la profesora para que nos indique cuales son los problemas a resolver, los logros a alcanzar, las necesidades del proyecto.
+Realizamos reuniones semanales con la profesora para que nos indique cuales eran los problemas a resolver, los logros a alcanzar, las necesidades del proyecto.
 
-Luego de la reunión teníamos una reunión de grupo también semanal, en la cual uno de nosotros cumplía el rol de scrum master: Decidiamos cuales serían nuestros objetivos a alcanzar en la semana y nos distribuíamos las tareas. Para una mejor organización utilizabamos la herramienta Trello, la cual cumplió la función de StoryBoard.
+Luego de la reunión teníamos una reunión de grupo también semanal, en la cual uno de nosotros cumplía el rol de scrum master: decidiamos cuales serían nuestros objetivos a alcanzar en la semana y nos distribuíamos las tareas. Para una mejor organización utilizabamos la herramienta Trello, la cual cumplió la función de StoryBoard.
 
 \begin{figure}[h!]
   \centering
@@ -76,7 +80,7 @@ La carga de archivos en la interfaz original era de la siguiente manera:
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[scale=0.85]{images/codigo_original/carga.jpeg}
+    \includegraphics[scale=0.85]{images/codigo_original/carga.png}
     \caption{Carga de archivo}
 \end{figure}
 
@@ -85,7 +89,7 @@ As\'i mismo el path inicial estaba hardcoded con lo cual producía el siguiente 
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[scale=0.85]{images/codigo_original/error.jpeg}
+    \includegraphics[scale=0.85]{images/codigo_original/error.png}
     \caption{Carga de archivo}
 \end{figure}
 
@@ -101,7 +105,7 @@ Qued\'o de la siguiente manera:
      \caption{Carga de archivo}
 \end{figure}
 
-\section{Reuni\'on dos: Nueva interfaz para la configuraci\'on}
+\section{Problema dos: Nueva interfaz para la configuraci\'on}
 
 \subsection{Contexto}
 ¿ C\'omo estaba la aplicacion ? ¿ Por qu\'e eso es un problema ?
@@ -119,7 +123,7 @@ Ante un error de parseo la aplicación dejaba de funcionar. No había ningún ti
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[scale=0.85]{images/codigo_original/error_header_no_agregado.jpeg}
+    \includegraphics[scale=0.85]{images/codigo_original/error_header_no_agregado.png}
      \caption{Error por header no incluido}
 \end{figure}
 
@@ -128,7 +132,7 @@ Lo que se hizo en un principio fue implementar los manejadores para las excepcio
 
 Imagen de la ventana mostrando el error.
 
-\section{Reuni\'on cuatro: Ventana de error}
+\section{Problema cuatro: Ventana de error}
 
 Una ventana de error es una herramienta muy util en interfaces graficas para reconocer el error ocurrido identificando asi la mejor manera de solucionarlo.
 A continuaci\'on se explica como se trataba antes la excepci\'on, que problemas traia esto y como fueron solucionados.
@@ -145,7 +149,7 @@ Esto llev\'o a modificar la ventana de notificaci\'on de error por una donde die
      \caption{Resaltado del error}
 \end{figure}
 
-\section{Reuni\'on cinco: Highlight del error}
+\section{Problema cinco: Highlight del error}
 
 Cuando ocurre un error es útil conocer que linea o lineas de código son las que lo provocaron. Para poder identificar una porción de código, estuvimos de acuerdo en que sería muy útil contar con algún tipo de resaltado de texto. A continuación se explica cómo se mostraba el código antes, que problemas traía ésto y cómo fueron solucionados.
 
