@@ -20,7 +20,7 @@
 Primero se dará una introduccion para poner en contexto al problema planteado por la c\'atedra junto con la  motivaci\'on para la realizaci\'on del trabajo. Se detallar\'an los objetivos del mismo así como tambi\'en la manera de trabajo del grupo.
 
 Luego, se ir\'an detallando en orden de aparici\'on los problemas con los que nos fuimos enfrentando a lo largo de la cursada. Por cada uno de ellos se explicar\'a en que consiste junto a la soluci\'on planteada.
-
+Mas adelante se listará un resumen de las minutas de cada reunión con la profesora.
 Por \'ultimo se detallar\'an las conclusiones y el trabajo a futuro.
 
 \section{Introducción}
@@ -73,10 +73,12 @@ Trello facilitó todas las tareas de organización. Permitía que cada uno pueda
 
 \section{Problema uno: Carga de archivos}
 
-El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C con el que se va a trabajar y las carpetas donde se encuentran los archivos de cabecera (include directories).
+El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar el refactoring y las carpetas donde se encuentran los archivos de cabecera que incluyen dichos archivos (include directories).
+
+Un archivo de cabecera es un archivo que el compilador incluye de forma automática al procesar algún otro archivo fuente. Estos archivos conitenen normalmente una declaración directa de clases, subrutinas, variables u otros identificadores.
 
 \subsection{Contexto}
-La carga de archivos en la interfaz original era de la siguiente manera:
+La carga de archivos en la interfaz original funcionaba de la siguiente manera:
 
 \begin{figure}[h!]
   \centering
@@ -84,8 +86,11 @@ La carga de archivos en la interfaz original era de la siguiente manera:
     \caption{Carga de archivo}
 \end{figure}
 
-Se deb\'ia escribir a mano el path absoluto hacia donde estaban los archivos. Esto es propenso a errores ya que se pueden cometer errores de tipeo o incluso no recordarlo exactamente.
-As\'i mismo el path inicial estaba hardcoded con lo cual producía el siguiente error.
+Se deb\'ia escribir a mano el path absoluto hacia donde estaban los archivos. Esto era propenso a errores ya que se podían cometer errores de tipeo o incluso no recordar exactamente cual era dicho path.
+
+Los path absolutos señalan la ubicación de un archivo o directorio desde el directorio raíz del sistema de archivos.
+
+As\'i mismo el path inicial estaba escrito a mano (harcoded) con lo cual producía el siguiente error.
 
 \begin{figure}[h!]
   \centering
@@ -94,10 +99,10 @@ As\'i mismo el path inicial estaba hardcoded con lo cual producía el siguiente 
 \end{figure}
 
 \subsection{Soluci\'on planteada}
-El problema se solucion\'o agregando una ventana de exploraci\'on de archivos. Este permite explorar el filesystem y seleccionar el arhivo deseado. Permitiendo seleccionar m\'as de uno al mismo tiempo.
-La ventaja de esta aproximaci\'on es que no se debe recordar el path absoluto.
+El problema se solucion\'o agregando una ventana de exploraci\'on de archivos. Este permitió explorar el filesystem y seleccionar el archivo deseado. Ahora se podría seleccionar m\'as de uno al mismo tiempo.
+Las ventajas de esta aproximaci\'on son que es menos propensa a errores y el usuario no necesita recordar el path absoluto.
 
-Qued\'o de la siguiente manera:
+A continuaci\'on mostramos un pantallazo de la visualizaci\'on de la nueva ventana de exploraci\'on de archivos:
 
 \begin{figure}[h!]
   \centering
@@ -119,7 +124,7 @@ El manejo de excepciones es una t\'ecnica de programaci\'on que permite controla
 A continuaci\'on se detallan los problemas que presentaban la ausencia del manejo de estas en la interface de CRefactory y como fueron solucionados estos problemas.
 
 \subsection{Contexto}
-Ante un error de parseo la aplicación dejaba de funcionar. No había ningún tipo de manejo de excepciones. No encontrar un archivo de cabecera en los directorios incluidos significaba que el programa se cerrar\'a abruptamente, sin ningún tipo de feedback para que el usuario pueda rastrear el error. Se hizo evidente la necesidad de que el usuario debía poder rastrear el error y corregirlo sin que falle la herramienta.
+Ante un error de parseo la aplicación dejaba de funcionar. No había ningún tipo de manejo de excepciones. No encontrar un archivo de cabecera en los directorios incluidos significaba que el programa se cerrara abruptamente, sin ningún tipo de feedback para que el usuario pueda rastrear el error. Se hizo evidente la necesidad de que el usuario pudiera rastrear el error y corregirlo sin que falle la herramienta.
 
 \begin{figure}[h!]
   \centering
@@ -128,14 +133,14 @@ Ante un error de parseo la aplicación dejaba de funcionar. No había ningún ti
 \end{figure}
 
 \subsection{Soluci\'on planteada}
-Lo que se hizo en un principio fue implementar los manejadores para las excepciones. Por lo que cuando se produc\'ia una excepci\'on se mostraba una ventana con una descripci\'on del error. As\'i dandole feedback al usuario para que puediera corregir el error. Por ejemplo, cuando no se inclu\'ia el directorio donde buscar un header necesario se mostraba una ventana advirtiendo del error y dandole al usuario la posibilidad de corregirlo agregando el directorio necesario en la ventana de configuraci\'on.
+Lo que se hizo en un principio fue implementar los manejadores para las excepciones. Por lo que cuando se produc\'ia una excepci\'on se mostraba una ventana con una descripci\'on del error. As\'i dandole feedback al usuario para que puediera corregir el error. Por ejemplo, cuando no se inclu\'ia el directorio donde buscar un header se mostraba una ventana advirtiendo del error y dandole al usuario la posibilidad de corregirlo agregando el directorio necesario en la ventana de configuraci\'on.
 
-Imagen de la ventana mostrando el error.
+A continuación se muestra una imagen de la ventana mostrando el error.
 
 \section{Problema cuatro: Ventana de error}
 
 Una ventana de error es una herramienta muy util en interfaces graficas para reconocer el error ocurrido identificando asi la mejor manera de solucionarlo.
-A continuaci\'on se explica como se trataba antes la excepci\'on, que problemas traia esto y como fueron solucionados.
+A continuaci\'on se explica como se trataba antes la excepci\'on, que problemas tra\'ia esto y como fueron solucionados.
 
 \subsection{Contexto}
 El problema de la soluci\'on planteada en el punto anterior es que no mostraba en que parte del c\'odigo fuente se produjo el error. Por lo tanto no siempre el usuario pod\'ia recuperarse totalmente.
