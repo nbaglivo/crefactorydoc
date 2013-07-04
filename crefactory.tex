@@ -135,23 +135,32 @@ Ante un error de parseo la aplicación dejaba de funcionar. No había ningún ti
 \subsection{Soluci\'on planteada}
 Lo que se hizo en un principio fue implementar los manejadores para las excepciones. Por lo que cuando se produc\'ia una excepci\'on se mostraba una ventana con una descripci\'on del error. As\'i dandole feedback al usuario para que puediera corregir el error. Por ejemplo, cuando no se inclu\'ia el directorio donde buscar un header se mostraba una ventana advirtiendo del error y dandole al usuario la posibilidad de corregirlo agregando el directorio necesario en la ventana de configuraci\'on.
 
-A continuación se muestra una imagen de la ventana mostrando el error.
+A continuaci\'on se visualiza como se mostraba el error luego de implementar el manejo de excepciones.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.85]{images/codigo_original/error_header_no_agregado_sin_view_error.jpg}
+     \caption{Error por header no incluido}
+\end{figure}
 
 \section{Problema cuatro: Ventana de error}
 
-Una ventana de error es una herramienta muy util en interfaces graficas para reconocer el error ocurrido identificando asi la mejor manera de solucionarlo.
+Al ocurrir una exepci\'on no hab\'ia manera de que el usuario puediera tratarla. Se vi\'o la necesidad de visualizar el problema gr\'aficamente a trav\'es de una ventana de error
+
+Una ventana es un \'area visual que contiene alg\'un tipo de interfaz de usuario, mostrando la salida y permitiendo la entrada de datos para los procesos en ejecuci\'on. Las ventanas pueden ser manipuladas con un puntero.
+
 A continuaci\'on se explica como se trataba antes la excepci\'on, que problemas tra\'ia esto y como fueron solucionados.
 
 \subsection{Contexto}
-El problema de la soluci\'on planteada en el punto anterior es que no mostraba en que parte del c\'odigo fuente se produjo el error. Por lo tanto no siempre el usuario pod\'ia recuperarse totalmente.
+El problema de la soluci\'on planteada en el punto anterior es que no mostraba en que parte del c\'odigo fuente se produjo el error. Por lo tanto el usuario no siempre pod\'ia recuperarse totalmente.
 
 \subsection{Soluci\'on planteada}
-Esto llev\'o a modificar la ventana de notificaci\'on de error por una donde diera la posibilidad de visualizar el c\'odigo fuente con el error que se produjo. 
+\'Esto llev\'o a reemplazar la ventana de notificaci\'on de error por una que diera la posibilidad de visualizar el c\'odigo fuente informando el error que se produjo. A continuación se muestra una imagen de la ventana mostrando el error.
 
 \begin{figure}[h!]
   \centering
     \includegraphics[scale=0.50]{images/codigo_modificado/error_header_no_encontrado.jpg}
-     \caption{Resaltado del error}
+     \caption{Error de header no encontrado}
 \end{figure}
 
 \section{Problema cinco: Highlight del error}
