@@ -171,8 +171,9 @@ Cuando ocurre un error es útil conocer que linea o lineas de código son las qu
 Anteriormente, luego de un error se mostraba el c\'odigo pero no era claro que l\'ineas lo hab\'ian producido. Esto era un problema ya que la idea del manejo de excepciones no es solo identificar el error sino encontrar la manera de solucionarlo. Y muchas veces para solucionar un problema es necesario saber exactamente en que porci\'on del c\'odigo se origin\'o.
 
 \subsection{Soluci\'on planteada}
-El problema se solucion\'o implementando en la interfaz el resaltado de las l\'ineas donde el produjo el error. Gracias a esto el programador puede solucionar los errores con mucha mayor facilidad.
+El problema se solucion\'o implementando en la interfaz el resaltado de las l\'ineas donde se produjo el error. Gracias a \'esto el programador puede solucionar los errores con mucha mayor facilidad.
 
+A continuaci\'on se visualiza el resaltado de un error.
 \begin{figure}[h!]
   \centering
     \includegraphics[scale=0.50]{images/codigo_modificado/highlight_preparser.jpg}
@@ -239,19 +240,16 @@ Comprendimos la importancia de realizar tests automátizados durante la programa
 
 \subsection{Trabajo futuro}
 En orden de conseguir que CRefactory sea una herramienta profesional que pueda competir con otros productos similares creemos que se debe soportar las siguientes caracteristicas:
-- Highlight de la sintaxis
-Poder ver la tabla de símbolos.
 
-4- Poder aplicar diferentes temas a la interfaz.
-
-2- Agregar grafo para visualizar las dependencias de los includes.
 \begin{itemize}
 	\item Resaltado de sintaxis.
 	\item Localizaci\'on de c\'odigo potencialmente refactorizable de manera autom\'atica.
 	\item Integraci\'on con frameworks de testing para el c\'odigo.
 	\item Personalizaci\'on del entorno.
 	\item Formateo autom\'atico de c\'odigo.
+  \item Poder ver la tabla de símbolos.
+  \item Poder aplicar diferentes temas a la interfaz.
+  \item Agregar grafo para visualizar las dependencias de los includes.
 \end{itemize}
-
 
 \end{document}
