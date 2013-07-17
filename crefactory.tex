@@ -183,41 +183,44 @@ A continuaci\'on se visualiza el resaltado de un error.
 \section{Minutas}
 
 \subsection{Reuni\'on del lunes 10/09}
+Se hablaron los siguientes puntos:
 \begin{itemize}
-  \item Se vio una introducci\'on al proyecto y un vistazo general de como está organizado.
-  \item Se vio como levantar el ambiente.
+  \item Se vio una introducci\'on al proyecto y un vistazo general de como está organizado, explicando como funcionaba la misma hasta ese momento.
+  \item Se vio como levantar el ambiente en la plataforma visualworks, y como cargar todos los archivos necesarios para el funcionamiento de la aplicaci\'on.
 \end{itemize}
 
 Se habló sobre las siguientes características que tendríamos que ir implementando a lo largo de la cursada:
 \begin{itemize}
-  \item Mejorar el di\'alogo de carga de un archivo. Que sea por ejemplo como el de carga de parcels.
+  \item Mejorar el di\'alogo de carga de un archivo. Que sea por ejemplo como el de carga de parcels, haciendolo m\'as accesible al usuario.
   \item Poder especificar donde estan los directorios con los headers.
   \item Tener en cuenta las configuraciones que no se pueden parsear.
-  \item Manejar las excepciones para que cuando hay una conf. inv\'alida muestre en el código donde esta lo inv\'alido.
+  \item Manejar las excepciones para que cuando hay una configuraci\'on inv\'alida muestre en el c\'odigo donde esta lo inv\'alido.
   \item Pensar en la posibilidad de hacer grafos de la inclusi\'on de archivos.
 \end{itemize}
 
 \subsection{Reuni\'on del lunes 17/09}
-Quedamos en modificar el di\'alogo de carga de archivo para que permita explorar el file system. Debería ser similar al de carga de parcels.
+En esta reuni\'on quedamos en modificar el di\'alogo de carga de archivo para que permita explorar el file system. Debería ser similar al de carga de parcels.
 
 \subsection{Reuni\'on del Jueves 18/10}
 Se hablaron los siguientes puntos:
 \begin{itemize}
- \item Mejorar include Directory => Add Directamente.
+ \item Mejorar la secci\'on include Directory, para que se puedan agregar directamente.
  \item Marcar si un directorio es ReadOnly.
  \item Excepción si no se incluye los inludeDirectories necesarios. 
  \item Manejo de todas las excepciones posibles.
- \item Bajar un ejemplo opensource en C para probar.
+ \item Bajar un ejemplo opensource en C para probar el funcionamiento.
  \item Prestar atenci\'on a preprocess y a FullNameOfFile.
 \end{itemize}
 
 \subsection{Reuni\'on del lunes 29/10}
+Se hablaron los siguientes puntos:
 \begin{itemize}
  \item Leer documentación y mirar ejemplos en el c\'odigo fuente de Visual Works para ver como hacer un correcto manejo de excepciones.
- \item Cuando se produce un error poder mostrar el archivo que lo produjo y hacer highlight en la línea de c\'odigo.
+ \item Cuando se produce un error poder mostrar el archivo que lo produjo y hacer highlight en la línea de c\'odigo, en la cu\'al se produjo el error.
 \end{itemize}
 
 \subsection{Reuni\'on del 12/11}
+Se hablaron los siguientes puntos:
 \begin{itemize}
 \item Que pasen los tests de CRefactory.
 \item Si no puedo parsear una configuraci\'on, debo ponerla como condici\'on falsa.  El problema es que el error puede ocurrir en muchos lugares.
@@ -225,6 +228,7 @@ Se hablaron los siguientes puntos:
 \end{itemize}
 
 \subsection{Reuni\'on del 29/11}
+Se hablaron los siguientes puntos:
 \begin{itemize}
 \item Cachear la excepci\'on al agregar False Conditions. 
 \item Mirar en el preprocessor, en la linea: completeConditionalsFrom: OutputStream.
