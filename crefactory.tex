@@ -31,8 +31,6 @@ Permite realizar refactoring de variables ( cambio de nombre, crear estructuras 
 
 
 \subsection{Motivaci\'on}
-¿ Cu\'al es el problema en general ? ¿ Qu\'e motivo al proyecto ?
-
 CRefactory funcionaba correctamente, pero estaba lejos de ser la herramienta ideal de trabajo, ya que su interfaz no era amigable con el usuario. En primer lugar, era muy poco pr\'actica la carga de archivos, ya que era necesario escribir el path de los archivos a mano, y no se pose\'ia ning\'un tipo de feedback para saber si se habia referenciado correctamente dicho archivo. Se vi\'o la necesidad de mejorar la manera en que se cargaraban los archivos.
 
 En segundo lugar, la herramienta no era capaz de agregar false conditions o macros por medio de la interfaz, con lo cual se desaprovechaba  parte del poder de CRefactory. Era necesario de implementar esto de una manera amigable al usuario por medio de una interfaz gr\'afica.
@@ -181,25 +179,31 @@ A continuaci\'on se visualiza el resaltado de un error.
 \end{figure}
 
 \section{Minutas}
+Durante el desarrollo del proyecto tuvimos varias reuniones con la Profesora, con la finalidad de conocer cu\'ales eran los requerimientos y mostrar el avance del proyecto. Cada vez que ten\'iamos una reuni\'on deb\'iamos tomar apuntes de lo que hab\'iamos hablado.
+
+A continuaci\'on presentamos dichos apuntes o minutas:
 
 \subsection{Reuni\'on del lunes 10/09}
-Se hablaron los siguientes puntos:
-\begin{itemize}
-  \item Se vio una introducci\'on al proyecto y un vistazo general de como está organizado, explicando como funcionaba la misma hasta ese momento.
-  \item Se vio como levantar el ambiente en la plataforma visualworks, y como cargar todos los archivos necesarios para el funcionamiento de la aplicaci\'on.
-\end{itemize}
+La profesora nos di\'o una breve introducci\'on al proyecto y un vistazo general de c\'omo est\'a organizado. Nos explic\'o c\'omo estaba funcionando hasta ese momento. Aprendimos c\'omo cargar el proyecto dentro de visualworks y a realizar todas las configuraciones necesarias para el correcto funcionamiento de la aplicaci\'on.
 
-Se habló sobre las siguientes características que tendríamos que ir implementando a lo largo de la cursada:
+Nos explic\'o c\'omo conectarnos al repositorio de la c\'atedra y c\'omo utilizar la herramienta de control de versiones.
+Acordamos que nos enviar\'ia por correo electr\'onico los nombres de usuarios y contraseñas de cada integrante del grupo para acceder al repositorio.
+
+Luego de \'esta introducci\'on al proyecto hablamos las funcionalidades que tendr\'iamos que implementar a lo largo de la cursada. Las m\'as importantes:
+
 \begin{itemize}
   \item Mejorar el di\'alogo de carga de un archivo. Que sea por ejemplo como el de carga de parcels, haciendolo m\'as accesible al usuario.
   \item Poder especificar donde estan los directorios con los headers.
   \item Tener en cuenta las configuraciones que no se pueden parsear.
-  \item Manejar las excepciones para que cuando hay una configuraci\'on inv\'alida muestre en el c\'odigo donde esta lo inv\'alido.
-  \item Pensar en la posibilidad de hacer grafos de la inclusi\'on de archivos.
+  \item Manejar las excepciones para que cuando hay una configuraci\'on inv\'alida muestre en el c\'odigo donde esta lo inv\'alido. 
 \end{itemize}
 
+Adem\'as se coment\'o que ser\'ia interesante como trabajo a futuro, posibilitar la creaci\'on autom\'atica de grafos de la inclusi\'on de archivos.
+
 \subsection{Reuni\'on del lunes 17/09}
-En esta reuni\'on quedamos en modificar el di\'alogo de carga de archivo para que permita explorar el file system. Debería ser similar al de carga de parcels.
+En \'esta reuni\'on la Profesora nos enseñ\'o c\'omo funcionaba el diálogo de carga de archivos. Anteriormente era necesario escribir el nombre de los archivos a incluir, lo cual hac\'ia tedioso el trabajo y ocurr\'ia que ante un error de tipeo no se encontrar\'ia el archivo y el programa cerrar\'ia abruptamente. 
+
+Planteamos modificar el di\'alogo de carga de archivo para que permita explorar el file system. De esta manera ser\'ia m\'as f\'acil de utilizar y se solucionar\'ian los problemas.
 
 \subsection{Reuni\'on del Jueves 18/10}
 Se hablaron los siguientes puntos:
