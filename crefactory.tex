@@ -235,6 +235,10 @@ En esta reuni\'on comenzamos a hablar sobre el tratamiento de excepciones en CRe
 Cuando se producía un error, CRefactory no indicaba cu\'al era el archivo que lo hab\'ia producido. Nos propusimos como objetivo que se pueda mostrar dicho archivo, y resaltar la l\'inea de c\'odigo en la cu\'al se produjo el error.
 
 \subsection{Reuni\'on del 12/11}
+Durante la implementaci\'on de las diferentes funcionalidades, no tuvimos en cuenta el correcto funcionamiento de la aplicaci\'on, y descubrimos que algunas cosas hab\'ian dejado de funcionar. La profesora nos sugiri\'o que nos asegur\'aramos de que pasen los tests de CRefactory. Nos propusimos realizar tests de todas las funcionalidades importantes que implementaramos.
+
+Los errores de parseo en presencia de condiciones falsas sol\'ia ser un problema, ya que muchas veces se dificultaba encontrar el lugar donde ocurr\'ia el error. La profesora plante\'o resolverlo y nos recomend\'o comenzar probando con el archivo test19.c.
+
 Se hablaron los siguientes puntos:
 \begin{itemize}
 \item Que pasen los tests de CRefactory.
@@ -243,6 +247,8 @@ Se hablaron los siguientes puntos:
 \end{itemize}
 
 \subsection{Reuni\'on del 29/11}
+En esta reuni\'on volvimos a hablar acerca de los problemas vinculados con las false conditions. Se nos pidi\'o tener la posibilidad de cachear la excepci\'on que ocurr\'ia al agregar una false condition y se nos sugiri\'o investigar la implementaci\'on de la clase Preprocessor.
+
 Se hablaron los siguientes puntos:
 \begin{itemize}
 \item Cachear la excepci\'on al agregar False Conditions. 
@@ -250,6 +256,7 @@ Se hablaron los siguientes puntos:
 \end{itemize}
 
 \section{Conclusiones}
+En esta secci\'on explicaremos los logros alcanzados durante el proyecto, los valores que obtuvimos y algunas sugerencias para un futuro trabajo de CRefacory.
 
 \subsection{Logros alcanzados}
 La nueva interfaz es pr\'actica para cargar archivos, directorios, macros y false conditions. Ahora se pueden cargar archivos de forma segura. En lugar de escribir el nombre del archivo o directorio se lo puede seleccionar entre los ya existentes. 
