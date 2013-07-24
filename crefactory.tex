@@ -75,15 +75,30 @@ El proyecto est\'a implementado en Smalltalk, utilizando el entorno de desarroll
 
 Smalltalk es un lenguaje de programaci\'on orientado a objetos y de tipado din\'amico y VisualWorks es una implementaci\'on multiplataforma de este lenguaje.
 
+Sunit es un framework de tests de unidad para el lenguaje de programaci\'on Smalltalk. SUnit permite escribir tests y chequear resultados en Smalltalk.
+
+\section{Diseño del proyecto}
+Para realizar el proyecto tuvimos que extender y modificar algunas clases que componen la herramiena CRefactory. Las clases m\'as importantes que modificamos son las siguientes:
+\begin{description}
+\item[CRBrowser] Esta clase representa la interfaz de usuario.
+\item[CRConfigurationView] Esta clase gestiona la configuraci\'on.
+\item[CRConfiguration] Esta clase representa la configuraci\'on que luego usa el parser para realizar el \'arbol sint\'actico.
+\item[CRErrorView] Esta clase se encarga de gestionar los mensajes de error.
+\end{description}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.6]{images/diagrama_de_clases.jpg}
+    \caption{Diagrama de clases}
+    \label{diagrama_de_clases}
+\end{figure}
+
 \section{Problema uno: Carga de archivos}
 
 El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar el refactoring y las carpetas donde se encuentran los archivos de cabecera que incluyen dichos archivos (include directories).
 
 Un archivo de cabecera es un archivo que el compilador incluye de forma automática al procesar algún otro archivo fuente. Estos archivos contienen normalmente una declaración directa de clases, subrutinas, variables u otros identificadores.
 
-Sunit es un framework de tests de unidad para el lenguaje de programaci\'on Smalltalk. SUnit permite escribir tests y chequear resultados en Smalltalk. 
-
-CRefactory
 
 \subsection{Contexto}
 La carga de archivos en la interfaz original funcionaba de la siguiente manera:
