@@ -62,7 +62,8 @@ Luego de la reunión teníamos una reunión de grupo también semanal, en la cua
 \begin{figure}[h!]
   \centering
     \includegraphics[scale=0.27]{images/trello.png}
-    \caption{StoryBoard de trello}
+    \caption{StoryBoard de Trello}
+    \label{trello}
 \end{figure}
 
 Trello facilitó todas las tareas de organización. Permitía que cada uno pueda elegir su tarea sin superponerse con la de el otro, podíamos ver lo que hacía cada uno en tiempo real y colaborar para llevar a cabo las tareas de la forma mas eficientemente posible. 
@@ -87,30 +88,33 @@ La carga de archivos en la interfaz original funcionaba de la siguiente manera:
   \centering
     \includegraphics[scale=0.85]{images/codigo_original/carga.png}
     \caption{Carga de archivo original}
+    \label{carga_original}
 \end{figure}
 
 Se deb\'ia escribir a mano el path absoluto hacia donde estaban los archivos. Esto era propenso a errores ya que se podían cometer errores de tipeo o incluso no recordar exactamente cual era dicho path.
 
 Los path absolutos señalan la ubicación de un archivo o directorio desde el directorio raíz del sistema de archivos.
 
-As\'i mismo el path inicial estaba escrito a mano (harcoded) con lo cual producía el siguiente error.
+Al cometer un error de tipeo o escribir el nombre de un archivo o directorio que no exist\'ia ocurr\'ia un error como el de la figura ~\ref{error} .
 
 \begin{figure}[h!]
   \centering
     \includegraphics[scale=0.85]{images/codigo_original/error.png}
-    \caption{Error }
+    \caption{Error}
+    \label{error}
 \end{figure}
 
 \subsection{Soluci\'on planteada}
 El problema se solucion\'o agregando una ventana de exploraci\'on de archivos. Este permitió explorar el filesystem y seleccionar el archivo deseado. Ahora se podría seleccionar m\'as de uno al mismo tiempo.
 Las ventajas de esta aproximaci\'on son que es menos propensa a errores y el usuario no necesita recordar el path absoluto.
 
-A continuaci\'on mostramos un pantallazo de la visualizaci\'on de la nueva ventana de exploraci\'on de archivos:
+En la Figura ~\ref{carga_archivo} mostramos un pantallazo de la visualizaci\'on de la nueva ventana de exploraci\'on de archivos.
 
 \begin{figure}[h!]
   \centering
     \includegraphics[scale=0.50]{images/codigo_modificado/seleccionar_directorio.jpg}
      \caption{Carga de archivo}
+     \label{carga_archivo}
 \end{figure}
 
 \section{Problema dos: Nueva interfaz para la configuraci\'on}
@@ -133,17 +137,19 @@ Ante un error de parseo la aplicación dejaba de funcionar. No había ningún ti
   \centering
     \includegraphics[scale=0.85]{images/codigo_original/error_header_no_agregado.png}
      \caption{Error por header no incluido}
+     \label{header_no_incluido}
 \end{figure}
 
 \subsection{Soluci\'on planteada}
 Lo que se hizo en un principio fue implementar los manejadores para las excepciones. Por lo que cuando se produc\'ia una excepci\'on se mostraba una ventana con una descripci\'on del error. As\'i dandole feedback al usuario para que puediera corregir el error. Por ejemplo, cuando no se inclu\'ia el directorio donde buscar un header se mostraba una ventana advirtiendo del error y dandole al usuario la posibilidad de corregirlo agregando el directorio necesario en la ventana de configuraci\'on.
 
-A continuaci\'on se visualiza como se mostraba el error luego de implementar el manejo de excepciones.
+En la Figura ~\ref{header_no_encontrado} se visualiza como se mostraba el error luego de implementar el manejo de excepciones.
 
 \begin{figure}[h!]
   \centering
     \includegraphics[scale=0.50]{images/codigo_modificado/error_header_no_encontrado_sin_view_error.jpg}
-     \caption{Error por header no incluido}
+     \caption{Error por header no encontrado}
+     \label{header_no_encontrado}
 \end{figure}
 
 \section{Problema cuatro: Ventana de error}
@@ -158,12 +164,13 @@ A continuaci\'on se explica como se trataba antes la excepci\'on, que problemas 
 El problema de la soluci\'on planteada en el punto anterior es que no mostraba en que parte del c\'odigo fuente se produjo el error. Por lo tanto el usuario no siempre pod\'ia recuperarse totalmente.
 
 \subsection{Soluci\'on planteada}
-\'Esto llev\'o a reemplazar la ventana de notificaci\'on de error por una que diera la posibilidad de visualizar el c\'odigo fuente informando el error que se produjo. A continuación se muestra una imagen de la ventana mostrando el error.
+\'Esto llev\'o a reemplazar la ventana de notificaci\'on de error por una que diera la posibilidad de visualizar el c\'odigo fuente informando el error que se produjo. En la Figura ~\ref{ventana_de_error} se muestra una imagen de la ventana mostrando el error.
 
 \begin{figure}[h!]
   \centering
     \includegraphics[scale=0.50]{images/codigo_modificado/error_header_no_encontrado.jpg}
-     \caption{Error de header no encontrado}
+     \caption{Ventana de error}
+     \label{ventana_de_error}
 \end{figure}
 
 \section{Problema cinco: Highlight del error}
@@ -176,11 +183,12 @@ Anteriormente, luego de un error se mostraba el c\'odigo pero no era claro que l
 \subsection{Soluci\'on planteada}
 El problema se solucion\'o implementando en la interfaz el resaltado de las l\'ineas donde se produjo el error. Gracias a \'esto el programador puede solucionar los errores con mucha mayor facilidad.
 
-A continuaci\'on se visualiza el resaltado de un error.
+En la Figura ~\ref{resaltado} se visualiza el resaltado de un error.
 \begin{figure}[h!]
   \centering
     \includegraphics[scale=0.50]{images/codigo_modificado/highlight_preparser.jpg}
      \caption{Resaltado del error}
+     \label{resaltado}
 \end{figure}
 
 
