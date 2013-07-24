@@ -81,6 +81,10 @@ El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'od
 
 Un archivo de cabecera es un archivo que el compilador incluye de forma automática al procesar algún otro archivo fuente. Estos archivos contienen normalmente una declaración directa de clases, subrutinas, variables u otros identificadores.
 
+Sunit es un framework de tests de unidad para el lenguaje de programaci\'on Smalltalk. SUnit permite escribir tests y chequear resultados en Smalltalk. 
+
+CRefactory
+
 \subsection{Contexto}
 La carga de archivos en la interfaz original funcionaba de la siguiente manera:
 
@@ -193,7 +197,25 @@ En la Figura ~\ref{resaltado} se visualiza el resaltado de un error.
 
 
 \section{Instrucciones de instalaci\'on y uso}
-En esta secci\'on se detallar\'an las instrucciones de instalaci\'on y uso de la herramienta.
+
+\begin{enumerate}
+\item Instalar VW7.8nc
+\item Abrir la imagen, guardarla con nuevo nombre y setear el VisualWorks home directory
+
+\item Desde el Parcel Manager cargar:
+  \begin{itemize}
+  \item All Advanced Tools
+  \item RBSUnitExtensions
+  \end{itemize}
+  
+\item Conectarse al repositorio Store de la c\'atedra: catedras.lifia.info.unlp.edu.ar:5432\_tpoo y buscar entre los “Published Items” el Bundle CRefactory. Instalar la ultima version (1.4) y luego instalar el bundle CRefactoryGUI.
+
+\item Lo siguiente es probar que los tests de CRefactory pasen correctamente. Estos tests crean archivos .c de prueba en un directorio que deben especificar. Para esto browsear el c\'odigo de: “CRefactory-Testing-Root”, clase “CREFTestCase”, m\'etodo de clase “codeDirectory” y editarlo haciendo referencia a un directorio ya creado en la m\'aquina.
+  
+\item Seleccionar el package {\it CRefactory-Testing} y correr todos los tests. Deber\'ian pasar los 173 tests.
+
+\item Para correr la aplicaci\'on debemos ejecutar en el \'area de trabajo  {\it CRBrowser open}. 
+\end{enumerate}
 
 \section{Minutas}
 Durante el desarrollo del proyecto tuvimos varias reuniones con la Profesora, con la finalidad de conocer cu\'ales eran los requerimientos y mostrar el avance del proyecto. Cada vez que ten\'iamos una reuni\'on deb\'iamos tomar apuntes de lo que hab\'iamos hablado.
@@ -308,6 +330,6 @@ Una tabla de s\'imbolos es una estructura de datos donde cada s\'imbolo en el c\
 Ser\'ia bueno poder ver la tabla de s\'imbolos.
 
 \subsubsection{Grafo de dependencias}
-Puede ser \'util visualizar las dependencias de los archivos. Ser\'ia interesante contar con una herramienta que realize grafos de inclusi\'on de archivos de forma autom\'atica.
+Puede ser \'util visualizar las dependencias del c\'odigo fuente. Ser\'ia interesante contar con una herramienta que realize grafos de inclusi\'on de archivos de forma autom\'atica.
 
 \end{document}
