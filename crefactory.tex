@@ -1,4 +1,4 @@
-\documentclass[a4paper,oneside,10pt]{article}
+\documentclass[a4paper,oneside,12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{dcolumn}
 \usepackage[spanish]{babel}
@@ -64,16 +64,20 @@ Luego de la reunión teníamos una reunión de grupo también semanal, en la cua
     \caption{StoryBoard de trello}
 \end{figure}
 
-
 Trello facilitó todas las tareas de organización. Permitía que cada uno pueda elegir su tarea sin superponerse con la de el otro, podíamos ver lo que hacía cada uno en tiempo real y colaborar para llevar a cabo las tareas de la forma mas eficientemente posible. 
 
+Adem\'as realizamos tests autom\'aticos para validar que las funcionalidades m\'as importantes se ejecuten correctamente.
 
+\section{Frameworks y herramientas utilizadas}
+El proyecto est\'a implementado en Smalltalk, utilizando el entorno de desarrollo VisualWorks. Para realizar los tests utilizamos el framework SUnit.
+
+Smalltalk es un lenguaje de programaci\'on orientado a objetos y de tipado din\'amico y VisualWorks es una implementaci\'on multiplataforma de este lenguaje.
 
 \section{Problema uno: Carga de archivos}
 
 El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar el refactoring y las carpetas donde se encuentran los archivos de cabecera que incluyen dichos archivos (include directories).
 
-Un archivo de cabecera es un archivo que el compilador incluye de forma automática al procesar algún otro archivo fuente. Estos archivos conitenen normalmente una declaración directa de clases, subrutinas, variables u otros identificadores.
+Un archivo de cabecera es un archivo que el compilador incluye de forma automática al procesar algún otro archivo fuente. Estos archivos contienen normalmente una declaración directa de clases, subrutinas, variables u otros identificadores.
 
 \subsection{Contexto}
 La carga de archivos en la interfaz original funcionaba de la siguiente manera:
@@ -81,7 +85,7 @@ La carga de archivos en la interfaz original funcionaba de la siguiente manera:
 \begin{figure}[h!]
   \centering
     \includegraphics[scale=0.85]{images/codigo_original/carga.png}
-    \caption{Carga de archivo}
+    \caption{Carga de archivo original}
 \end{figure}
 
 Se deb\'ia escribir a mano el path absoluto hacia donde estaban los archivos. Esto era propenso a errores ya que se podían cometer errores de tipeo o incluso no recordar exactamente cual era dicho path.
@@ -93,7 +97,7 @@ As\'i mismo el path inicial estaba escrito a mano (harcoded) con lo cual produc�
 \begin{figure}[h!]
   \centering
     \includegraphics[scale=0.85]{images/codigo_original/error.png}
-    \caption{Carga de archivo}
+    \caption{Error }
 \end{figure}
 
 \subsection{Soluci\'on planteada}
@@ -244,13 +248,16 @@ Se hablaron los siguientes puntos:
 \item Mirar en el preprocessor, en la linea: completeConditionalsFrom: OutputStream.
 \end{itemize}
 
-\section{Conclusi\'on}
+\section{Conclusiones}
 
 \subsection{Logros alcanzados}
-Conseguimos implementar una interfaz mucho más amigable con el usuario. La nueva interfaz es práctica para cargar archivos, directorios, macros y false conditions. Ahora se pueden cargar archivos de forma segura. En lugar de escribir el nombre del archivo o directorio se lo puede seleccionar entre los ya existentes. 
+La nueva interfaz es pr\'actica para cargar archivos, directorios, macros y false conditions. Ahora se pueden cargar archivos de forma segura. En lugar de escribir el nombre del archivo o directorio se lo puede seleccionar entre los ya existentes. 
 
-La nueva interfaz permite detectar la línea de código en la cual ocurrió la excepción.
+Ahora es posible acceder a funcionalidades que antes no se pod\'ian, como por ejemplo la posibilidad de agregar FalseConditions a la configuraci\'on para que no sean parseadas.
 
+Cambiamos el diseño de la interfaz de manera que sea, a nuestro criterio, mucho m\'as amigable con el usuario.
+
+Al dispararse una excepci\'on de parseo, la nueva interfaz ahora permite detectar la línea de código en la cual ocurrió.
 
 \subsection{Valores obtenidos}
 Trabajamos utilizando una metodología \'agil de tipo Scrum. Ésto nos permiti\'o tener una buena organizaci\'on. Ayud\'o al trabajo en equipo, optimiz\'o la eficiencia en la resoluci\'on de las tareas.
