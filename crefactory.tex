@@ -27,9 +27,9 @@ Por \'ultimo se detallar\'an las conclusiones y el trabajo a futuro.
 \section{Introducción}
 El refactoring de c\'odigo es una técnica para la reestructuración del código existente de un producto de software, alterando su estructura interna sin cambiar su comportamiento externo con el objetivo de mejorar atributos no funcionales del software como pueden ser la legibilidad, la mantenibilidad o incluso la extensibidad del mismo. Existen una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactoring de c\'odigo, CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.
 
-Crefactory esta programado en Smalltalk dentro del entorno de desarrollo VisualWorks. La interfaz gr\'afica que posee la aplicaci\'on permite interactuar con c\'odigo C para facilitar dicha refactorizaci\'on. Provee la carga de archivos .c, y directorios con header files. as\'i como tambien configuraciones a descartar (macros y false conditions).  
-Permite realizar refactoring de variables ( cambio de nombre, crear estructuras de las variables), de las estructuras (renombrar campos) y de funciones (renombrar las mismas).
+Crefactory esta programado en Smalltalk dentro del entorno de desarrollo VisualWorks. La interfaz gr\'afica que posee la aplicaci\'on permite interactuar con c\'odigo C para facilitar dicha refactorizaci\'on. 
 
+Permite realizar refactoring de variables ( cambio de nombre, crear estructuras de las variables), de las estructuras (renombrar campos) y de funciones (renombrar las mismas).
 
 \subsection{Motivaci\'on}
 CRefactory funcionaba correctamente, pero estaba lejos de ser la herramienta ideal de trabajo, ya que su interfaz no era amigable con el usuario. En primer lugar, era muy poco pr\'actica la carga de archivos, ya que era necesario escribir el path de los archivos a mano, y no se pose\'ia ning\'un tipo de feedback para saber si se habia referenciado correctamente dicho archivo. Se vi\'o la necesidad de mejorar la manera en que se cargaraban los archivos.
@@ -137,13 +137,13 @@ En la Figura ~\ref{carga_archivo} mostramos un pantallazo de la visualizaci\'on 
      \label{carga_archivo}
 \end{figure}
 
-\section{Problema dos: Interfaz de configuraci\'on}
+\section{Problema dos: Configuraci\'on}
 
 Un archivo fuente de c\'odigo C no s\'olo contiene sintaxis del lenguaje, sino que puede, y suele, contener directivas al preprocesador, tales directivas brindan la posibilidad de realizar inclusi\'on de archivos, definici\'on de macros o compilaci\'on condicional.
 La inclusi\'on de archivos permite tener un programa alojado en varios archivos distintos por lo que un refoctaring podr\'ia tener un alcance mayor al archivo que se est\'a visualizando en ese momento.
-Una macro es una forma de sustituir caracteres por otros, las macros constan de un nombre y un cuerpo, durante el preprocesado cada ocurrencia del primero ser\'a reemplazado por el segundo. El cuerpo de la macro puede referir directamente a elementos globales del programa o hacerlo indirectamente, a trav\'es de la concatenaci\'on de s\'imbolos lo que puede f\'acilmente violar la correctitud de un refactoring.
-La compilaci\'on condicional proporciona una forma de incluir c\'odigo selectivamente dependiendo del valor de determinadas condiciones en tiempo de compilaci\'on, lo que puede derivar en m\'ultiples ramas que son mutuamente exclusivas, si durante un refactoring s\'olo se considera una de ellas los otras pueden volverse obsoletas o erroneas y si todas las ramas son consideradas cada elemento puede tener m\'ultiples definiciones, como una variable con m\'ultiples tipos.
-Dado que la herramienta CRefactory puede realizar operaciones de refactoring sobre c\'odigo sin preprocesar es necesario otorgarle cierta informaci\'on extra que le permite a la herramienta resolver situaciones dificiles de manejar a la hora de realizar un refactoring, \'esta informaci\'on es llamada configuraci\'on. En concreto \'esta informaci\'on es:
+Una macro es una forma de sustituir caracteres por otros, las macros constan de un nombre y un cuerpo, durante el preprocesado cada ocurrencia del primero ser\'a reemplazado por el segundo. El cuerpo de la macro puede referir directamente a elementos globales del programa o hacerlo indirectamente, a trav\'es de la concatenaci\'on de s\'imbolos, lo que puede f\'acilmente violar la correctitud de un refactoring.
+La compilaci\'on condicional proporciona una forma de incluir c\'odigo selectivamente dependiendo del valor de determinadas condiciones en tiempo de compilaci\'on, lo que puede derivar en m\'ultiples ramas que son mutuamente exclusivas, si durante un refactoring s\'olo se considera una de ellas los otras pueden volverse obsoletas o erroneas y si por el contrario todas las ramas son consideradas cada elemento puede tener m\'ultiples definiciones, como una variable con m\'ultiples tipos.
+Dado que la herramienta CRefactory puede realizar operaciones de refactoring sobre c\'odigo sin preprocesar es necesario otorgarle cierta informaci\'on extra que le permite a la herramienta resolver situaciones dificiles de manejar a la hora de realizar un refactoring, \'esta informaci\'on es llamada configuraci\'on. En concreto la configuraci\'on necesaria es:
 
 \begin{itemize}
 \item Directorios d\'onde se encuetran los archivos inclu\'idos por el archivo cargado.
@@ -155,7 +155,16 @@ Dado que la herramienta CRefactory puede realizar operaciones de refactoring sob
 La interfaz de CRefactory permit\'ia, como se dijo en la secci\'on~\ref{sec:problemOne}, ingresar los directorios d\'onde se alojan los archivos inclu\'idos por el archivo a editar, pero no brindaba la posibilidad de definir cuerpos de macros ni de espec\'ificar condiciones falsas por lo cual era necesario extender la GUI para proveer esa funcionalidad.
 
 \subsection{Soluci\'on planteada}
-Se decidi\'o implementar una nueva ventana que servir\'ia de interfaz para ingresar la informaci\'on de configuraci\'on 
+Se decidi\'o implementar una nueva ventana que servir\'ia de interfaz para ingresar la informaci\'on de configuraci\'on. Dado que ya exist\'ian dos ventanas de dialogo para realizar parte de la configuraci\'on (la selecci\'on de los archivos fuente a editar y la especificaci\'on de la ubicaci\'on de los archivos includ\'idos por dichos fuentes) se opt\'o por no sobrecargar la vista agregando un tercer di\'alogo, o quizas m\'as teniendo en cuenta que se necesitaba brindar la posibilidad de definir tanto macros como condiciones falsas, sino unificar todos \'estos aspectos relacionados en una sola vista. Por \'ultimo nos inclinamos a utilizar una vista  con solapas dado que una sola ventana con tanta informaci\'on podr\'ia resultar confusa y se dificultar\'ia encontrar r\'apidamente d\'onde ingresar la informaci\'on de configuraci\'on deseada, por otro lado mucha de esa informaci\'on s\'olo ser\'a necesaria en algunos casos, por ejemplo muchas veces se podr\'a editar un archivo donde no fuera necesario definir macros, por lo que la vista en solapas se ajusta a la necesidad de s\'olo mostrar lo necesario y no m\'as que eso, quien no necesite definir macros puede simplemente obviar esa solapa.
+
+El resultado final fue entonces el mostrado en la figura~\ref{configuracion}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.45]{images/codigo_modificado/configuracion.jpg}
+     \caption{Interfaz de configuraci\'on}
+     \label{configuracion}
+\end{figure}
 
 \section{Problema tres: Manejo de excepciones}
 
