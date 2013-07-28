@@ -94,6 +94,7 @@ Para realizar el proyecto tuvimos que extender y modificar algunas clases que co
 \end{figure}
 
 \section{Problema uno: Carga de archivos}
+\label{sec:problemOne}
 
 El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar el refactoring y las carpetas donde se encuentran los archivos de cabecera que incluyen dichos archivos (include directories).
 
@@ -136,13 +137,25 @@ En la Figura ~\ref{carga_archivo} mostramos un pantallazo de la visualizaci\'on 
      \label{carga_archivo}
 \end{figure}
 
-\section{Problema dos: Nueva interfaz para la configuraci\'on}
+\section{Problema dos: Interfaz de configuraci\'on}
+
+Un archivo fuente de c\'odigo C no s\'olo contiene sintaxis del lenguaje, sino que puede, y suele, contener directivas al preprocesador, tales directivas brindan la posibilidad de realizar inclusi\'on de archivos, definici\'on de macros o compilaci\'on condicional.
+La inclusi\'on de archivos permite tener un programa alojado en varios archivos distintos por lo que un refoctaring podr\'ia tener un alcance mayor al archivo que se est\'a visualizando en ese momento.
+Una macro es una forma de sustituir caracteres por otros, las macros constan de un nombre y un cuerpo, durante el preprocesado cada ocurrencia del primero ser\'a reemplazado por el segundo. El cuerpo de la macro puede referir directamente a elementos globales del programa o hacerlo indirectamente, a trav\'es de la concatenaci\'on de s\'imbolos lo que puede f\'acilmente violar la correctitud de un refactoring.
+La compilaci\'on condicional proporciona una forma de incluir c\'odigo selectivamente dependiendo del valor de determinadas condiciones en tiempo de compilaci\'on, lo que puede derivar en m\'ultiples ramas que son mutuamente exclusivas, si durante un refactoring s\'olo se considera una de ellas los otras pueden volverse obsoletas o erroneas y si todas las ramas son consideradas cada elemento puede tener m\'ultiples definiciones, como una variable con m\'ultiples tipos.
+Dado que la herramienta CRefactory puede realizar operaciones de refactoring sobre c\'odigo sin preprocesar es necesario otorgarle cierta informaci\'on extra que le permite a la herramienta resolver situaciones dificiles de manejar a la hora de realizar un refactoring, \'esta informaci\'on es llamada configuraci\'on. En concreto \'esta informaci\'on es:
+
+\begin{itemize}
+\item Directorios d\'onde se encuetran los archivos inclu\'idos por el archivo cargado.
+\item Cuerpos de macros.
+\item Condiciones falsas para determinar que ramas de c\'odigo deben ser tenidas en cuenta y cuales no a la hora de realizar refactorings.
+\end{itemize}
 
 \subsection{Contexto}
-¿ C\'omo estaba la aplicacion ? ¿ Por qu\'e eso es un problema ?
+La interfaz de CRefactory permit\'ia, como se dijo en la secci\'on~\ref{sec:problemOne}, ingresar los directorios d\'onde se alojan los archivos inclu\'idos por el archivo a editar, pero no brindaba la posibilidad de definir cuerpos de macros ni de espec\'ificar condiciones falsas por lo cual era necesario extender la GUI para proveer esa funcionalidad.
 
 \subsection{Soluci\'on planteada}
-Cu\'al fue la soluci\'on al problema
+Se decidi\'o implementar una nueva ventana que servir\'ia de interfaz para ingresar la informaci\'on de configuraci\'on 
 
 \section{Problema tres: Manejo de excepciones}
 
