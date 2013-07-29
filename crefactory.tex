@@ -140,9 +140,13 @@ En la Figura ~\ref{carga_archivo} mostramos un pantallazo de la visualizaci\'on 
 \section{Problema dos: Configuraci\'on}
 
 Un archivo fuente de c\'odigo C no s\'olo contiene sintaxis del lenguaje, sino que puede, y suele, contener directivas al preprocesador, tales directivas brindan la posibilidad de realizar inclusi\'on de archivos, definici\'on de macros o compilaci\'on condicional.
-La inclusi\'on de archivos permite tener un programa alojado en varios archivos distintos por lo que un refoctaring podr\'ia tener un alcance mayor al archivo que se est\'a visualizando en ese momento.
+
+La inclusi\'on de archivos permite tener un programa alojado en varios archivos distintos por lo que un refactoring podr\'ia tener un alcance mayor al archivo que se est\'a visualizando en ese momento.
+
 Una macro es una forma de sustituir caracteres por otros, las macros constan de un nombre y un cuerpo, durante el preprocesado cada ocurrencia del primero ser\'a reemplazado por el segundo. El cuerpo de la macro puede referir directamente a elementos globales del programa o hacerlo indirectamente, a trav\'es de la concatenaci\'on de s\'imbolos, lo que puede f\'acilmente violar la correctitud de un refactoring.
-La compilaci\'on condicional proporciona una forma de incluir c\'odigo selectivamente dependiendo del valor de determinadas condiciones en tiempo de compilaci\'on, lo que puede derivar en m\'ultiples ramas que son mutuamente exclusivas, si durante un refactoring s\'olo se considera una de ellas los otras pueden volverse obsoletas o erroneas y si por el contrario todas las ramas son consideradas cada elemento puede tener m\'ultiples definiciones, como una variable con m\'ultiples tipos.
+
+La compilaci\'on condicional proporciona una forma de incluir c\'odigo selectivamente dependiendo del valor de determinadas condiciones en tiempo de compilaci\'on, lo que puede derivar en m\'ultiples ramas que son mutuamente exclusivas, si durante un refactoring s\'olo se considera una de ellas las otras pueden volverse obsoletas o erroneas y si por el contrario todas las ramas son consideradas cada elemento puede tener m\'ultiples definiciones, como una variable con m\'ultiples tipos.
+
 Dado que la herramienta CRefactory puede realizar operaciones de refactoring sobre c\'odigo sin preprocesar es necesario otorgarle cierta informaci\'on extra que le permite a la herramienta resolver situaciones dificiles de manejar a la hora de realizar un refactoring, \'esta informaci\'on es llamada configuraci\'on. En concreto la configuraci\'on necesaria es:
 
 \begin{itemize}
@@ -152,7 +156,7 @@ Dado que la herramienta CRefactory puede realizar operaciones de refactoring sob
 \end{itemize}
 
 \subsection{Contexto}
-La interfaz de CRefactory permit\'ia, como se dijo en la secci\'on~\ref{sec:problemOne}, ingresar los directorios d\'onde se alojan los archivos inclu\'idos por el archivo a editar, pero no brindaba la posibilidad de definir cuerpos de macros ni de espec\'ificar condiciones falsas por lo cual era necesario extender la GUI para proveer esa funcionalidad.
+La interfaz de CRefactory permit\'ia, como se dijo en la secci\'on ~\ref{sec:problemOne}, ingresar los directorios d\'onde se alojan los archivos inclu\'idos por el archivo a editar, pero no brindaba la posibilidad de definir cuerpos de macros ni de espec\'ificar condiciones falsas por lo cual era necesario extender la GUI para proveer esa funcionalidad.
 
 \subsection{Soluci\'on planteada}
 Se decidi\'o implementar una nueva ventana que servir\'ia de interfaz para ingresar la informaci\'on de configuraci\'on. Dado que ya exist\'ian dos ventanas de dialogo para realizar parte de la configuraci\'on (la selecci\'on de los archivos fuente a editar y la especificaci\'on de la ubicaci\'on de los archivos includ\'idos por dichos fuentes) se opt\'o por no sobrecargar la vista agregando un tercer di\'alogo, o quizas m\'as teniendo en cuenta que se necesitaba brindar la posibilidad de definir tanto macros como condiciones falsas, sino unificar todos \'estos aspectos relacionados en una sola vista. Por \'ultimo nos inclinamos a utilizar una vista  con solapas dado que una sola ventana con tanta informaci\'on podr\'ia resultar confusa y se dificultar\'ia encontrar r\'apidamente d\'onde ingresar la informaci\'on de configuraci\'on deseada, por otro lado mucha de esa informaci\'on s\'olo ser\'a necesaria en algunos casos, por ejemplo muchas veces se podr\'a editar un archivo donde no fuera necesario definir macros, por lo que la vista en solapas se ajusta a la necesidad de s\'olo mostrar lo necesario y no m\'as que eso, quien no necesite definir macros puede simplemente obviar esa solapa.
@@ -306,21 +310,8 @@ Durante la implementaci\'on de las diferentes funcionalidades, no tuvimos en cue
 
 Los errores de parseo en presencia de condiciones falsas sol\'ia ser un problema, ya que muchas veces se dificultaba encontrar el lugar donde ocurr\'ia el error. La profesora plante\'o resolverlo y nos recomend\'o comenzar probando con el archivo test19.c.
 
-Se hablaron los siguientes puntos:
-\begin{itemize}
-\item Que pasen los tests de CRefactory.
-\item Si no puedo parsear una configuraci\'on, debo ponerla como condici\'on falsa.  El problema es que el error puede ocurrir en muchos lugares.
-\item Debemos comenzar probando con el test19.c (el que tiene el \#ifdef\_cplusplus).
-\end{itemize}
-
 \subsection{Reuni\'on del 29/11}
 En esta reuni\'on volvimos a hablar acerca de los problemas vinculados con las false conditions. Se nos pidi\'o tener la posibilidad de cachear la excepci\'on que ocurr\'ia al agregar una false condition y se nos sugiri\'o investigar la implementaci\'on de la clase Preprocessor.
-
-Se hablaron los siguientes puntos:
-\begin{itemize}
-\item Cachear la excepci\'on al agregar False Conditions. 
-\item Mirar en el preprocessor, en la linea: completeConditionalsFrom: OutputStream.
-\end{itemize}
 
 \section{Conclusiones}
 En esta secci\'on explicaremos los logros alcanzados durante el proyecto, los valores que obtuvimos y algunas sugerencias para un futuro trabajo de CRefacory.
