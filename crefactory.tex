@@ -25,19 +25,20 @@ Mas adelante se listará un resumen de las minutas de cada reunión con la profe
 Por \'ultimo se detallar\'an las conclusiones y el trabajo a futuro.
 
 \section{Introducción}
-El refactoring de c\'odigo es una técnica para la reestructuración del código existente de un producto de software, alterando su estructura interna sin cambiar su comportamiento externo con el objetivo de mejorar atributos no funcionales del software como pueden ser la legibilidad, la mantenibilidad o incluso la extensibidad del mismo. Existen una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactoring de c\'odigo, CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.
+La refactorizaci'\on de c\'odigo es una t'\ecnica para la reestructuraci'\on del c'\odigo existente de un producto de software, alterando su estructura interna sin cambiar su comportamiento externo con el objetivo de mejorar atributos no funcionales del software como pueden ser la legibilidad, la mantenibilidad o incluso la extensibidad del mismo. Existen una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactorizaci'\on de c\'odigo, CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.
 
 Crefactory esta programado en Smalltalk dentro del entorno de desarrollo VisualWorks. La interfaz gr\'afica que posee la aplicaci\'on permite interactuar con c\'odigo C para facilitar dicha refactorizaci\'on. 
 
-Permite realizar refactoring de variables ( cambio de nombre, crear estructuras de las variables), de las estructuras (renombrar campos) y de funciones (renombrar las mismas).
+Permite refactorizar variables (cambio de nombre, crear estructuras de las variables), estructuras (renombrar campos) y funciones (renombrar las mismas).
 
 \subsection{Motivaci\'on}
 CRefactory funcionaba correctamente, pero estaba lejos de ser la herramienta ideal de trabajo, ya que su interfaz no era amigable con el usuario. En primer lugar, era muy poco pr\'actica la carga de archivos, ya que era necesario escribir el path de los archivos a mano, y no se pose\'ia ning\'un tipo de feedback para saber si se habia referenciado correctamente dicho archivo. Se vi\'o la necesidad de mejorar la manera en que se cargaraban los archivos.
 
 En segundo lugar, la herramienta no era capaz de agregar false conditions o macros por medio de la interfaz, con lo cual se desaprovechaba  parte del poder de CRefactory. Era necesario de implementar esto de una manera amigable al usuario por medio de una interfaz gr\'afica.
 
-En tercer lugar, no se entend\'ia que ocurr\'ia en caso de que se produzca una excepci\'on. Se necesitaba implementar una manera f\'acil y amigable para que se traten las mismas y as\'i detectar el error. Se necesitaba un mejor manejo de las excepciones y una interfaz para tratarlas.
-Por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no mostraba el contenido del mismo y por ende no mostraba la l\'nea de c\'odigo que produjo el error. Por lo que tambi\'en fue necesario implementar highlighting para la detecci\'on de error en parseo.
+En tercer lugar, no se entend\'ia que ocurr\'ia en caso de que se produjera una excepci\'on. Se necesitaba implementar una manera f\'acil y amigable para que se traten las mismas y as\'i detectar el error. Se necesitaba un mejor manejo de las excepciones y una interfaz para tratarlas.
+
+Por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no mostraba el contenido del mismo y por ende no mostraba la l\'nea de c\'odigo que produjo el error. Por lo que tambi\'en fue necesario implementar resaltado de sint'\axis para la detecci\'on de error en parseo.
 
 
 \subsection{Objetivos}
@@ -96,7 +97,7 @@ Para realizar el proyecto tuvimos que extender y modificar algunas clases que co
 \section{Problema uno: Carga de archivos}
 \label{sec:problemOne}
 
-El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar el refactoring y las carpetas donde se encuentran los archivos de cabecera que incluyen dichos archivos (include directories).
+El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar la refactorizaci'\on y las carpetas donde se encuentran los archivos de cabecera que incluyen dichos archivos (include directories).
 
 Un archivo de cabecera es un archivo que el compilador incluye de forma automática al procesar algún otro archivo fuente. Estos archivos contienen normalmente una declaración directa de clases, subrutinas, variables u otros identificadores.
 
@@ -141,18 +142,18 @@ En la Figura ~\ref{carga_archivo} mostramos un pantallazo de la visualizaci\'on 
 
 Un archivo fuente de c\'odigo C no s\'olo contiene sintaxis del lenguaje, sino que puede, y suele, contener directivas al preprocesador, tales directivas brindan la posibilidad de realizar inclusi\'on de archivos, definici\'on de macros o compilaci\'on condicional.
 
-La inclusi\'on de archivos permite tener un programa alojado en varios archivos distintos por lo que un refactoring podr\'ia tener un alcance mayor al archivo que se est\'a visualizando en ese momento.
+La inclusi\'on de archivos permite tener un programa alojado en varios archivos distintos por lo que una refactorizaci'\on podr\'ia tener un alcance mayor al archivo que se est\'a visualizando en ese momento.
 
-Una macro es una forma de sustituir caracteres por otros, las macros constan de un nombre y un cuerpo, durante el preprocesado cada ocurrencia del primero ser\'a reemplazado por el segundo. El cuerpo de la macro puede referir directamente a elementos globales del programa o hacerlo indirectamente, a trav\'es de la concatenaci\'on de s\'imbolos, lo que puede f\'acilmente violar la correctitud de un refactoring.
+Una macro es una forma de sustituir caracteres por otros, las macros constan de un nombre y un cuerpo, durante el preprocesado cada ocurrencia del primero ser\'a reemplazado por el segundo. El cuerpo de la macro puede referir directamente a elementos globales del programa o hacerlo indirectamente, a trav\'es de la concatenaci\'on de s\'imbolos, lo que puede f\'acilmente violar la correctitud de una refactorizaci'\on.
 
-La compilaci\'on condicional proporciona una forma de incluir c\'odigo selectivamente dependiendo del valor de determinadas condiciones en tiempo de compilaci\'on, lo que puede derivar en m\'ultiples ramas que son mutuamente exclusivas, si durante un refactoring s\'olo se considera una de ellas las otras pueden volverse obsoletas o erroneas y si por el contrario todas las ramas son consideradas cada elemento puede tener m\'ultiples definiciones, como una variable con m\'ultiples tipos.
+La compilaci\'on condicional proporciona una forma de incluir c\'odigo selectivamente dependiendo del valor de determinadas condiciones en tiempo de compilaci\'on, lo que puede derivar en m\'ultiples ramas que son mutuamente exclusivas, si durante una refactorizaci'\on s\'olo se considera una de ellas las otras pueden volverse obsoletas o erroneas y si por el contrario todas las ramas son consideradas cada elemento puede tener m\'ultiples definiciones, como una variable con m\'ultiples tipos.
 
-Dado que la herramienta CRefactory puede realizar operaciones de refactoring sobre c\'odigo sin preprocesar es necesario otorgarle cierta informaci\'on extra que le permite a la herramienta resolver situaciones dificiles de manejar a la hora de realizar un refactoring, \'esta informaci\'on es llamada configuraci\'on. En concreto la configuraci\'on necesaria es:
+Dado que la herramienta CRefactory puede realizar operaciones de refactorizaci'\on sobre c\'odigo sin preprocesar es necesario otorgarle cierta informaci\'on extra que le permite a la herramienta resolver situaciones dificiles de manejar a la hora de refactorizar, \'esta informaci\'on es llamada configuraci\'on. En concreto la configuraci\'on necesaria es:
 
 \begin{itemize}
 \item Directorios d\'onde se encuetran los archivos inclu\'idos por el archivo cargado.
 \item Cuerpos de macros.
-\item Condiciones falsas para determinar que ramas de c\'odigo deben ser tenidas en cuenta y cuales no a la hora de realizar refactorings.
+\item Condiciones falsas para determinar que ramas de c\'odigo deben ser tenidas en cuenta y cuales no a la hora de refactorizar.
 \end{itemize}
 
 \subsection{Contexto}
@@ -263,7 +264,7 @@ Durante el desarrollo del proyecto tuvimos varias reuniones con la Profesora, co
 
 A continuaci\'on presentamos dichos apuntes o minutas:
 
-\subsection{Reuni\'on del lunes 10/09}
+\subsection{Reuni\'on del Lunes 10/09}
 La profesora nos di\'o una breve introducci\'on al proyecto y un vistazo general de c\'omo est\'a organizado. Nos explic\'o c\'omo estaba funcionando hasta ese momento. Aprendimos c\'omo cargar el proyecto dentro de visualworks y a realizar todas las configuraciones necesarias para el correcto funcionamiento de la aplicaci\'on.
 
 Nos explic\'o c\'omo conectarnos al repositorio de la c\'atedra y c\'omo utilizar la herramienta de control de versiones.
@@ -280,7 +281,7 @@ Luego de \'esta introducci\'on al proyecto hablamos las funcionalidades que tend
 
 Adem\'as se coment\'o que ser\'ia interesante como trabajo a futuro, posibilitar la creaci\'on autom\'atica de grafos de la inclusi\'on de archivos.
 
-\subsection{Reuni\'on del lunes 17/09}
+\subsection{Reuni\'on del Lunes 17/09}
 En \'esta reuni\'on la Profesora nos enseñ\'o c\'omo funcionaba el diálogo de carga de archivos. Anteriormente era necesario escribir el nombre de los archivos a incluir, lo cual hac\'ia tedioso el trabajo y ocurr\'ia que ante un error de tipeo no se encontrar\'ia el archivo y el programa cerrar\'ia abruptamente. 
 
 Planteamos modificar el di\'alogo de carga de archivo para que permita explorar el file system. De esta manera ser\'ia m\'as f\'acil de utilizar y se solucionar\'ian los problemas.
@@ -300,17 +301,17 @@ Adem\'as comentamos los siguientes puntos:
  \item Prestar atenci\'on a preprocess y a FullNameOfFile.
 \end{itemize}
 
-\subsection{Reuni\'on del lunes 29/10}
+\subsection{Reuni\'on del Lunes 29/10}
 En esta reuni\'on comenzamos a hablar sobre el tratamiento de excepciones en CRefactory. La profesora nos aconsejó que leamos la documentación del manejo de excepciones en Visual Works y que miraramos ejemplos en su código fuente para elegir la estrategia a utilizar.
 
 Cuando se producía un error, CRefactory no indicaba cu\'al era el archivo que lo hab\'ia producido. Nos propusimos como objetivo que se pueda mostrar dicho archivo, y resaltar la l\'inea de c\'odigo en la cu\'al se produjo el error.
 
-\subsection{Reuni\'on del 12/11}
+\subsection{Reuni\'on del Lunes 12/11}
 Durante la implementaci\'on de las diferentes funcionalidades, no tuvimos en cuenta el correcto funcionamiento de la aplicaci\'on, y descubrimos que algunas cosas hab\'ian dejado de funcionar. La profesora nos sugiri\'o que nos asegur\'aramos de que pasen los tests de CRefactory. Nos propusimos realizar tests de todas las funcionalidades importantes que implementaramos.
 
 Los errores de parseo en presencia de condiciones falsas sol\'ia ser un problema, ya que muchas veces se dificultaba encontrar el lugar donde ocurr\'ia el error. La profesora plante\'o resolverlo y nos recomend\'o comenzar probando con el archivo test19.c.
 
-\subsection{Reuni\'on del 29/11}
+\subsection{Reuni\'on del Jueves 29/11}
 En esta reuni\'on volvimos a hablar acerca de los problemas vinculados con las false conditions. Se nos pidi\'o tener la posibilidad de cachear la excepci\'on que ocurr\'ia al agregar una false condition y se nos sugiri\'o investigar la implementaci\'on de la clase Preprocessor.
 
 \section{Conclusiones}
@@ -336,11 +337,11 @@ En orden de conseguir que CRefactory sea una herramienta profesional que pueda c
 \subsubsection{Coloreado de Sintaxis}
 El coloreado de sintaxis es una caracter\'istica muy com\'un en los editores de texto modernos, y consiste en mostrar el c\'odigo fuente en diferentes colores con el objetivo de mejorar la legibilidad del c\'odigo para el programador.
 
-\subsubsection{Localizaci\'on autom\'tica de c\'odigo refactorizable}
-Actualmente, para realizar refactoring en el c\'odigo, el programador debe identificar el problema observando el c\'odigo. Creemos que ser\'ia buena idea implementar un algor\'itmo que sirva para localizar c\'odigo potencialmente refactorizable de manera autom\'atica.
+\subsubsection{Localizaci\'on autom\'atica de c\'odigo refactorizable}
+Actualmente, para refactorizar c\'odigo, el programador debe identificar el problema observando el c\'odigo. Creemos que ser\'ia buena idea implementar un algor\'itmo que sirva para localizar c\'odigo potencialmente refactorizable de manera autom\'atica.
 
 \subsubsection{Integraci\'on con frameworks de testing}
-Al hacer refactoring en el c\'odigo, debemos comprobar que el c\'odigo siga funcionando correctamente. Ser\'ia deseable que CRefactoring tenga integrados frameworks de testing para realizar el testeo del c\'odigo de forma autom\'atica.
+Al refactorizar c\'odigo, debemos comprobar que el c\'odigo siga funcionando correctamente. Ser\'ia deseable que CRefactoring tenga integrados frameworks de testing para realizar el testeo del c\'odigo de forma autom\'atica.
 
 \subsubsection{Personalizaci\'on del entorno}
 Ser\'ia bueno otorgar a la interface cierta flexibilidad para poder adaptarse a las necesidades de cada usuario.
@@ -352,7 +353,7 @@ El formateo de c\'odigo es una herramienta que permite modificar el c\'odigo par
 Creemos que ser\'ia ideal que CRefactory cuente con una herramienta de formateo autom\'atico.
 
 
-\subsubsection{Tabla de S\'imbolos}
+\subsubsection{Tabla de s\'imbolos}
 Una tabla de s\'imbolos es una estructura de datos donde cada s\'imbolo en el c\'odigo fuente de un programa est\'a asociado con informaci\'on, como por ejemplo la ubicaci\'on, el tipo de datos y el \'ambito de cada variable.
 
 Ser\'ia bueno poder ver la tabla de s\'imbolos.
