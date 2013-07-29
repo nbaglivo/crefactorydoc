@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{dcolumn}
 \usepackage[spanish]{babel}
+
 \usepackage{graphicx}
 
 \begin{document}
@@ -18,14 +19,14 @@
 \newpage
 
 \section{Organizaci\'on del documento}
-Primero se dará una introducci\'on para poner en contexto al problema planteado por la c\'atedra junto con la  motivaci\'on para la realizaci\'on del trabajo. Se detallar\'an los objetivos del mismo así como tambi\'en la manera de trabajo del grupo.
+Primero se dar\'a una introducci\'on para poner en contexto al problema planteado por la c\'atedra junto con la  motivaci\'on para la realizaci\'on del trabajo. Se detallar\'an los objetivos del mismo as\'i como tambi\'en la manera de trabajo del grupo.
 
 Luego, se ir\'an detallando en orden de aparici\'on los problemas con los que nos fuimos enfrentando a lo largo de la cursada. Por cada uno de ellos se explicar\'a en que consiste junto a la soluci\'on planteada.
 
-Mas adelante se listará un resumen de las minutas de cada reunión con la profesora.
+Mas adelante se listar\'a un resumen de las minutas de cada reuni\'on con la Profesora.
 Por \'ultimo se detallar\'an las conclusiones y el trabajo a futuro.
 
-\section{Introducción}
+\section{Introducci\'on}
 La refactorizaci\'on de c\'odigo es una t\'ecnica para la reestructuraci\'on del c\'odigo existente de un producto de software, alterando su estructura interna sin cambiar su comportamiento externo con el objetivo de mejorar atributos no funcionales del software como pueden ser la legibilidad, la mantenibilidad o incluso la extensibidad del mismo.
 
 Existe una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactorizaci\'on de c\'odigo, CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.
@@ -35,13 +36,13 @@ Crefactory esta programado en Smalltalk dentro del entorno de desarrollo VisualW
 Permite refactorizar variables (cambio de nombre, crear estructuras de las variables), estructuras (renombrar campos) y funciones (renombrar las mismas).
 
 \subsection{Motivaci\'on}
-CRefactory funcionaba correctamente, pero estaba lejos de ser la herramienta ideal de trabajo, ya que su interfaz no era amigable con el usuario. En primer lugar, era muy poco pr\'actica la carga de archivos, ya que era necesario escribir el path de los archivos a mano, y no se pose\'ia ning\'un tipo de retroalimentaci\'on para saber si se hab\'ia referenciado correctamente dicho archivo. Se vi\'o la necesidad de mejorar la manera en que se cargaraban los archivos.
+CRefactory funcionaba correctamente, pero estaba lejos de ser la herramienta ideal de trabajo, ya que su interfaz no era amigable con el usuario. En primer lugar, la carga de archivos era muy poco pr\'actica, ya que era necesario escribir el path de los archivos a mano, y no se pose\'ia ning\'un tipo de retroalimentaci\'on para saber si se hab\'ia referenciado correctamente dicho archivo. Se vi\'o la necesidad de mejorar la manera en que se cargaraban los archivos.
 
-En segundo lugar, la herramienta no era capaz de agregar false conditions o macros por medio de la interfaz, con lo cual se desaprovechaba  parte del poder de CRefactory. Era necesario de implementar esto de una manera amigable al usuario por medio de una interfaz gr\'afica.
+En segundo lugar, la herramienta no era capaz de agregar condiciones falsas o macros por medio de la interfaz, con lo cual se desaprovechaba  parte del poder de CRefactory. Era necesario de implementar esto de una manera amigable al usuario por medio de una interfaz gr\'afica.
 
 En tercer lugar, no se entend\'ia que ocurr\'ia en caso de que se produjera una excepci\'on. Se necesitaba implementar una manera f\'acil y amigable para que se traten las mismas y as\'i detectar el error. Se necesitaba un mejor manejo de las excepciones y una interfaz para tratarlas.
 
-Por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no mostraba el contenido del mismo y por ende no mostraba la l\'nea de c\'odigo que produjo el error. Por lo que tambi\'en fue necesario implementar resaltado de sint\'axis para la detecci\'on de error en parseo.
+Por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no mostraba el contenido del mismo y por ende no mostraba la l\'inea de c\'odigo que produjo el error. Por lo que tambi\'en fue necesario implementar resaltado de sint\'axis para la detecci\'on de error en parseo.
 
 
 \subsection{Objetivos}
@@ -50,17 +51,17 @@ Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis
 
 Particularmente se desea mejorar la carga de archivos e include\_directories para que cumpla las siguientes condiciones: prevenci\'on de errores, facilidad de uso, simplicidad y menor sorpresa al usuario.
 
-Implementar una interfaz que permita al usuario el manejo de macros y false conditions de una manera sencilla e intuitiva, de manera que pueda agregarlas o quitarlas a gusto.
+Implementar una interfaz que permita al usuario el manejo de macros y condiciones falsas de una manera sencilla e intuitiva, de manera que pueda agregarlas o quitarlas a gusto.
 
 Desarrollar una manera de visualizar la ocurrencia de errores y excepciones que sea adecuada, clara y funcional. Debe permitir reconocer r\'apidamente al agente que causa el error y que provea suficiente informaci\'on para que el usuario pueda resolverlo.
 
 \subsection{Manera de trabajo}
 
-Para realizar el trabajo decidimos utilizar una metodología \'agil de tipo Scrum. Trabajamos de la siguiente manera: 
+Para realizar el trabajo decidimos utilizar una metodolog\'ia \'agil de tipo Scrum. Trabajamos de la siguiente manera: 
 
-Realizamos reuniones semanales con la profesora para que nos indique cuales eran los problemas a resolver, los logros a alcanzar, las necesidades del proyecto.
+Realizamos reuniones semanales con la Profesora para que nos indique cuales eran los problemas a resolver, los logros a alcanzar, las necesidades del proyecto.
 
-Luego de la reunión teníamos una reunión de grupo también semanal, en la cual uno de nosotros cumplía el rol de scrum master: decidiamos cuales serían nuestros objetivos a alcanzar en la semana y nos distribuíamos las tareas. Para una mejor organización utilizabamos la herramienta Trello, la cual cumplió la función de StoryBoard.
+Luego de la reuni\'on con la Profesora organizabamos otra reuni\'on de grupo tambi\'en semanal, en la cual uno de nosotros cumpl\'ia el rol de scrum master: decidiamos cuales ser\'ian nuestros objetivos a alcanzar en la semana y nos distribu\'iamos las tareas. Para una mejor organizaci\'on utilizabamos la herramienta Trello, la cual cumpli\'o la funci\'on de StoryBoard.
 
 \begin{figure}[h!]
   \centering
@@ -69,7 +70,7 @@ Luego de la reunión teníamos una reunión de grupo también semanal, en la cua
     \label{trello}
 \end{figure}
 
-Trello facilitó todas las tareas de organización. Permitía que cada uno pueda elegir su tarea sin superponerse con la de el otro, podíamos ver lo que hacía cada uno en tiempo real y colaborar para llevar a cabo las tareas de la forma mas eficientemente posible. 
+Trello facilit\'o todas las tareas de organizaci\'on. Permit\'ia que cada uno pueda elegir su tarea sin superponerse con la de el otro, pod\'iamos ver lo que hac\'ia cada uno en tiempo real y colaborar para llevar a cabo las tareas de la forma mas eficientemente posible. 
 
 Adem\'as realizamos tests autom\'aticos para validar que las funcionalidades m\'as importantes se ejecuten correctamente.
 
@@ -101,7 +102,7 @@ Para realizar el proyecto tuvimos que extender y modificar algunas clases que co
 
 El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar la refactorizaci\'on y las carpetas donde se encuentran los archivos de cabecera que incluyen dichos archivos (include directories).
 
-Un archivo de cabecera es un archivo que el compilador incluye de forma automática al procesar algún otro archivo fuente. Estos archivos contienen normalmente una declaración directa de clases, subrutinas, variables u otros identificadores.
+Un archivo de cabecera es un archivo que el compilador incluye de forma autom\'atica al procesar alg\'un otro archivo fuente. Estos archivos contienen normalmente una declaraci\'on directa de clases, subrutinas, variables u otros identificadores.
 
 
 \subsection{Contexto}
@@ -114,9 +115,9 @@ La carga de archivos en la interfaz original funcionaba de la siguiente manera:
     \label{carga_original}
 \end{figure}
 
-Se deb\'ia escribir a mano el path absoluto hacia donde estaban los archivos. Esto era propenso a errores ya que se podían cometer errores de tipeo o incluso no recordar exactamente cual era dicho path.
+Se deb\'ia escribir a mano el path absoluto hacia donde estaban los archivos. Esto era propenso a errores ya que se pod\'ian cometer errores de tipeo o incluso no recordar exactamente cual era dicho path.
 
-Los path absolutos señalan la ubicación de un archivo o directorio desde el directorio raíz del sistema de archivos.
+Los path absolutos señalan la ubicaci\'on de un archivo o directorio desde el directorio ra\'iz del sistema de archivos.
 
 Al cometer un error de tipeo o escribir el nombre de un archivo o directorio que no exist\'ia ocurr\'ia un error como el de la figura ~\ref{error} .
 
@@ -128,7 +129,7 @@ Al cometer un error de tipeo o escribir el nombre de un archivo o directorio que
 \end{figure}
 
 \subsection{Soluci\'on planteada}
-El problema se solucion\'o agregando una ventana de exploraci\'on de archivos. Este permitió explorar el filesystem y seleccionar el archivo deseado. Ahora se podría seleccionar m\'as de uno al mismo tiempo.
+El problema se solucion\'o agregando una ventana de exploraci\'on de archivos. Este permiti\'o explorar el filesystem y seleccionar el archivo deseado. Ahora se podr\'ia seleccionar m\'as de uno al mismo tiempo.
 Las ventajas de esta aproximaci\'on son que es menos propensa a errores y el usuario no necesita recordar el path absoluto.
 
 En la Figura ~\ref{carga_archivo} mostramos un pantallazo de la visualizaci\'on de la nueva ventana de exploraci\'on de archivos.
@@ -179,7 +180,7 @@ El manejo de excepciones es una t\'ecnica de programaci\'on que permite controla
 A continuaci\'on se detallan los problemas que presentaban la ausencia del manejo de estas en la interface de CRefactory y como fueron solucionados estos problemas.
 
 \subsection{Contexto}
-Ante un error de parseo la aplicación dejaba de funcionar. No había ningún tipo de manejo de excepciones. No encontrar un archivo de cabecera en los directorios incluidos significaba que el programa se cerrara abruptamente, sin ningún tipo de retroalimentaci\'on para que el usuario pueda rastrear el error. Se hizo evidente la necesidad de que el usuario pudiera rastrear el error y corregirlo sin que falle la herramienta.
+Ante un error de parseo la aplicaci\'on dejaba de funcionar. No hab\'ia ning\'un tipo de manejo de excepciones. No encontrar un archivo de cabecera en los directorios incluidos significaba que el programa se cerrara abruptamente, sin ning\'un tipo de retroalimentaci\'on para que el usuario pueda rastrear el error. Se hizo evidente la necesidad de que el usuario pudiera rastrear el error y corregirlo sin que falle la herramienta.
 
 \begin{figure}[h!]
   \centering
@@ -189,7 +190,7 @@ Ante un error de parseo la aplicación dejaba de funcionar. No había ningún ti
 \end{figure}
 
 \subsection{Soluci\'on planteada}
-Lo que se hizo en un principio fue implementar los manejadores para las excepciones. Por lo que cuando se produc\'ia una excepci\'on se mostraba una ventana con una descripci\'on del error ayudando al usuario para que puediera corregirlo. Por ejemplo, cuando no se inclu\'ia el directorio donde buscar un header se mostraba una ventana advirtiendo del error y dandole al usuario la posibilidad de corregirlo agregando el directorio necesario en la ventana de configuraci\'on.
+Lo que se hizo en un principio fue implementar los manejadores para las excepciones. Por lo que cuando se produc\'ia una excepci\'on se mostraba una ventana con una descripci\'on del error ayudando al usuario para que puediera corregirlo. Por ejemplo, cuando no se inclu\'ia el directorio donde buscar un header se mostraba una ventana que advert\'ia al usuario del error y le daba la posibilidad de corregirlo agregando el directorio necesario en la ventana de configuraci\'on.
 
 En la Figura ~\ref{header_no_encontrado} se visualiza como se mostraba el error luego de implementar el manejo de excepciones.
 
@@ -223,7 +224,7 @@ El problema de la soluci\'on planteada en el punto anterior es que no mostraba e
 
 \section{Problema cinco: Highlight del error}
 
-Cuando ocurre un error es útil conocer que linea o lineas de código son las que lo provocaron. Para poder identificar una porción de código, estuvimos de acuerdo en que sería muy útil contar con algún tipo de resaltado de texto. A continuación se explica cómo se mostraba el código antes, que problemas traía ésto y cómo fueron solucionados.
+Cuando ocurre un error es \'util conocer que linea o lineas de c\'odigo son las que lo provocaron. Para poder identificar una porci\'on de c\'odigo, estuvimos de acuerdo en que ser\'ia muy \'util contar con alg\'un tipo de resaltado de texto. A continuaci\'on se explica c\'omo se mostraba el c\'odigo antes, que problemas tra\'ia \'esto y c\'omo fueron solucionados.
 
 \subsection{Contexto}
 Anteriormente, luego de un error se mostraba el c\'odigo pero no era claro que l\'ineas lo hab\'ian producido. Esto era un problema ya que la idea del manejo de excepciones no es solo identificar el error sino encontrar la manera de solucionarlo. Y muchas veces para solucionar un problema es necesario saber exactamente en que porci\'on del c\'odigo se origin\'o.
@@ -267,7 +268,7 @@ Durante el desarrollo del proyecto tuvimos varias reuniones con la Profesora, co
 A continuaci\'on presentamos dichos apuntes o minutas:
 
 \subsection{Reuni\'on del Lunes 10/09}
-La profesora nos di\'o una breve introducci\'on al proyecto y un vistazo general de c\'omo est\'a organizado. Nos explic\'o c\'omo estaba funcionando hasta ese momento. Aprendimos c\'omo cargar el proyecto dentro de visualworks y a realizar todas las configuraciones necesarias para el correcto funcionamiento de la aplicaci\'on.
+La Profesora nos di\'o una breve introducci\'on al proyecto y un vistazo general de c\'omo est\'a organizado. Nos explic\'o c\'omo estaba funcionando hasta ese momento. Aprendimos c\'omo cargar el proyecto dentro de visualworks y a realizar todas las configuraciones necesarias para el correcto funcionamiento de la aplicaci\'on.
 
 Nos explic\'o c\'omo conectarnos al repositorio de la c\'atedra y c\'omo utilizar la herramienta de control de versiones.
 Acordamos que nos enviar\'ia por correo electr\'onico los nombres de usuarios y contraseñas de cada integrante del grupo para acceder al repositorio.
@@ -284,14 +285,14 @@ Luego de \'esta introducci\'on al proyecto hablamos las funcionalidades que tend
 Adem\'as se coment\'o que ser\'ia interesante como trabajo a futuro, posibilitar la creaci\'on autom\'atica de grafos de la inclusi\'on de archivos.
 
 \subsection{Reuni\'on del Lunes 17/09}
-En \'esta reuni\'on la Profesora nos enseñ\'o c\'omo funcionaba el diálogo de carga de archivos. Anteriormente era necesario escribir el nombre de los archivos a incluir, lo cual hac\'ia tedioso el trabajo y ocurr\'ia que ante un error de tipeo no se encontrar\'ia el archivo y el programa cerrar\'ia abruptamente. 
+En \'esta reuni\'on la Profesora nos enseñ\'o c\'omo funcionaba el di\'alogo de carga de archivos. Anteriormente era necesario escribir el nombre de los archivos a incluir, lo cual hac\'ia tedioso el trabajo y ocurr\'ia que ante un error de tipeo no se encontrar\'ia el archivo y el programa cerrar\'ia abruptamente. 
 
 Planteamos modificar el di\'alogo de carga de archivo para que permita explorar el file system. De esta manera ser\'ia m\'as f\'acil de utilizar y se solucionar\'ian los problemas.
 
 \subsection{Reuni\'on del Jueves 18/10}
 Para este momento ya hab\'iamos implementado la carga de archivos y directorios por medio de un File Browser, pero todav\'ia no era el ideal.
 
-En esta reuni\'on se habl\'o con la profesora sobre la necesidad de marcar a algunos directorios como directorios de s\'olo lectura (Read Only).
+En esta reuni\'on se habl\'o con la Profesora sobre la necesidad de marcar a algunos directorios como directorios de s\'olo lectura (Read Only).
 
 Tambi\'en hablamos sobre la implementaci\'on de manejo de excepciones. En particular ocurr\'ia frecuentemente una excepci\'on al no incluir los directorios necesarios. Acordamos implementar el manejo de dicha excepci\'on.
 
@@ -304,34 +305,34 @@ Adem\'as comentamos los siguientes puntos:
 \end{itemize}
 
 \subsection{Reuni\'on del Lunes 29/10}
-En esta reuni\'on comenzamos a hablar sobre el tratamiento de excepciones en CRefactory. La profesora nos aconsejó que leamos la documentación del manejo de excepciones en Visual Works y que miraramos ejemplos en su código fuente para elegir la estrategia a utilizar.
+En esta reuni\'on comenzamos a hablar sobre el tratamiento de excepciones en CRefactory. La Profesora nos aconsej\'o que leamos la documentaci\'on del manejo de excepciones en Visual Works y que miraramos ejemplos en su c\'odigo fuente para elegir la estrategia a utilizar.
 
-Cuando se producía un error, CRefactory no indicaba cu\'al era el archivo que lo hab\'ia producido. Nos propusimos como objetivo que se pueda mostrar dicho archivo, y resaltar la l\'inea de c\'odigo en la cu\'al se produjo el error.
+Cuando se produc\'ia un error, CRefactory no indicaba cu\'al era el archivo que lo hab\'ia producido. Nos propusimos como objetivo que se pueda mostrar dicho archivo, y resaltar la l\'inea de c\'odigo en la cu\'al se produjo el error.
 
 \subsection{Reuni\'on del Lunes 12/11}
-Durante la implementaci\'on de las diferentes funcionalidades, no tuvimos en cuenta el correcto funcionamiento de la aplicaci\'on, y descubrimos que algunas cosas hab\'ian dejado de funcionar. La profesora nos sugiri\'o que nos asegur\'aramos de que pasen los tests de CRefactory. Nos propusimos realizar tests de todas las funcionalidades importantes que implementaramos.
+Durante la implementaci\'on de las diferentes funcionalidades, no tuvimos en cuenta el correcto funcionamiento de la aplicaci\'on, y descubrimos que algunas cosas hab\'ian dejado de funcionar. La Profesora nos sugiri\'o que nos asegur\'aramos de que pasen los tests de CRefactory. Nos propusimos realizar tests de todas las funcionalidades importantes que implementaramos.
 
-Los errores de parseo en presencia de condiciones falsas sol\'ia ser un problema, ya que muchas veces se dificultaba encontrar el lugar donde ocurr\'ia el error. La profesora plante\'o resolverlo y nos recomend\'o comenzar probando con el archivo test19.c.
+Los errores de parseo en presencia de condiciones falsas sol\'ia ser un problema, ya que muchas veces se dificultaba encontrar el lugar donde ocurr\'ia el error. La Profesora plante\'o resolverlo y nos recomend\'o comenzar probando con el archivo test19.c.
 
 \subsection{Reuni\'on del Jueves 29/11}
-En esta reuni\'on volvimos a hablar acerca de los problemas vinculados con las false conditions. Se nos pidi\'o tener la posibilidad de cachear la excepci\'on que ocurr\'ia al agregar una false condition y se nos sugiri\'o investigar la implementaci\'on de la clase Preprocessor.
+En esta reuni\'on volvimos a hablar acerca de los problemas vinculados con las condiciones falsas. Se nos pidi\'o tener la posibilidad de cachear la excepci\'on que ocurr\'ia al agregar una condici\'on falsa y se nos sugiri\'o investigar la implementaci\'on de la clase Preprocessor.
 
 \section{Conclusiones}
 En esta secci\'on explicaremos los logros alcanzados durante el proyecto, los valores que obtuvimos y algunas sugerencias para un futuro trabajo de CRefacory.
 
 \subsection{Logros alcanzados}
-La nueva interfaz es pr\'actica para cargar archivos, directorios, macros y false conditions. Ahora se pueden cargar archivos de forma segura. En lugar de escribir el nombre del archivo o directorio se lo puede seleccionar entre los ya existentes. 
+La nueva interfaz es pr\'actica para cargar archivos, directorios, macros y condiciones falsas. Ahora se pueden cargar archivos de forma segura. En lugar de escribir el nombre del archivo o directorio se lo puede seleccionar entre los ya existentes. 
 
-Ahora es posible acceder a funcionalidades que antes no se pod\'ian, como por ejemplo la posibilidad de agregar FalseConditions a la configuraci\'on para que no sean parseadas.
+Ahora es posible acceder a funcionalidades que antes no se pod\'ian, como por ejemplo la posibilidad de agregar condiciones falsas a la configuraci\'on para que no sean parseadas.
 
 Cambiamos el diseño de la interfaz de manera que sea, a nuestro criterio, mucho m\'as amigable con el usuario.
 
-Al dispararse una excepci\'on de parseo, la nueva interfaz ahora permite detectar la línea de código en la cual ocurrió.
+Al dispararse una excepci\'on de parseo, la nueva interfaz ahora permite detectar la l\'inea de c\'odigo en la cual ocurri\'o.
 
 \subsection{Valores obtenidos}
-Trabajamos utilizando una metodología \'agil de tipo Scrum. Ésto nos permiti\'o tener una buena organizaci\'on. Ayud\'o al trabajo en equipo, optimiz\'o la eficiencia en la resoluci\'on de las tareas.
+Trabajamos utilizando una metodolog\'ia \'agil de tipo Scrum. \'Esto nos permiti\'o tener una buena organizaci\'on. Ayud\'o al trabajo en equipo, optimiz\'o la eficiencia en la resoluci\'on de las tareas.
 
-Comprendimos la importancia de realizar tests automatizados durante la programaci\'on. Si bien nos demor\'o implementar el c\'odigo de los tests, creemos que a la larga salimos beneficiados con respecto a la distribuci\'on del tiempo. Además saber que el programa segu\'ia funcionando nos daba mucha más seguridad al programar.
+Comprendimos la importancia de realizar tests automatizados durante la programaci\'on. Si bien nos demor\'o implementar el c\'odigo de los tests, creemos que a la larga salimos beneficiados con respecto a la distribuci\'on del tiempo. Adem\'as saber que el programa segu\'ia funcionando nos daba mucha m\'as seguridad al programar.
 
 \subsection{Trabajo futuro}
 En orden de conseguir que CRefactory sea una herramienta profesional que pueda competir con otros productos similares creemos que se debe soportar las siguientes caracter\'isticas:
