@@ -18,33 +18,35 @@
 \newpage
 
 \section{Organizaci\'on del documento}
-Primero se dará una introduccion para poner en contexto al problema planteado por la c\'atedra junto con la  motivaci\'on para la realizaci\'on del trabajo. Se detallar\'an los objetivos del mismo así como tambi\'en la manera de trabajo del grupo.
+Primero se dará una introducci\'on para poner en contexto al problema planteado por la c\'atedra junto con la  motivaci\'on para la realizaci\'on del trabajo. Se detallar\'an los objetivos del mismo así como tambi\'en la manera de trabajo del grupo.
 
 Luego, se ir\'an detallando en orden de aparici\'on los problemas con los que nos fuimos enfrentando a lo largo de la cursada. Por cada uno de ellos se explicar\'a en que consiste junto a la soluci\'on planteada.
+
 Mas adelante se listará un resumen de las minutas de cada reunión con la profesora.
 Por \'ultimo se detallar\'an las conclusiones y el trabajo a futuro.
 
 \section{Introducción}
-La refactorizaci'\on de c\'odigo es una t'\ecnica para la reestructuraci'\on del c'\odigo existente de un producto de software, alterando su estructura interna sin cambiar su comportamiento externo con el objetivo de mejorar atributos no funcionales del software como pueden ser la legibilidad, la mantenibilidad o incluso la extensibidad del mismo. Existen una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactorizaci'\on de c\'odigo, CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.
+La refactorizaci\'on de c\'odigo es una t\'ecnica para la reestructuraci\'on del c\'odigo existente de un producto de software, alterando su estructura interna sin cambiar su comportamiento externo con el objetivo de mejorar atributos no funcionales del software como pueden ser la legibilidad, la mantenibilidad o incluso la extensibidad del mismo.
+
+Existe una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactorizaci\'on de c\'odigo, CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.
 
 Crefactory esta programado en Smalltalk dentro del entorno de desarrollo VisualWorks. La interfaz gr\'afica que posee la aplicaci\'on permite interactuar con c\'odigo C para facilitar dicha refactorizaci\'on. 
 
 Permite refactorizar variables (cambio de nombre, crear estructuras de las variables), estructuras (renombrar campos) y funciones (renombrar las mismas).
 
 \subsection{Motivaci\'on}
-CRefactory funcionaba correctamente, pero estaba lejos de ser la herramienta ideal de trabajo, ya que su interfaz no era amigable con el usuario. En primer lugar, era muy poco pr\'actica la carga de archivos, ya que era necesario escribir el path de los archivos a mano, y no se pose\'ia ning\'un tipo de feedback para saber si se habia referenciado correctamente dicho archivo. Se vi\'o la necesidad de mejorar la manera en que se cargaraban los archivos.
+CRefactory funcionaba correctamente, pero estaba lejos de ser la herramienta ideal de trabajo, ya que su interfaz no era amigable con el usuario. En primer lugar, era muy poco pr\'actica la carga de archivos, ya que era necesario escribir el path de los archivos a mano, y no se pose\'ia ning\'un tipo de retroalimentaci\'on para saber si se hab\'ia referenciado correctamente dicho archivo. Se vi\'o la necesidad de mejorar la manera en que se cargaraban los archivos.
 
 En segundo lugar, la herramienta no era capaz de agregar false conditions o macros por medio de la interfaz, con lo cual se desaprovechaba  parte del poder de CRefactory. Era necesario de implementar esto de una manera amigable al usuario por medio de una interfaz gr\'afica.
 
 En tercer lugar, no se entend\'ia que ocurr\'ia en caso de que se produjera una excepci\'on. Se necesitaba implementar una manera f\'acil y amigable para que se traten las mismas y as\'i detectar el error. Se necesitaba un mejor manejo de las excepciones y una interfaz para tratarlas.
 
-Por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no mostraba el contenido del mismo y por ende no mostraba la l\'nea de c\'odigo que produjo el error. Por lo que tambi\'en fue necesario implementar resaltado de sint'\axis para la detecci\'on de error en parseo.
+Por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no mostraba el contenido del mismo y por ende no mostraba la l\'nea de c\'odigo que produjo el error. Por lo que tambi\'en fue necesario implementar resaltado de sint\'axis para la detecci\'on de error en parseo.
 
 
 \subsection{Objetivos}
-Objetivos generales
 
-Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis en facilidad de uso, proveer feedback, manejo de excepciones, di\'alogo simple y natural, salidas evidentes, prevenci\'on de errores y ayudas.
+Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis en facilidad de uso, proveer retroalimentaci\'on, manejo de excepciones, di\'alogo simple y natural, salidas evidentes, prevenci\'on de errores y ayudas.
 
 Particularmente se desea mejorar la carga de archivos e include\_directories para que cumpla las siguientes condiciones: prevenci\'on de errores, facilidad de uso, simplicidad y menor sorpresa al usuario.
 
@@ -97,7 +99,7 @@ Para realizar el proyecto tuvimos que extender y modificar algunas clases que co
 \section{Problema uno: Carga de archivos}
 \label{sec:problemOne}
 
-El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar la refactorizaci'\on y las carpetas donde se encuentran los archivos de cabecera que incluyen dichos archivos (include directories).
+El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar la refactorizaci\'on y las carpetas donde se encuentran los archivos de cabecera que incluyen dichos archivos (include directories).
 
 Un archivo de cabecera es un archivo que el compilador incluye de forma automática al procesar algún otro archivo fuente. Estos archivos contienen normalmente una declaración directa de clases, subrutinas, variables u otros identificadores.
 
@@ -142,13 +144,13 @@ En la Figura ~\ref{carga_archivo} mostramos un pantallazo de la visualizaci\'on 
 
 Un archivo fuente de c\'odigo C no s\'olo contiene sintaxis del lenguaje, sino que puede, y suele, contener directivas al preprocesador, tales directivas brindan la posibilidad de realizar inclusi\'on de archivos, definici\'on de macros o compilaci\'on condicional.
 
-La inclusi\'on de archivos permite tener un programa alojado en varios archivos distintos por lo que una refactorizaci'\on podr\'ia tener un alcance mayor al archivo que se est\'a visualizando en ese momento.
+La inclusi\'on de archivos permite tener un programa alojado en varios archivos distintos por lo que una refactorizaci\'on podr\'ia tener un alcance mayor al archivo que se est\'a visualizando en ese momento.
 
-Una macro es una forma de sustituir caracteres por otros, las macros constan de un nombre y un cuerpo, durante el preprocesado cada ocurrencia del primero ser\'a reemplazado por el segundo. El cuerpo de la macro puede referir directamente a elementos globales del programa o hacerlo indirectamente, a trav\'es de la concatenaci\'on de s\'imbolos, lo que puede f\'acilmente violar la correctitud de una refactorizaci'\on.
+Una macro es una forma de sustituir caracteres por otros, las macros constan de un nombre y un cuerpo, durante el preprocesado cada ocurrencia del primero ser\'a reemplazado por el segundo. El cuerpo de la macro puede referir directamente a elementos globales del programa o hacerlo indirectamente, a trav\'es de la concatenaci\'on de s\'imbolos, lo que puede f\'acilmente violar la correctitud de una refactorizaci\'on.
 
-La compilaci\'on condicional proporciona una forma de incluir c\'odigo selectivamente dependiendo del valor de determinadas condiciones en tiempo de compilaci\'on, lo que puede derivar en m\'ultiples ramas que son mutuamente exclusivas, si durante una refactorizaci'\on s\'olo se considera una de ellas las otras pueden volverse obsoletas o erroneas y si por el contrario todas las ramas son consideradas cada elemento puede tener m\'ultiples definiciones, como una variable con m\'ultiples tipos.
+La compilaci\'on condicional proporciona una forma de incluir c\'odigo selectivamente dependiendo del valor de determinadas condiciones en tiempo de compilaci\'on, lo que puede derivar en m\'ultiples ramas que son mutuamente exclusivas, si durante una refactorizaci\'on s\'olo se considera una de ellas las otras pueden volverse obsoletas o erroneas y si por el contrario todas las ramas son consideradas cada elemento puede tener m\'ultiples definiciones, como una variable con m\'ultiples tipos.
 
-Dado que la herramienta CRefactory puede realizar operaciones de refactorizaci'\on sobre c\'odigo sin preprocesar es necesario otorgarle cierta informaci\'on extra que le permite a la herramienta resolver situaciones dificiles de manejar a la hora de refactorizar, \'esta informaci\'on es llamada configuraci\'on. En concreto la configuraci\'on necesaria es:
+Dado que la herramienta CRefactory puede realizar operaciones de refactorizaci\'on sobre c\'odigo sin preprocesar es necesario otorgarle cierta informaci\'on extra que le permite a la herramienta resolver situaciones dificiles de manejar a la hora de refactorizar, \'esta informaci\'on es llamada configuraci\'on. En concreto la configuraci\'on necesaria es:
 
 \begin{itemize}
 \item Directorios d\'onde se encuetran los archivos inclu\'idos por el archivo cargado.
@@ -177,7 +179,7 @@ El manejo de excepciones es una t\'ecnica de programaci\'on que permite controla
 A continuaci\'on se detallan los problemas que presentaban la ausencia del manejo de estas en la interface de CRefactory y como fueron solucionados estos problemas.
 
 \subsection{Contexto}
-Ante un error de parseo la aplicación dejaba de funcionar. No había ningún tipo de manejo de excepciones. No encontrar un archivo de cabecera en los directorios incluidos significaba que el programa se cerrara abruptamente, sin ningún tipo de feedback para que el usuario pueda rastrear el error. Se hizo evidente la necesidad de que el usuario pudiera rastrear el error y corregirlo sin que falle la herramienta.
+Ante un error de parseo la aplicación dejaba de funcionar. No había ningún tipo de manejo de excepciones. No encontrar un archivo de cabecera en los directorios incluidos significaba que el programa se cerrara abruptamente, sin ningún tipo de retroalimentaci\'on para que el usuario pueda rastrear el error. Se hizo evidente la necesidad de que el usuario pudiera rastrear el error y corregirlo sin que falle la herramienta.
 
 \begin{figure}[h!]
   \centering
@@ -187,7 +189,7 @@ Ante un error de parseo la aplicación dejaba de funcionar. No había ningún ti
 \end{figure}
 
 \subsection{Soluci\'on planteada}
-Lo que se hizo en un principio fue implementar los manejadores para las excepciones. Por lo que cuando se produc\'ia una excepci\'on se mostraba una ventana con una descripci\'on del error. As\'i dandole feedback al usuario para que puediera corregir el error. Por ejemplo, cuando no se inclu\'ia el directorio donde buscar un header se mostraba una ventana advirtiendo del error y dandole al usuario la posibilidad de corregirlo agregando el directorio necesario en la ventana de configuraci\'on.
+Lo que se hizo en un principio fue implementar los manejadores para las excepciones. Por lo que cuando se produc\'ia una excepci\'on se mostraba una ventana con una descripci\'on del error ayudando al usuario para que puediera corregirlo. Por ejemplo, cuando no se inclu\'ia el directorio donde buscar un header se mostraba una ventana advirtiendo del error y dandole al usuario la posibilidad de corregirlo agregando el directorio necesario en la ventana de configuraci\'on.
 
 En la Figura ~\ref{header_no_encontrado} se visualiza como se mostraba el error luego de implementar el manejo de excepciones.
 
