@@ -27,7 +27,7 @@ Mas adelante se listar\'a un resumen de las minutas de cada reuni\'on con la Pro
 Por \'ultimo se detallar\'an las conclusiones y el trabajo a futuro.
 
 \section{Introducci\'on}
-La refactorizaci\'on de c\'odigo es una t\'ecnica para la reestructuraci\'on del c\'odigo existente de un producto de software, alterando su estructura interna sin cambiar su comportamiento externo con el objetivo de mejorar atributos no funcionales del software como pueden ser la legibilidad, la mantenibilidad o incluso la extensibidad del mismo.
+La refactorizaci\'on de c\'odigo es una t\'ecnica para la reestructuraci\'on del c\'odigo existente de un producto de software, alterando su estructura interna sin cambiar su comportamiento externo, con el objetivo de mejorar atributos no funcionales del software como pueden ser la legibilidad, la mantenibilidad o incluso la extensibidad del mismo.
 
 Existe una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactorizaci\'on de c\'odigo, CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.
 
@@ -38,7 +38,7 @@ Permite refactorizar variables (cambio de nombre, crear estructuras de las varia
 \subsection{Motivaci\'on}
 CRefactory funcionaba correctamente, pero estaba lejos de ser la herramienta ideal de trabajo, ya que su interfaz no era amigable con el usuario. En primer lugar, la carga de archivos era muy poco pr\'actica, ya que era necesario escribir el path de los archivos a mano, y no se pose\'ia ning\'un tipo de retroalimentaci\'on para saber si se hab\'ia referenciado correctamente dicho archivo. Se vi\'o la necesidad de mejorar la manera en que se cargaraban los archivos.
 
-En segundo lugar, la herramienta no era capaz de agregar condiciones falsas o macros por medio de la interfaz, con lo cual se desaprovechaba  parte del poder de CRefactory. Era necesario de implementar esto de una manera amigable al usuario por medio de una interfaz gr\'afica.
+En segundo lugar, la herramienta no era capaz de agregar condiciones falsas o macros por medio de la interfaz, con lo cual se desaprovechaba  parte del poder de CRefactory. Era necesario implementar esto de una manera amigable al usuario por medio de una interfaz gr\'afica.
 
 En tercer lugar, no se entend\'ia que ocurr\'ia en caso de que se produjera una excepci\'on. Se necesitaba implementar una manera f\'acil y amigable para que se traten las mismas y as\'i detectar el error. Se necesitaba un mejor manejo de las excepciones y una interfaz para tratarlas.
 
@@ -47,7 +47,7 @@ Por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no mostraba 
 
 \subsection{Objetivos}
 
-Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis en facilidad de uso, proveer retroalimentaci\'on, manejo de excepciones, di\'alogo simple y natural, salidas evidentes, prevenci\'on de errores y ayudas.
+Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis en su facilidad de uso, proveer retroalimentaci\'on, manejo de excepciones, di\'alogo simple y natural, salidas evidentes, prevenci\'on de errores y ayudas.
 
 Particularmente se desea mejorar la carga de archivos e include\_directories para que cumpla las siguientes condiciones: prevenci\'on de errores, facilidad de uso, simplicidad y menor sorpresa al usuario.
 
@@ -59,7 +59,7 @@ Desarrollar una manera de visualizar la ocurrencia de errores y excepciones que 
 
 Para realizar el trabajo decidimos utilizar una metodolog\'ia \'agil de tipo Scrum. Trabajamos de la siguiente manera: 
 
-Realizamos reuniones semanales con la Profesora para que nos indique cuales eran los problemas a resolver, los logros a alcanzar, las necesidades del proyecto.
+Realizamos reuniones semanales con la Profesora para que nos indique cuales eran los problemas a resolver, los logros a alcanzar y las necesidades del proyecto.
 
 Luego de la reuni\'on con la Profesora organizabamos otra reuni\'on de grupo tambi\'en semanal, en la cual uno de nosotros cumpl\'ia el rol de scrum master: decidiamos cuales ser\'ian nuestros objetivos a alcanzar en la semana y nos distribu\'iamos las tareas. Para una mejor organizaci\'on utilizabamos la herramienta Trello, la cual cumpli\'o la funci\'on de StoryBoard.
 
@@ -77,17 +77,20 @@ Adem\'as realizamos tests autom\'aticos para validar que las funcionalidades m\'
 \section{Frameworks y herramientas utilizadas}
 El proyecto est\'a implementado en Smalltalk, utilizando el entorno de desarrollo VisualWorks. Para realizar los tests utilizamos el framework SUnit.
 
-Smalltalk es un lenguaje de programaci\'on orientado a objetos y de tipado din\'amico y VisualWorks es una implementaci\'on multiplataforma de este lenguaje.
+Smalltalk es un lenguaje de programaci\'on orientado a objetos y de tipado din\'amico mientras que VisualWorks es una implementaci\'on multiplataforma de este lenguaje.
 
 Sunit es un framework de tests de unidad para el lenguaje de programaci\'on Smalltalk. SUnit permite escribir tests y chequear resultados en Smalltalk.
 
 \section{Diseño del proyecto}
 Para realizar el proyecto tuvimos que extender y modificar algunas clases que componen la herramiena CRefactory. Las clases m\'as importantes que modificamos son las siguientes:
 \begin{description}
-\item[CRBrowser] Esta clase representa la interfaz de usuario.
-\item[CRConfigurationView] Esta clase gestiona la configuraci\'on.
-\item[CRConfiguration] Esta clase representa la configuraci\'on que luego usa el parser para realizar el \'arbol sint\'actico.
-\item[CRErrorView] Esta clase se encarga de gestionar los mensajes de error.
+\item[CRBrowser] Esta clase representa la ventana principal de la interfaz.
+\item[CRConfigurationView] En esta clase esta imeplementada la interfaz para la gesti\'on de la configuraci\'on.
+\item[CRErrorView] Esta clase se encarga se encarga de mostrar los mensajes de error cada vez que se produce una excepci\'on.
+\item[CRConfigurationError] Esta es la clase base para el manejo de las excepciones. Aqu\'i se tienen datos como el archivo en el que se produjo el error o el n\'umero de l\'inea.
+\item[CRPreparserError] Aqu\'i se manejan las excepciones producidas por errores en el preparser.
+\item[CRParseError] Aqu\'i se manejan las excepciones producidas por errores en el parseo del c\'odigo fuente.
+\item[CRIncludeNotFound] Aqu\'i se manejan las excepciones producidas por no haber encontrado una cabecera necesario.
 \end{description}
 
 \begin{figure}[h!]
@@ -119,7 +122,7 @@ Se deb\'ia escribir a mano el path absoluto hacia donde estaban los archivos. Es
 
 Los path absolutos señalan la ubicaci\'on de un archivo o directorio desde el directorio ra\'iz del sistema de archivos.
 
-Al cometer un error de tipeo o escribir el nombre de un archivo o directorio que no exist\'ia ocurr\'ia un error como el de la figura ~\ref{error} .
+Al cometer un error de tipeo o escribir el nombre de un archivo inexistente ocurr\'ia un error como el de la figura ~\ref{error} .
 
 \begin{figure}[h!]
   \centering
@@ -151,7 +154,7 @@ Una macro es una forma de sustituir caracteres por otros, las macros constan de 
 
 La compilaci\'on condicional proporciona una forma de incluir c\'odigo selectivamente dependiendo del valor de determinadas condiciones en tiempo de compilaci\'on, lo que puede derivar en m\'ultiples ramas que son mutuamente exclusivas, si durante una refactorizaci\'on s\'olo se considera una de ellas las otras pueden volverse obsoletas o erroneas y si por el contrario todas las ramas son consideradas cada elemento puede tener m\'ultiples definiciones, como una variable con m\'ultiples tipos.
 
-Dado que la herramienta CRefactory puede realizar operaciones de refactorizaci\'on sobre c\'odigo sin preprocesar es necesario otorgarle cierta informaci\'on extra que le permite a la herramienta resolver situaciones dificiles de manejar a la hora de refactorizar, \'esta informaci\'on es llamada configuraci\'on. En concreto la configuraci\'on necesaria es:
+Dado que la herramienta CRefactory puede realizar operaciones de refactorizaci\'on sobre c\'odigo sin preprocesar es necesario otorgarle cierta informaci\'on extra que le permita a la herramienta resolver situaciones dificiles de manejar a la hora de refactorizar, \'esta informaci\'on es llamada configuraci\'on. En concreto la configuraci\'on necesaria es:
 
 \begin{itemize}
 \item Directorios d\'onde se encuetran los archivos inclu\'idos por el archivo cargado.
@@ -190,9 +193,9 @@ Ante un error de parseo la aplicaci\'on dejaba de funcionar. No hab\'ia ning\'un
 \end{figure}
 
 \subsection{Soluci\'on planteada}
-Lo que se hizo en un principio fue implementar los manejadores para las excepciones. Por lo que cuando se produc\'ia una excepci\'on se mostraba una ventana con una descripci\'on del error ayudando al usuario para que puediera corregirlo. Por ejemplo, cuando no se inclu\'ia el directorio donde buscar un header se mostraba una ventana que advert\'ia al usuario del error y le daba la posibilidad de corregirlo agregando el directorio necesario en la ventana de configuraci\'on.
+Lo que se hizo en un principio fue implementar los manejadores para las excepciones. Por lo que cuando se produc\'ia una excepci\'on se mostraba una ventana con una descripci\'on del error ayudando al usuario para que puediera corregirlo. Por ejemplo, cuando no se inclu\'ia el directorio donde buscar una cabecera se mostraba una ventana que advert\'ia al usuario del error y le daba la posibilidad de corregirlo agregando el directorio necesario en la ventana de configuraci\'on.
 
-En la Figura ~\ref{header_no_encontrado} se visualiza como se mostraba el error luego de implementar el manejo de excepciones.
+En la Figura ~\ref{header_no_encontrado} se ve como se mostraba el error luego de implementar el manejo de excepciones.
 
 \begin{figure}[h!]
   \centering
@@ -338,7 +341,7 @@ Comprendimos la importancia de realizar tests automatizados durante la programac
 En orden de conseguir que CRefactory sea una herramienta profesional que pueda competir con otros productos similares creemos que se debe soportar las siguientes caracter\'isticas:
 
 \subsubsection{Coloreado de Sintaxis}
-El coloreado de sintaxis es una caracter\'istica muy com\'un en los editores de texto modernos, y consiste en mostrar el c\'odigo fuente en diferentes colores con el objetivo de mejorar la legibilidad del c\'odigo para el programador.
+El coloreado de sintaxis es una caracter\'istica muy com\'un en los editores de texto modernos, consiste en mostrar el c\'odigo fuente en diferentes colores con el objetivo de mejorar la legibilidad del c\'odigo para el programador.
 
 \subsubsection{Localizaci\'on autom\'atica de c\'odigo refactorizable}
 Actualmente, para refactorizar c\'odigo, el programador debe identificar el problema observando el c\'odigo. Creemos que ser\'ia buena idea implementar un algor\'itmo que sirva para localizar c\'odigo potencialmente refactorizable de manera autom\'atica.
