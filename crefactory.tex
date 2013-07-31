@@ -23,7 +23,7 @@ En la secci\'on~\ref{sec:intro} se pretende poner en contexto al lector, introdu
 
 Una vez introducida a groso modo la situaci\'on inicial se presentar\'an los problemas concretos que debieron ser resueltos, se detallar\'an junto con ellos una breve introducci\'on, un contexto, que permita al lector comprender el estado de la aplicaci\'on al momento de abordar al problema, y la soluci\'on propuesta e implementada dando los justificativos pertinentes.
 
-En la secci\'on~\ref{sec:minutas} se listar\'an las minutas obtenidas a partir de cada reuni\'on con la Profesora. \\
+En la secci\'on~\ref{sec:minutas} se listar\'an las minutas obtenidas a partir de cada reuni\'on con la profesora. \\
 Por \'ultimo en la secci\'on~\ref{sec:conclusiones} se pretende describir brevemente pensamientos y logros del equipo, tanto a nivel de resultados obtenidos en el diseño e implementaci\'on del trabajo como a nivel profesional. Dentro de \'esta \'ultima secci\'on tambi\'en se describen los puntos que creemos deben ser trabajados en el futuro.
 
 \section{Introduci\'on}
@@ -36,7 +36,7 @@ CRefactory realiza refactorizaci\'on sobre c\'odigo C y de preprocesador, para e
 \subsection{Motivaci\'on}
 
 CRefactory funcionaba correctamente, pero su interfaz era poco amigable con el usuario. En primer lugar, la carga de archivos era muy poco pr\'actica, ya que era necesario escribir la ruta de cada archivo manualmente.
-En segundo lugar, la herramienta no expresaba toda su funcionalidad a trav\'es de su la interfaz, como es el caso de de la espeficicaci\'on de configuraciones (las cuales ser\'an abordadas a la secci\'on~\ref{sec:problema_dos}) con lo cual se desaprovechaba  parte del poder de CRefactory.
+En segundo lugar, la herramienta no expresaba toda su funcionalidad a trav\'es de su interfaz, como es en el caso de de la espeficicaci\'on de configuraciones (las cuales ser\'an abordadas a la secci\'on~\ref{sec:problema_dos}) con lo cual se desaprovechaba  parte del poder de CRefactory.
 
 En tercer lugar, en caso de que se generara un error durante el uso de la herramienta no se produc\'ia ning\'un tipo de retroalimentaci\'on explicando lo ocurrido ni se proveia de alguna manera por la cual se pudiera volver a un estado funcional, la aplicaci\'on simplemente dejaba de funcionar, por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no se mostraba el contenido del mismo y por ende no mostraba la l\'inea de c\'odigo que produjo el error. Se necesitaba implementar una manera f\'acil y amigable que permitiera al usuario detectar el error y recuperarse de el mismo.
 
@@ -45,9 +45,9 @@ En tercer lugar, en caso de que se generara un error durante el uso de la herram
 
 Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis en su facilidad de uso, proveer retroalimentaci\'on, prevenci\'on y recuperaci\'on de errores, di\'alogo simple y natural, salidas evidentes y ayudas.
 
-Particularmente se desea mejorar el mecanismo para la carga de archivos en orden lograr prevenir errores e incrementar su usabilidad.
+Particularmente se desea mejorar el mecanismo para la carga de archivos en orden de lograr prevenir errores e incrementar su usabilidad.
 
-Implementar una interfaz que permita al usuario hacer uso de todo el potencial de CRefactory, en particular al crear configuraciones para sus proyectos.
+Implementar una interfaz que permita al usuario hacer uso de todo el potencial de CRefactory, en particular permitir la creaci\'on de configuraciones para sus proyectos.
 
 Desarrollar una manera de visualizar la ocurrencia de errores que sea adecuada, clara y funcional; que permita reconocer r\'apidamente al agente causante del error y que provea suficiente informaci\'on para que el usuario pueda resolverlo.
 
@@ -55,9 +55,7 @@ Desarrollar una manera de visualizar la ocurrencia de errores que sea adecuada, 
 
 Para realizar el trabajo decidimos utilizar una metodolog\'ia \'agil de tipo Scrum. Trabajamos de la siguiente manera: 
 
-Realizamos reuniones semanales con la Profesora para que nos indique cuales eran los problemas a resolver, los logros a alcanzar y las necesidades del proyecto.
-
-Luego de la reuni\'on con la Profesora organizabamos una planning, en la cual uno de nosotros cumpl\'ia el rol de scrum master. Durante la reuni\'on decidiamos cuales ser\'ian nuestros objetivos a alcanzar en el sprint y creabamos las tareas necesarias para cumplirlo, de ah\' en adelante cada miembro era libre de escoger la tarea disponible que la pareciera. Para una mejor organizaci\'on, y sobre todo para evitar solapamiento en la realizaci\'on de las tareas, utilizamos la herramienta Trello que nos permiti\'o mantenernos sincronizados y al tanto del avance y trabajo de cada miembro, otorgandonos la posibilidad de mantener una organizaci\'on a\'un trabajando a distancia y en horarios diferentes.
+Realizamos reuniones semanales con la profesora para que nos indique cuales eran los problemas a resolver, los logros a alcanzar y las necesidades del proyecto. Luego de \'esta organizabamos una planning, en la cual uno de nosotros cumpl\'ia el rol de scrum master. Durante la reuni\'on decidiamos cuales ser\'ian nuestros objetivos a alcanzar en el sprint y creabamos las tareas necesarias para cumplirlo, de ah\'i en adelante cada miembro era libre de escoger la tarea disponible que la pareciera. Para una mejor organizaci\'on, y sobre todo para evitar solapamiento en la realizaci\'on de las tareas, utilizamos la herramienta Trello que nos permiti\'o mantenernos sincronizados y al tanto del avance y trabajo de cada miembro, otorgandonos la posibilidad de trabajar a distancia y en horarios diferentes.
 
 \begin{figure}[h!]
   \centering
