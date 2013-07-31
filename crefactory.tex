@@ -19,49 +19,45 @@
 \newpage
 
 \section{Organizaci\'on del documento}
-Primero se dar\'a una introducci\'on para poner en contexto al problema planteado por la c\'atedra junto con la  motivaci\'on para la realizaci\'on del trabajo. Se detallar\'an los objetivos del mismo as\'i como tambi\'en la manera de trabajo del grupo.
+En la secci\'on~\ref{sec:intro} se pretende poner en contexto al lector, introduci\'endo de manera breve y consisa algunos conceptos necesarios para luego explicar cual es la motivaci\'on del trabajo y el problema que se intenta resolver. Se detallar\'an los objetivos planteados as\'i como tambi\'en la manera de trabajo del grupo.
 
-Luego, se ir\'an detallando en orden de aparici\'on los problemas con los que nos fuimos enfrentando a lo largo de la cursada. Por cada uno de ellos se explicar\'a en que consiste junto a la soluci\'on planteada.
+Una vez introducida a groso modo la situaci\'on inicial se presentar\'an los problemas concretos que debieron ser resueltos, se detallar\'an junto con ellos una breve introducci\'on, un contexto, que permita al lector comprender el estado de la aplicaci\'on al momento de abordar al problema, y la soluci\'on propuesta e implementada dando los justificativos pertinentes.
 
-Mas adelante se listar\'a un resumen de las minutas de cada reuni\'on con la Profesora.
-Por \'ultimo se detallar\'an las conclusiones y el trabajo a futuro.
+En la secci\'on~\ref{sec:minutas} se listar\'an las minutas obtenidas a partir de cada reuni\'on con la Profesora. \\
+Por \'ultimo en la secci\'on~\ref{sec:conclusiones} se pretende describir brevemente pensamientos y logros del equipo, tanto a nivel de resultados obtenidos en el diseño e implementaci\'on del trabajo como a nivel profesional. Dentro de \'esta \'ultima secci\'on tambi\'en se describen los puntos que creemos deben ser trabajados en el futuro.
 
-\section{Introducci\'on}
+\section{Introduci\'on}
+\label{sec:intro}
 La refactorizaci\'on de c\'odigo es una t\'ecnica para la reestructuraci\'on del c\'odigo existente de un producto de software, alterando su estructura interna sin cambiar su comportamiento externo, con el objetivo de mejorar atributos no funcionales del software como pueden ser la legibilidad, la mantenibilidad o incluso la extensibidad del mismo.
 
-Existe una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactorizaci\'on de c\'odigo, CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.
-
-Crefactory esta programado en Smalltalk dentro del entorno de desarrollo VisualWorks. La interfaz gr\'afica que posee la aplicaci\'on permite interactuar con c\'odigo C para facilitar dicha refactorizaci\'on. 
-
-Permite refactorizar variables (cambio de nombre, crear estructuras de las variables), estructuras (renombrar campos) y funciones (renombrar las mismas).
+Existe una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactorizaci\'on de c\'odigo; CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.\\
+CRefactory realiza refactorizaci\'on sobre c\'odigo C y de preprocesador, para ello permite interactuar con el c\'odigo a trav\'es de una interfaz similar a la de cualquier editor de texto orientado a la programaci\'on.
 
 \subsection{Motivaci\'on}
-CRefactory funcionaba correctamente, pero estaba lejos de ser la herramienta ideal de trabajo, ya que su interfaz no era amigable con el usuario. En primer lugar, la carga de archivos era muy poco pr\'actica, ya que era necesario escribir el path de los archivos a mano, y no se pose\'ia ning\'un tipo de retroalimentaci\'on para saber si se hab\'ia referenciado correctamente dicho archivo. Se vi\'o la necesidad de mejorar la manera en que se cargaraban los archivos.
 
-En segundo lugar, la herramienta no era capaz de agregar condiciones falsas o macros por medio de la interfaz, con lo cual se desaprovechaba  parte del poder de CRefactory. Era necesario implementar esto de una manera amigable al usuario por medio de una interfaz gr\'afica.
+CRefactory funcionaba correctamente, pero su interfaz era poco amigable con el usuario. En primer lugar, la carga de archivos era muy poco pr\'actica, ya que era necesario escribir la ruta de cada archivo manualmente.
+En segundo lugar, la herramienta no expresaba toda su funcionalidad a trav\'es de su la interfaz, como es el caso de de la espeficicaci\'on de configuraciones (las cuales ser\'an abordadas a la secci\'on~\ref{sec:problema_dos}) con lo cual se desaprovechaba  parte del poder de CRefactory.
 
-En tercer lugar, no se entend\'ia que ocurr\'ia en caso de que se produjera una excepci\'on. Se necesitaba implementar una manera f\'acil y amigable para que se traten las mismas y as\'i detectar el error. Se necesitaba un mejor manejo de las excepciones y una interfaz para tratarlas.
-
-Por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no mostraba el contenido del mismo y por ende no mostraba la l\'inea de c\'odigo que produjo el error. Por lo que tambi\'en fue necesario implementar resaltado de sint\'axis para la detecci\'on de error en parseo.
+En tercer lugar, en caso de que se generara un error durante el uso de la herramienta no se produc\'ia ning\'un tipo de retroalimentaci\'on explicando lo ocurrido ni se proveia de alguna manera por la cual se pudiera volver a un estado funcional, la aplicaci\'on simplemente dejaba de funcionar, por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no se mostraba el contenido del mismo y por ende no mostraba la l\'inea de c\'odigo que produjo el error. Se necesitaba implementar una manera f\'acil y amigable que permitiera al usuario detectar el error y recuperarse de el mismo.
 
 
 \subsection{Objetivos}
 
-Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis en su facilidad de uso, proveer retroalimentaci\'on, manejo de excepciones, di\'alogo simple y natural, salidas evidentes, prevenci\'on de errores y ayudas.
+Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis en su facilidad de uso, proveer retroalimentaci\'on, prevenci\'on y recuperaci\'on de errores, di\'alogo simple y natural, salidas evidentes y ayudas.
 
-Particularmente se desea mejorar la carga de archivos e include\_directories para que cumpla las siguientes condiciones: prevenci\'on de errores, facilidad de uso, simplicidad y menor sorpresa al usuario.
+Particularmente se desea mejorar el mecanismo para la carga de archivos en orden lograr prevenir errores e incrementar su usabilidad.
 
-Implementar una interfaz que permita al usuario el manejo de macros y condiciones falsas de una manera sencilla e intuitiva, de manera que pueda agregarlas o quitarlas a gusto.
+Implementar una interfaz que permita al usuario hacer uso de todo el potencial de CRefactory, en particular al crear configuraciones para sus proyectos.
 
-Desarrollar una manera de visualizar la ocurrencia de errores y excepciones que sea adecuada, clara y funcional. Debe permitir reconocer r\'apidamente al agente que causa el error y que provea suficiente informaci\'on para que el usuario pueda resolverlo.
+Desarrollar una manera de visualizar la ocurrencia de errores que sea adecuada, clara y funcional; que permita reconocer r\'apidamente al agente causante del error y que provea suficiente informaci\'on para que el usuario pueda resolverlo.
 
-\subsection{Manera de trabajo}
+\subsection{M\'etodo de trabajo}
 
 Para realizar el trabajo decidimos utilizar una metodolog\'ia \'agil de tipo Scrum. Trabajamos de la siguiente manera: 
 
 Realizamos reuniones semanales con la Profesora para que nos indique cuales eran los problemas a resolver, los logros a alcanzar y las necesidades del proyecto.
 
-Luego de la reuni\'on con la Profesora organizabamos otra reuni\'on de grupo tambi\'en semanal, en la cual uno de nosotros cumpl\'ia el rol de scrum master: decidiamos cuales ser\'ian nuestros objetivos a alcanzar en la semana y nos distribu\'iamos las tareas. Para una mejor organizaci\'on utilizabamos la herramienta Trello, la cual cumpli\'o la funci\'on de StoryBoard.
+Luego de la reuni\'on con la Profesora organizabamos una planning, en la cual uno de nosotros cumpl\'ia el rol de scrum master. Durante la reuni\'on decidiamos cuales ser\'ian nuestros objetivos a alcanzar en el sprint y creabamos las tareas necesarias para cumplirlo, de ah\' en adelante cada miembro era libre de escoger la tarea disponible que la pareciera. Para una mejor organizaci\'on, y sobre todo para evitar solapamiento en la realizaci\'on de las tareas, utilizamos la herramienta Trello que nos permiti\'o mantenernos sincronizados y al tanto del avance y trabajo de cada miembro, otorgandonos la posibilidad de mantener una organizaci\'on a\'un trabajando a distancia y en horarios diferentes.
 
 \begin{figure}[h!]
   \centering
@@ -70,28 +66,24 @@ Luego de la reuni\'on con la Profesora organizabamos otra reuni\'on de grupo tam
     \label{trello}
 \end{figure}
 
-Trello facilit\'o todas las tareas de organizaci\'on. Permit\'ia que cada uno pueda elegir su tarea sin superponerse con la de el otro, pod\'iamos ver lo que hac\'ia cada uno en tiempo real y colaborar para llevar a cabo las tareas de la forma mas eficientemente posible. 
-
-Adem\'as realizamos tests autom\'aticos para validar que las funcionalidades m\'as importantes se ejecuten correctamente.
-
 \section{Frameworks y herramientas utilizadas}
-El proyecto est\'a implementado en Smalltalk, utilizando el entorno de desarrollo VisualWorks. Para realizar los tests utilizamos el framework SUnit.
+El proyecto est\'a implementado en Smalltalk, utilizando el entorno de desarrollo VisualWorks. Smalltalk es un lenguaje de programaci\'on orientado a objetos y de tipado din\'amico mientras que VisualWorks es una implementaci\'on multiplataforma de este lenguaje.
 
-Smalltalk es un lenguaje de programaci\'on orientado a objetos y de tipado din\'amico mientras que VisualWorks es una implementaci\'on multiplataforma de este lenguaje.
-
-Sunit es un framework de tests de unidad para el lenguaje de programaci\'on Smalltalk. SUnit permite escribir tests y chequear resultados en Smalltalk.
+Para realizar los tests de unidad utilizamos el framework SUnit.
 
 \section{Diseño del proyecto}
 Para realizar el proyecto tuvimos que extender y modificar algunas clases que componen la herramiena CRefactory. Las clases m\'as importantes que modificamos son las siguientes:
+
 \begin{description}
 \item[CRBrowser] Esta clase representa la ventana principal de la interfaz.
 \item[CRConfigurationView] En esta clase esta imeplementada la interfaz para la gesti\'on de la configuraci\'on.
-\item[CRErrorView] Esta clase se encarga se encarga de mostrar los mensajes de error cada vez que se produce una excepci\'on.
-\item[CRConfigurationError] Esta es la clase base para el manejo de las excepciones. Aqu\'i se tienen datos como el archivo en el que se produjo el error o el n\'umero de l\'inea.
-\item[CRPreparserError] Aqu\'i se manejan las excepciones producidas por errores en el preparser.
-\item[CRParseError] Aqu\'i se manejan las excepciones producidas por errores en el parseo del c\'odigo fuente.
-\item[CRIncludeNotFound] Aqu\'i se manejan las excepciones producidas por no haber encontrado una cabecera necesario.
+\item[CRErrorView] Esta clase se encarga se encarga de mostrar los mensajes de 
+\item[CRConfigurationError] Esta es la clase base para el manejo de las excepci
+\item[CRPreparserError] Aqu\'i se manejan las excepciones producidas por errore
+\item[CRParseError] Aqu\'i se manejan las excepciones producidas por errores en
+\item[CRIncludeNotFound] Aqu\'i se manejan las excepciones producidas por no ha
 \end{description}
+
 
 \begin{figure}[h!]
   \centering
@@ -101,7 +93,7 @@ Para realizar el proyecto tuvimos que extender y modificar algunas clases que co
 \end{figure}
 
 \section{Problema uno: Carga de archivos}
-\label{sec:problemOne}
+\label{sec:problema_uno}
 
 El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar la refactorizaci\'on y las carpetas donde se encuentran los archivos de cabecera que incluyen dichos archivos (include directories).
 
@@ -145,6 +137,7 @@ En la Figura ~\ref{carga_archivo} mostramos un pantallazo de la visualizaci\'on 
 \end{figure}
 
 \section{Problema dos: Configuraci\'on}
+\label{sec:problema_dos}
 
 Un archivo fuente de c\'odigo C no s\'olo contiene sintaxis del lenguaje, sino que puede, y suele, contener directivas al preprocesador, tales directivas brindan la posibilidad de realizar inclusi\'on de archivos, definici\'on de macros o compilaci\'on condicional.
 
@@ -266,6 +259,7 @@ En la Figura ~\ref{resaltado} se visualiza el resaltado de un error.
 \end{enumerate}
 
 \section{Minutas}
+\label{sec:minutas}
 Durante el desarrollo del proyecto tuvimos varias reuniones con la Profesora, con la finalidad de conocer cu\'ales eran los requerimientos y mostrar el avance del proyecto. Cada vez que ten\'iamos una reuni\'on deb\'iamos tomar apuntes de lo que hab\'iamos hablado.
 
 A continuaci\'on presentamos dichos apuntes o minutas:
@@ -321,6 +315,7 @@ Los errores de parseo en presencia de condiciones falsas sol\'ia ser un problema
 En esta reuni\'on volvimos a hablar acerca de los problemas vinculados con las condiciones falsas. Se nos pidi\'o tener la posibilidad de cachear la excepci\'on que ocurr\'ia al agregar una condici\'on falsa y se nos sugiri\'o investigar la implementaci\'on de la clase Preprocessor.
 
 \section{Conclusiones}
+\label{sec:conclusiones}
 En esta secci\'on explicaremos los logros alcanzados durante el proyecto, los valores que obtuvimos y algunas sugerencias para un futuro trabajo de CRefacory.
 
 \subsection{Logros alcanzados}
