@@ -19,12 +19,13 @@
 \newpage
 
 \section{Organizaci\'on del documento}
-En la secci\'on~\ref{sec:intro} se pretende poner en contexto al lector, introduci\'endo de manera breve y consisa algunos conceptos necesarios para luego explicar cual es la motivaci\'on del trabajo y el problema que se intenta resolver. Se detallar\'an los objetivos planteados as\'i como tambi\'en la manera de trabajo del grupo.
+En la secci\'on~\ref{sec:intro} se pretende poner en contexto al lector, introduciendo de manera breve y consisa algunos conceptos necesarios para luego explicar cual es la motivaci\'on del trabajo y el problema que se intenta resolver. Se detallar\'an los objetivos planteados as\'i como tambi\'en la metodolog\'ia de trabajo del equipo.
 
 Una vez introducida a groso modo la situaci\'on inicial se presentar\'an los problemas concretos que debieron ser resueltos, se detallar\'an junto con ellos una breve introducci\'on, un contexto, que permita al lector comprender el estado de la aplicaci\'on al momento de abordar al problema, y la soluci\'on propuesta e implementada dando los justificativos pertinentes.
 
-En la secci\'on~\ref{sec:minutas} se listar\'an las minutas obtenidas a partir de cada reuni\'on con la profesora. \\
-Por \'ultimo en la secci\'on~\ref{sec:conclusiones} se pretende describir brevemente pensamientos y logros del equipo, tanto a nivel de resultados obtenidos en el diseño e implementaci\'on del trabajo como a nivel profesional. Dentro de \'esta \'ultima secci\'on tambi\'en se describen los puntos que creemos deben ser trabajados en el futuro.
+En la secci\'on~\ref{sec:minutas} se listar\'an las minutas obtenidas a partir de cada reuni\'on con la profesora.
+
+Por \'ultimo en la secci\'on~\ref{sec:conclusiones} se busca describir brevemente pensamientos y logros del equipo, tanto a nivel de resultados obtenidos en el diseño e implementaci\'on del trabajo como a nivel profesional. Dentro de esta \'ultima secci\'on tambi\'en se describen los puntos que creemos deben ser trabajados en el futuro.
 
 \section{Introduci\'on}
 \label{sec:intro}
@@ -36,14 +37,14 @@ CRefactory realiza refactorizaci\'on sobre c\'odigo C y de preprocesador, para e
 \subsection{Motivaci\'on}
 
 CRefactory funcionaba correctamente, pero su interfaz era poco amigable con el usuario. En primer lugar, la carga de archivos era muy poco pr\'actica, ya que era necesario escribir la ruta de cada archivo manualmente.
-En segundo lugar, la herramienta no expresaba toda su funcionalidad a trav\'es de su interfaz, como es en el caso de de la espeficicaci\'on de configuraciones (las cuales ser\'an abordadas a la secci\'on~\ref{sec:problema_dos}) con lo cual se desaprovechaba  parte del poder de CRefactory.
+En segundo lugar, la herramienta no expresaba toda su funcionalidad a trav\'es de su interfaz, como es en el caso de la espeficicaci\'on de configuraciones (las cuales ser\'an abordadas a la secci\'on~\ref{sec:problema_dos}) con lo cual se desaprovechaba  parte del poder de CRefactory.
 
-En tercer lugar, en caso de que se generara un error durante el uso de la herramienta no se produc\'ia ning\'un tipo de retroalimentaci\'on explicando lo ocurrido ni se proveia de alguna manera por la cual se pudiera volver a un estado funcional, la aplicaci\'on simplemente dejaba de funcionar, por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no se mostraba el contenido del mismo y por ende no mostraba la l\'inea de c\'odigo que produjo el error. Se necesitaba implementar una manera f\'acil y amigable que permitiera al usuario detectar el error y recuperarse de el mismo.
+En tercer lugar, en caso de que se generara un error durante el uso de la herramienta no se produc\'ia ning\'un tipo de retroalimentaci\'on explicando lo ocurrido ni se prove\'ia de alguna manera por la cual se pudiera volver a un estado funcional, la aplicaci\'on simplemente dejaba de funcionar, por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no se mostraba el contenido del mismo y por ende no mostraba la l\'inea de c\'odigo que produjo el error. Se necesitaba implementar una manera f\'acil y amigable que permitiera al usuario detectar el error y recuperarse del mismo.
 
 
 \subsection{Objetivos}
 
-Mejorar la experiencia del usuario al utilizar la herramienta haciendo \'enfasis en su facilidad de uso, proveer retroalimentaci\'on, prevenci\'on y recuperaci\'on de errores, di\'alogo simple y natural, salidas evidentes y ayudas.
+Los objetivos son mejorar la experiencia del usuario durante el uso la herramienta haciendo \'enfasis en su facilidad de uso, proveer retroalimentaci\'on, prevenci\'on y recuperaci\'on de errores, di\'alogo simple y natural, salidas evidentes y ayudas.
 
 Particularmente se desea mejorar el mecanismo para la carga de archivos en orden de lograr prevenir errores e incrementar su usabilidad.
 
@@ -55,7 +56,7 @@ Desarrollar una manera de visualizar la ocurrencia de errores que sea adecuada, 
 
 Para realizar el trabajo decidimos utilizar una metodolog\'ia \'agil de tipo Scrum. Trabajamos de la siguiente manera: 
 
-Realizamos reuniones semanales con la profesora para que nos indique cuales eran los problemas a resolver, los logros a alcanzar y las necesidades del proyecto. Luego de \'esta organizabamos una planning, en la cual uno de nosotros cumpl\'ia el rol de scrum master. Durante la reuni\'on decidiamos cuales ser\'ian nuestros objetivos a alcanzar en el sprint y creabamos las tareas necesarias para cumplirlo, de ah\'i en adelante cada miembro era libre de escoger la tarea disponible que la pareciera. Para una mejor organizaci\'on, y sobre todo para evitar solapamiento en la realizaci\'on de las tareas, utilizamos la herramienta Trello que nos permiti\'o mantenernos sincronizados y al tanto del avance y trabajo de cada miembro, otorgandonos la posibilidad de trabajar a distancia y en horarios diferentes.
+Realizamos reuniones semanales con la profesora para que nos indique cuales eran los problemas a resolver, los logros a alcanzar y las necesidades del proyecto. Luego de \'esta organiz\'abamos un planning, en el cual uno de nosotros cumpl\'ia el rol de scrum master. Durante la reuni\'on decid\'iamos cuales ser\'ian nuestros objetivos a alcanzar en el sprint y cre\'abamos las tareas necesarias para cumplirlo, de ah\'i en adelante cada miembro era libre de escoger la tarea disponible que le pareciera. Para una mejor organizaci\'on, y sobre todo para evitar solapamiento en la realizaci\'on de las tareas, utilizamos la herramienta Trello que nos permiti\'o mantenernos sincronizados y al tanto del avance y trabajo de cada miembro, otorg\'andonos la posibilidad de trabajar a distancia y en horarios diferentes.
 
 \begin{figure}[h!]
   \centering
@@ -67,39 +68,20 @@ Realizamos reuniones semanales con la profesora para que nos indique cuales eran
 \section{Frameworks y herramientas utilizadas}
 El proyecto est\'a implementado en Smalltalk, utilizando el entorno de desarrollo VisualWorks. Smalltalk es un lenguaje de programaci\'on orientado a objetos y de tipado din\'amico mientras que VisualWorks es una implementaci\'on multiplataforma de este lenguaje.
 
-Para realizar los tests de unidad utilizamos el framework SUnit.
+Para realizar los tests utilizamos SUnit, un conocido framework de tests de unidad para el lenguaje de programaci\'on Smalltalk.
 
-\section{Diseño del proyecto}
-Para realizar el proyecto tuvimos que extender y modificar algunas clases que componen la herramiena CRefactory. Las clases m\'as importantes que modificamos son las siguientes:
-
-\begin{description}
-\item[CRBrowser] Esta clase representa la ventana principal de la interfaz.
-\item[CRConfigurationView] En esta clase esta imeplementada la interfaz para la gesti\'on de la configuraci\'on.
-\item[CRErrorView] Esta clase se encarga se encarga de mostrar los mensajes de 
-\item[CRConfigurationError] Esta es la clase base para el manejo de las excepci
-\item[CRPreparserError] Aqu\'i se manejan las excepciones producidas por errore
-\item[CRParseError] Aqu\'i se manejan las excepciones producidas por errores en
-\item[CRIncludeNotFound] Aqu\'i se manejan las excepciones producidas por no ha
-\end{description}
-
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[scale=0.6]{images/diagrama_de_clases.jpg}
-    \caption{Diagrama de clases}
-    \label{diagrama_de_clases}
-\end{figure}
 
 \section{Problema uno: Carga de archivos}
 \label{sec:problema_uno}
 
-El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar la refactorizaci\'on y las carpetas donde se encuentran los archivos de cabecera que incluyen dichos archivos (include directories).
+El primer paso para trabajar con CRefactory es seleccionar los archivos de c\'odigo C al cual se le va a aplicar la refactorizaci\'on y los directorios donde se encuentran los archivos de cabecera que incluyen dichos archivos.
 
-Un archivo de cabecera es un archivo que el compilador incluye de forma autom\'atica al procesar alg\'un otro archivo fuente. Estos archivos contienen normalmente una declaraci\'on directa de clases, subrutinas, variables u otros identificadores.
+Un archivo de cabecera es un archivo que el preprocesador incluye autom\'aticamente dentro del c\'odigo fuente del archivo que lo incluye. Estos archivos contienen normalmente una declaraci\'on directa de estructuras, funciones, variables u otros identificadores.
 
 
 \subsection{Contexto}
-La carga de archivos en la interfaz original funcionaba de la siguiente manera:
+Originalmente se deb\'ia especificar manualmente la ruta absoluta donde se localizaban el o los archivos que se deseban incluir (Figura ~\ref{carga_original}). Esto no es adecuado ya que se podr\'ian cometer errores de tipeo o incluso no recordar exactamente cual era la ruta deseada.
+Al cometer un error de tipeo o escribir el nombre de un archivo inexistente ocurr\'ia un error como el de la Figura ~\ref{error}.
 
 \begin{figure}[h!]
   \centering
@@ -107,12 +89,6 @@ La carga de archivos en la interfaz original funcionaba de la siguiente manera:
     \caption{Carga de archivo original}
     \label{carga_original}
 \end{figure}
-
-Se deb\'ia escribir a mano el path absoluto hacia donde estaban los archivos. Esto era propenso a errores ya que se pod\'ian cometer errores de tipeo o incluso no recordar exactamente cual era dicho path.
-
-Los path absolutos señalan la ubicaci\'on de un archivo o directorio desde el directorio ra\'iz del sistema de archivos.
-
-Al cometer un error de tipeo o escribir el nombre de un archivo inexistente ocurr\'ia un error como el de la figura ~\ref{error} .
 
 \begin{figure}[h!]
   \centering
@@ -122,24 +98,28 @@ Al cometer un error de tipeo o escribir el nombre de un archivo inexistente ocur
 \end{figure}
 
 \subsection{Soluci\'on planteada}
-El problema se solucion\'o agregando una ventana de exploraci\'on de archivos. Este permiti\'o explorar el filesystem y seleccionar el archivo deseado. Ahora se podr\'ia seleccionar m\'as de uno al mismo tiempo.
-Las ventajas de esta aproximaci\'on son que es menos propensa a errores y el usuario no necesita recordar el path absoluto.
+El problema fue solucionado agregando un di\'alogo de exploraci\'on de archivos, tanto para la selecci\'on de los ficheros a editar como para la especificaci\'on de el/los directorio/s donde se encuentran los archivos de cabecera. El di\'alogo permite inspeccionar el filesystem y seleccionar el archivo deseado eliminando as\'i la necesidad de tener que recordarse cual era la ubicaci\'on del archivo deseado y al mismo tiempo excluyendo la posibilidad de que la ruta sea erronea. Adem\'as, esta aproximaci\'on permite seleccionar m\'as de un archivo al mismo tiempo.
 
-En la Figura ~\ref{carga_archivo} mostramos un pantallazo de la visualizaci\'on de la nueva ventana de exploraci\'on de archivos.
+En la Figura~\ref{carga_archivo} se muestra un pantallazo de la visualizaci\'on de la nueva ventana de carga archivos y en la Figura~\ref{busqueda_archivo} el di\'alogo de exploraci\'on del filesystem.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[scale=0.50]{images/codigo_modificado/seleccionar_directorio.jpg}
+    \includegraphics[scale=0.50]{images/codigo_modificado/include.png}
      \caption{Carga de archivo}
      \label{carga_archivo}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.50]{images/codigo_modificado/open_file.png}
+     \caption{Exploraci\'on del filesystem}
+     \label{busqueda_archivo}
 \end{figure}
 
 \section{Problema dos: Configuraci\'on}
 \label{sec:problema_dos}
 
-Un archivo fuente de c\'odigo C no s\'olo contiene sintaxis del lenguaje, sino que puede, y suele, contener directivas al preprocesador, tales directivas brindan la posibilidad de realizar inclusi\'on de archivos, definici\'on de macros o compilaci\'on condicional.
-
-La inclusi\'on de archivos permite tener un programa alojado en varios archivos distintos por lo que una refactorizaci\'on podr\'ia tener un alcance mayor al archivo que se est\'a visualizando en ese momento.
+Un archivo fuente de c\'odigo C no s\'olo contiene sintaxis del lenguaje, sino que puede, y suele, contener directivas al preprocesador, tales directivas brindan la posibilidad de realizar inclusi\'on de archivos (como los archivos cabecera), definici\'on de macros o compilaci\'on condicional.
 
 Una macro es una forma de sustituir caracteres por otros, las macros constan de un nombre y un cuerpo, durante el preprocesado cada ocurrencia del primero ser\'a reemplazado por el segundo. El cuerpo de la macro puede referir directamente a elementos globales del programa o hacerlo indirectamente, a trav\'es de la concatenaci\'on de s\'imbolos, lo que puede f\'acilmente violar la correctitud de una refactorizaci\'on.
 
@@ -148,18 +128,18 @@ La compilaci\'on condicional proporciona una forma de incluir c\'odigo selectiva
 Dado que la herramienta CRefactory puede realizar operaciones de refactorizaci\'on sobre c\'odigo sin preprocesar es necesario otorgarle cierta informaci\'on extra que le permita a la herramienta resolver situaciones dificiles de manejar a la hora de refactorizar, \'esta informaci\'on es llamada configuraci\'on. En concreto la configuraci\'on necesaria es:
 
 \begin{itemize}
-\item Directorios d\'onde se encuetran los archivos inclu\'idos por el archivo cargado.
+\item Directorios d\'onde se encuentran los archivos incluidos por el archivo cargado.
 \item Cuerpos de macros.
 \item Condiciones falsas para determinar que ramas de c\'odigo deben ser tenidas en cuenta y cuales no a la hora de refactorizar.
 \end{itemize}
 
 \subsection{Contexto}
-La interfaz de CRefactory permit\'ia, como se dijo en la secci\'on ~\ref{sec:problemOne}, ingresar los directorios d\'onde se alojan los archivos inclu\'idos por el archivo a editar, pero no brindaba la posibilidad de definir cuerpos de macros ni de espec\'ificar condiciones falsas por lo cual era necesario extender la GUI para proveer esa funcionalidad.
+La interfaz de CRefactory permit\'ia, como se dijo en la secci\'on~\ref{sec:problema_uno}, ingresar los directorios donde se alojan los archivos incluidos por el archivo a editar, pero no brindaba la posibilidad de definir cuerpos de macros ni de especificar condiciones falsas por lo cual era necesario extender la GUI para proveer esa funcionalidad.
 
 \subsection{Soluci\'on planteada}
-Se decidi\'o implementar una nueva ventana que servir\'ia de interfaz para ingresar la informaci\'on de configuraci\'on. Dado que ya exist\'ian dos ventanas de dialogo para realizar parte de la configuraci\'on (la selecci\'on de los archivos fuente a editar y la especificaci\'on de la ubicaci\'on de los archivos includ\'idos por dichos fuentes) se opt\'o por no sobrecargar la vista agregando un tercer di\'alogo, o quizas m\'as teniendo en cuenta que se necesitaba brindar la posibilidad de definir tanto macros como condiciones falsas, sino unificar todos \'estos aspectos relacionados en una sola vista. Por \'ultimo nos inclinamos a utilizar una vista  con solapas dado que una sola ventana con tanta informaci\'on podr\'ia resultar confusa y se dificultar\'ia encontrar r\'apidamente d\'onde ingresar la informaci\'on de configuraci\'on deseada, por otro lado mucha de esa informaci\'on s\'olo ser\'a necesaria en algunos casos, por ejemplo muchas veces se podr\'a editar un archivo donde no fuera necesario definir macros, por lo que la vista en solapas se ajusta a la necesidad de s\'olo mostrar lo necesario y no m\'as que eso, quien no necesite definir macros puede simplemente obviar esa solapa.
+Se decidi\'o implementar una nueva ventana que servir\'ia de interfaz para ingresar la informaci\'on de configuraci\'on. Dado que ya exist\'ian dos ventanas de di\'alogo para realizar parte de la configuraci\'on (la selecci\'on de los archivos fuente a editar y la especificaci\'on de la ubicaci\'on de los archivos incluidos por dichos fuentes) se opt\'o por no sobrecargar la vista agregando un di\'alogo m\'as, o quiz\'as incluso m\'as de uno teniendo en cuenta que se necesitaba brindar la posibilidad de definir tanto macros como condiciones falsas, sino unificar todos estos aspectos relacionados en una sola vista. Por \'ultimo nos inclinamos a utilizar una vista  con solapas dado que una sola ventana con tanta informaci\'on podr\'ia resultar confusa y se dificultar\'ia encontrar r\'apidamente d\'onde ingresar la informaci\'on de configuraci\'on deseada, por otro lado mucha de esa informaci\'on s\'olo ser\'a necesaria en algunos casos, por ejemplo muchas veces se podr\'a editar un archivo donde no fuera necesario definir macros, por lo que la vista en solapas se ajusta a la necesidad de s\'olo mostrar lo necesario y no m\'as que eso, quien no necesite definir macros puede simplemente obviar esa solapa.
 
-El resultado final fue entonces el mostrado en la figura~\ref{configuracion}
+El resultado final fue entonces el mostrado en la Figura~\ref{configuracion}.
 
 \begin{figure}[h!]
   \centering
@@ -170,11 +150,11 @@ El resultado final fue entonces el mostrado en la figura~\ref{configuracion}
 
 \section{Problema tres: Manejo de excepciones}
 
-El manejo de excepciones es una t\'ecnica de programaci\'on que permite controlar los errores ocasionados durante la ejecucici\'on del programa.
+El manejo de excepciones es una t\'ecnica de programaci\'on que permite controlar los errores ocasionados durante la ejecuci\'on del programa.
 A continuaci\'on se detallan los problemas que presentaban la ausencia del manejo de estas en la interface de CRefactory y como fueron solucionados estos problemas.
 
 \subsection{Contexto}
-Ante un error de parseo la aplicaci\'on dejaba de funcionar. No hab\'ia ning\'un tipo de manejo de excepciones. No encontrar un archivo de cabecera en los directorios incluidos significaba que el programa se cerrara abruptamente, sin ning\'un tipo de retroalimentaci\'on para que el usuario pueda rastrear el error. Se hizo evidente la necesidad de que el usuario pudiera rastrear el error y corregirlo sin que falle la herramienta.
+Ante un error la aplicaci\'on generaba una excepci\'on pero \'esta no era manejada por lo cual la herramienta dejaba de funcionar. No hab\'ia ning\'un tipo de manejo de excepciones. No encontrar un archivo de cabecera en los directorios incluidos significaba que el programa se cerrara abruptamente, sin ning\'un tipo de retroalimentaci\'on para que el usuario pueda rastrear el error. Se hizo evidente la necesidad de que el usuario pudiera rastrear el error y corregirlo sin que falle la herramienta.
 
 \begin{figure}[h!]
   \centering
@@ -197,11 +177,7 @@ En la Figura ~\ref{header_no_encontrado} se ve como se mostraba el error luego d
 
 \section{Problema cuatro: Ventana de error}
 
-Al ocurrir una exepci\'on no hab\'ia manera de que el usuario puediera tratarla. Se vi\'o la necesidad de visualizar el problema gr\'aficamente a trav\'es de una ventana de error
-
-Una ventana es un \'area visual que contiene alg\'un tipo de interfaz de usuario, mostrando la salida y permitiendo la entrada de datos para los procesos en ejecuci\'on. Las ventanas pueden ser manipuladas con un puntero.
-
-A continuaci\'on se explica como se trataba antes la excepci\'on, que problemas tra\'ia esto y como fueron solucionados.
+Al ocurrir una exepci\'on no hab\'ia manera de que el usuario pudiera tratarla. Se vio la necesidad de visualizar el problema gr\'aficamente a trav\'es de una ventana de error
 
 \subsection{Contexto}
 El problema de la soluci\'on planteada en el punto anterior es que no mostraba en que parte del c\'odigo fuente se produjo el error. Por lo tanto el usuario no siempre pod\'ia recuperarse totalmente.
@@ -216,15 +192,25 @@ El problema de la soluci\'on planteada en el punto anterior es que no mostraba e
      \label{ventana_de_error}
 \end{figure}
 
+La ventana de error deb\'ia ser capaz de mostrar toda la informaci\'on posible acerca del error producido, por ejemplo la l\'inea de c\'odigo que lo ocacion\'o, o el nombre de un archivo que haya sido incluido y sin embargo no pudo ser encontrado. Para lograr \'esto se implement\'o una serie de clases que extendieran el framework de colecciones de VisualWorks y que puedieran representar fielmente al error ocurrido siendo capaces de brindar la informaci\'on \'util de cada uno, estas clases ser\'ian entonces levantadas como excepciones cuando un error fuera producido. Dichas clases forman entonces una jerarqu\'ia, heredando todas de la clase base CRConfigurationError, esta \'ultima clase no s\'olo agrupa funcionalidad com\'un sino que define algunos m\'etodos abstractos que deben ser implementados por las subclases, especificando as\'i una API y garantizando que la ventana de error pudiera manejar todas las excepciones y conseguir toda la informaci\'on necesaria para ser mostrado haciendo uso de esa API.
+En la Figura~\ref{diagrama_clases_excepciones} se muestra la jerarqu\'ia de clases implementadas y como heredan de Error, clase base dentro del framework de excepciones de VisualWorks.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.6]{images/diagrama_clases_excepciones.jpg}
+    \caption{Jerarqu\'ia de excepciones}
+    \label{diagrama_clases_excepciones}
+\end{figure}
+
 \section{Problema cinco: Highlight del error}
 
-Cuando ocurre un error es \'util conocer que linea o lineas de c\'odigo son las que lo provocaron. Para poder identificar una porci\'on de c\'odigo, estuvimos de acuerdo en que ser\'ia muy \'util contar con alg\'un tipo de resaltado de texto. A continuaci\'on se explica c\'omo se mostraba el c\'odigo antes, que problemas tra\'ia \'esto y c\'omo fueron solucionados.
+Cuando ocurre un error es \'util conocer que l\'inea o l\'ineas de c\'odigo son las que lo provocaron. Para poder identificar una porci\'on de c\'odigo, estuvimos de acuerdo en que ser\'ia muy \'util contar con alg\'un tipo de resaltado de texto.
 
 \subsection{Contexto}
 Anteriormente, luego de un error se mostraba el c\'odigo pero no era claro que l\'ineas lo hab\'ian producido. Esto era un problema ya que la idea del manejo de excepciones no es solo identificar el error sino encontrar la manera de solucionarlo. Y muchas veces para solucionar un problema es necesario saber exactamente en que porci\'on del c\'odigo se origin\'o.
 
 \subsection{Soluci\'on planteada}
-El problema se solucion\'o implementando en la interfaz el resaltado de las l\'ineas donde se produjo el error. Gracias a \'esto el programador puede solucionar los errores con mucha mayor facilidad.
+El problema se solucion\'o implementando en la interfaz el resaltado de las l\'ineas donde se produjo el error. Gracias a esto el programador puede solucionar los errores con mucha mayor facilidad.
 
 En la Figura ~\ref{resaltado} se visualiza el resaltado de un error.
 \begin{figure}[h!]
@@ -247,7 +233,7 @@ En la Figura ~\ref{resaltado} se visualiza el resaltado de un error.
   \item RBSUnitExtensions
   \end{itemize}
   
-\item Conectarse al repositorio Store de la c\'atedra: catedras.lifia.info.unlp.edu.ar:5432\_tpoo y buscar entre los “Published Items” el Bundle CRefactory. Instalar la ultima version (1.4) y luego instalar el bundle CRefactoryGUI.
+\item Conectarse al repositorio Store de la c\'atedra: catedras.lifia.info.unlp.edu.ar:5432\_tpoo y buscar entre los “Published Items” el Bundle CRefactory. Instalar la \'ultima versi\'on (1.4) y luego instalar el bundle CRefactoryGUI.
 
 \item Lo siguiente es probar que los tests de CRefactory pasen correctamente. Estos tests crean archivos .c de prueba en un directorio que deben especificar. Para esto browsear el c\'odigo de: “CRefactory-Testing-Root”, clase “CREFTestCase”, m\'etodo de clase “codeDirectory” y editarlo haciendo referencia a un directorio ya creado en la m\'aquina.
   
@@ -268,21 +254,21 @@ La Profesora nos di\'o una breve introducci\'on al proyecto y un vistazo general
 Nos explic\'o c\'omo conectarnos al repositorio de la c\'atedra y c\'omo utilizar la herramienta de control de versiones.
 Acordamos que nos enviar\'ia por correo electr\'onico los nombres de usuarios y contraseñas de cada integrante del grupo para acceder al repositorio.
 
-Luego de \'esta introducci\'on al proyecto hablamos las funcionalidades que tendr\'iamos que implementar a lo largo de la cursada. Las m\'as importantes:
+Luego de esta introducci\'on al proyecto hablamos las funcionalidades que tendr\'iamos que implementar a lo largo de la cursada. Las m\'as importantes:
 
 \begin{itemize}
-  \item Mejorar el di\'alogo de carga de un archivo. Que sea por ejemplo como el de carga de parcels, haciendolo m\'as accesible al usuario.
-  \item Poder especificar donde estan los directorios con los headers.
+  \item Mejorar el di\'alogo de carga de un archivo. Que sea por ejemplo como el de carga de parcels, haci\'endolo m\'as accesible al usuario.
+  \item Poder especificar donde est\'an los directorios con los archivos de cabecera.
   \item Tener en cuenta las configuraciones que no se pueden parsear.
-  \item Manejar las excepciones para que cuando hay una configuraci\'on inv\'alida muestre en el c\'odigo donde esta lo inv\'alido. 
+  \item Manejar las excepciones para que cuando hay una configuraci\'on inv\'alida muestre en el c\'odigo donde est\'a lo inv\'alido. 
 \end{itemize}
 
 Adem\'as se coment\'o que ser\'ia interesante como trabajo a futuro, posibilitar la creaci\'on autom\'atica de grafos de la inclusi\'on de archivos.
 
 \subsection{Reuni\'on del Lunes 17/09}
-En \'esta reuni\'on la Profesora nos enseñ\'o c\'omo funcionaba el di\'alogo de carga de archivos. Anteriormente era necesario escribir el nombre de los archivos a incluir, lo cual hac\'ia tedioso el trabajo y ocurr\'ia que ante un error de tipeo no se encontrar\'ia el archivo y el programa cerrar\'ia abruptamente. 
+En esta reuni\'on la Profesora nos enseñ\'o c\'omo funcionaba el di\'alogo de carga de archivos. Anteriormente era necesario escribir el nombre de los archivos a incluir, lo cual hac\'ia tedioso el trabajo y ocurr\'ia que ante un error de tipeo no se encontrar\'ia el archivo y el programa cerrar\'ia abruptamente. 
 
-Planteamos modificar el di\'alogo de carga de archivo para que permita explorar el file system. De esta manera ser\'ia m\'as f\'acil de utilizar y se solucionar\'ian los problemas.
+Planteamos modificar el di\'alogo de carga de archivo para que permita explorar el filesystem. De esta manera ser\'ia m\'as f\'acil de utilizar y se solucionar\'ian los problemas.
 
 \subsection{Reuni\'on del Jueves 18/10}
 Para este momento ya hab\'iamos implementado la carga de archivos y directorios por medio de un File Browser, pero todav\'ia no era el ideal.
@@ -300,12 +286,12 @@ Adem\'as comentamos los siguientes puntos:
 \end{itemize}
 
 \subsection{Reuni\'on del Lunes 29/10}
-En esta reuni\'on comenzamos a hablar sobre el tratamiento de excepciones en CRefactory. La Profesora nos aconsej\'o que leamos la documentaci\'on del manejo de excepciones en Visual Works y que miraramos ejemplos en su c\'odigo fuente para elegir la estrategia a utilizar.
+En esta reuni\'on comenzamos a hablar sobre el tratamiento de excepciones en CRefactory. La Profesora nos aconsej\'o que leamos la documentaci\'on del manejo de excepciones en Visual Works y que mirar\'amos ejemplos en su c\'odigo fuente para elegir la estrategia a utilizar.
 
 Cuando se produc\'ia un error, CRefactory no indicaba cu\'al era el archivo que lo hab\'ia producido. Nos propusimos como objetivo que se pueda mostrar dicho archivo, y resaltar la l\'inea de c\'odigo en la cu\'al se produjo el error.
 
 \subsection{Reuni\'on del Lunes 12/11}
-Durante la implementaci\'on de las diferentes funcionalidades, no tuvimos en cuenta el correcto funcionamiento de la aplicaci\'on, y descubrimos que algunas cosas hab\'ian dejado de funcionar. La Profesora nos sugiri\'o que nos asegur\'aramos de que pasen los tests de CRefactory. Nos propusimos realizar tests de todas las funcionalidades importantes que implementaramos.
+Durante la implementaci\'on de las diferentes funcionalidades, no tuvimos en cuenta el correcto funcionamiento de la aplicaci\'on, y descubrimos que algunas cosas hab\'ian dejado de funcionar. La Profesora nos sugiri\'o que nos asegur\'aramos de que pasen los tests de CRefactory. Nos propusimos realizar tests de todas las funcionalidades importantes que implement\'aramos.
 
 Los errores de parseo en presencia de condiciones falsas sol\'ia ser un problema, ya que muchas veces se dificultaba encontrar el lugar donde ocurr\'ia el error. La Profesora plante\'o resolverlo y nos recomend\'o comenzar probando con el archivo test19.c.
 
@@ -337,7 +323,7 @@ En orden de conseguir que CRefactory sea una herramienta profesional que pueda c
 El coloreado de sintaxis es una caracter\'istica muy com\'un en los editores de texto modernos, consiste en mostrar el c\'odigo fuente en diferentes colores con el objetivo de mejorar la legibilidad del c\'odigo para el programador.
 
 \subsubsection{Localizaci\'on autom\'atica de c\'odigo refactorizable}
-Actualmente, para refactorizar c\'odigo, el programador debe identificar el problema observando el c\'odigo. Creemos que ser\'ia buena idea implementar un algor\'itmo que sirva para localizar c\'odigo potencialmente refactorizable de manera autom\'atica.
+Actualmente, para refactorizar c\'odigo, el programador debe identificar el problema observando el c\'odigo. Creemos que ser\'ia buena idea implementar un algoritmo que sirva para localizar c\'odigo potencialmente refactorizable de manera autom\'atica.
 
 \subsubsection{Integraci\'on con frameworks de testing}
 Al refactorizar c\'odigo, debemos comprobar que el c\'odigo siga funcionando correctamente. Ser\'ia deseable que CRefactoring tenga integrados frameworks de testing para realizar el testeo del c\'odigo de forma autom\'atica.
@@ -358,6 +344,6 @@ Una tabla de s\'imbolos es una estructura de datos donde cada s\'imbolo en el c\
 Ser\'ia bueno poder ver la tabla de s\'imbolos.
 
 \subsubsection{Grafo de dependencias}
-Puede ser \'util visualizar las dependencias del c\'odigo fuente. Ser\'ia interesante contar con una herramienta que realize grafos de inclusi\'on de archivos de forma autom\'atica.
+Puede ser \'util visualizar las dependencias del c\'odigo fuente. Ser\'ia interesante contar con una herramienta que realice grafos de inclusi\'on de archivos de forma autom\'atica.
 
 \end{document}
