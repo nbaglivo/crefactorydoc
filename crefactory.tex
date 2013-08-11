@@ -75,6 +75,36 @@ CRefactory es un herramienta para realizar refactorizaci\'on de c\'odigo C de fo
 
 La refactorización del software es una parte importante del proceso de desarrollo de software, especialmente en la fase de mantenimiento. La refactorización es acerca de modificar software para que sea fácil de entender y cambiar, teniendo en cuenta que las modificaciones no alteran el comportamiento externo del sofware, sino que sólo comprende la manipulación sintáctica.
 
+\subsection{Funcionabilidades B\'asicas}
+
+
+\subsection{Clases principales}
+
+A continuacion se explican las clases principales de la interfaz de CRefactory. En la figura ~\ref{diagrama_de_clases_2} se puede ver un diagrama de Clases simplificado.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.58]{images/diagrama_de_clases3.jpg}
+    \caption{Diagrama de clases}
+    \label{diagrama_de_clases_2}
+\end{figure}
+
+\begin{description}
+\item[CRBrowser] Esta clase representa la ventana principal de la interfaz.
+
+\item[CRConfigurationView] En esta clase esta imeplementada la interfaz para la gesti\'on de la configuraci\'on.
+
+\item[CRErrorView] Esta clase se encarga se encarga de mostrar los mensajes de error cada vez que se produce una excepci\'on.
+
+\item[CRConfigurationError] Esta es la clase base para el manejo de las excepciones. Aqu\'i se tienen datos como el archivo en el que se produjo el error o el n\'umero de l\'inea.
+
+\item[CRPreparserError] Aqu\'i se manejan las excepciones producidas por errores en el preparser.
+
+\item[CRParseError] Aqu\'i se manejan las excepciones producidas por errores en el parseo del c\'odigo fuente.
+
+\item[CRIncludeNotFound] Aqu\'i se manejan las excepciones producidas por no haber encontrado una cabecera necesario.
+
+\end{description}
 
 \section{Problema uno: Carga de archivos}
 \label{sec:problema_uno}
