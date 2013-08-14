@@ -86,8 +86,6 @@ CRefactory es un herramienta para realizar refactorizaci\'on de c\'odigo C de fo
 
 La refactorización del software es una parte importante del proceso de desarrollo de software, especialmente en la fase de mantenimiento. La refactorización es acerca de modificar software para que sea fácil de entender y cambiar, teniendo en cuenta que las modificaciones no alteran el comportamiento externo del software, sino que sólo comprende la manipulación sintáctica.
 
-\subsection{Funcionabilidades B\'asicas}
-
 
 \subsection{Clases principales}
 
@@ -116,6 +114,33 @@ A continuacion se explican las clases principales de la interfaz de CRefactory. 
 \item[CRIncludeNotFound] Aqu\'i se manejan las excepciones producidas por no haber encontrado una cabecera necesario.
 
 \end{description}
+
+\subsection{Funcionabilidades B\'asicas}
+
+En la figura ~\ref{diagrama_de_secuencia_include_not_found} mostramos, a modo de ejemplo, un diagrama de secuencia simplificado del proceso de preprocesamiento para el caso en que no se encuentre alguno de los directorios de inclusión.
+
+\begin{figure}[htbp]
+  \centering
+  \setlength{\unitlength}{\textwidth} 
+    \begin{picture}(1,0.5)
+       \put(-0.2,0){\includegraphics[width=1.4\unitlength]{images/secuencia_include_not_found.jpg}}
+    \end{picture}
+    \caption{Diagrama de Secuencia de directorio de inclusión no encontrado}
+    \label{diagrama_de_secuencia_include_not_found}
+\end{figure}
+
+La figura ~\ref{diagrama_de_secuencia_parser_error} se corresponde con un diagrama de secuencia en el que se explica lo que sucede en caso de un error de parseo.
+
+\begin{figure}[htbp]
+  \centering
+  \setlength{\unitlength}{\textwidth} 
+    \begin{picture}(1,0.5)%in case your image is twice as wide as it is high
+                          %(otherwise change the 0.5 to your file's height/width).
+       \put(-0.2,0){\includegraphics[width=1.4\unitlength]{images/secuencia_parser_error.jpg}}
+    \end{picture}
+    \caption{Diagrama de Secuencia de error de parseo}
+    \label{diagrama_de_secuencia_parser_error}
+\end{figure}
 
 \section{Problema uno: Carga de archivos}
 \label{sec:problema_uno}
