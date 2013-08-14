@@ -317,15 +317,45 @@ En la Figura ~\ref{resaltado} se visualiza el resaltado de un error.
 
 \section{Instrucciones de uso}
 
-Una vez abierta la aplicación, se nos aparecerá la ventana principal de la aplicación, la cual se divide en dos secciones. En la sección ubicada en la parte superior se ubican los archivos a los cuales se les está aplicando refactoring. Al hacer click en el nombre de un archivo, se visualiza su código en la sección inferior.
+Una vez abierta la aplicación, se nos aparecerá la ventana principal de la aplicación, la cual se divide en dos secciones. En la sección ubicada en la parte superior se ubican los archivos a los cuales se les está aplicando refactoring. Al hacer click en el nombre de un archivo, se visualiza su código en la sección inferior. [Figura ~\ref{inicio}].
 
-Al seleccionar File - Open, se abrirá una ventana con cuatro pestañas.
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.50]{images/uso/inicio.jpg}
+     \caption{Ventana principal}
+     \label{inicio}
+\end{figure}
 
-En la primer pestaña se debe seleccionar el o los archivos a los cuales se les quiere realizar refactoring. Se puede escribir el path del archivo, o seleccionarlo haciendo click en el botón "Browse Sources". Se puede seleccionar más de un archivo.
+Al seleccionar File - Load, se abrirá una ventana con cuatro pestañas. 
 
-En la segunda pestaña se pueden seleccionar las carpetas en las cuales se encuentran los directorios de inclusión. Ésto es necesario para poder realizar refactoring a archivos con include directories. Un directorio se puede marcar como de Sólo Lectura si es necesario.
+En la primer pestaña se debe seleccionar el o los archivos a los cuales se les quiere realizar refactoring. Se puede escribir el path del archivo, o seleccionarlo haciendo click en el botón "Browse Sources". Se puede seleccionar más de un archivo. [Figura ~\ref{file_names}].
 
-En la tercer pestaña se pueden seleccionar condiciones falsas y en la cuarta pestaña se pueden seleccionar macros.
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.50]{images/uso/file_names.jpg}
+     \caption{Selecci\'on de archivos}
+     \label{file_names}
+\end{figure}
+
+En la segunda pestaña se pueden seleccionar las carpetas en las cuales se encuentran los directorios de inclusión. Ésto es necesario para poder realizar refactoring a archivos con include directories. Un directorio se puede marcar como de Sólo Lectura si es necesario, haciendo click en el checkbox "Read Only". Los directorios de sólo lectura se mostrarán en el listado de la derecha, mientras que el resto se mostrarán en el listado de la izquierda. [Figura ~\ref{include_directories}].
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.50]{images/uso/include_directories.jpg}
+     \caption{Selecci\'on de directorios}
+     \label{include_directories}
+\end{figure}
+
+En la tercer pestaña se pueden agregar condiciones falsas y en la cuarta pestaña se pueden agregar macros.
+
+Una vez seleccionadas todas las opciones necesarias, en caso de que no ocurra ningún error de configuraci\'on, se volver\'a a la ventana principal y se podrá refactorizar el c\'odigo. A modo de ejemplo mostramos en la Figura ~\ref{rename} c\'omo se podr\'ia aplicar el renombramiento de una variable.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.50]{images/uso/rename.jpg}
+     \caption{Ejemplo de refactorizaci\'on}
+     \label{rename}
+\end{figure}
 
 \section{Minutas}
 \label{sec:minutas}
