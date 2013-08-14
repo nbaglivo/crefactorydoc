@@ -35,12 +35,14 @@ Por \'ultimo en la secci\'on~\ref{sec:conclusiones} se busca describir brevement
 \label{sec:intro}
 La refactorizaci\'on de c\'odigo es una t\'ecnica para la reestructuraci\'on del c\'odigo existente de un producto de software, alterando su estructura interna sin cambiar su comportamiento externo, con el objetivo de mejorar atributos no funcionales del software como pueden ser la legibilidad, la mantenibilidad o incluso la extensibidad del mismo.
 
-Existe una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactorizaci\'on de c\'odigo; CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.\\
+Existe una serie de t\'ecnicas bien conocidas de uso com\'un durante el proceso de refactorizaci\'on de c\'odigo; CRefactory es un entorno de desarrollo que provee soporte para realizar de manera autom\'atica los aspectos mec\'anicos de dicho proceso mediante una interfaz gr\'afica.
+
 CRefactory realiza refactorizaci\'on sobre c\'odigo C y de preprocesador, para ello permite interactuar con el c\'odigo a trav\'es de una interfaz similar a la de cualquier editor de texto orientado a la programaci\'on.
 
 \subsection{Motivaci\'on}
 
 CRefactory funcionaba correctamente, pero su interfaz era poco amigable con el usuario. En primer lugar, la carga de archivos era muy poco pr\'actica, ya que era necesario escribir la ruta de cada archivo manualmente.
+
 En segundo lugar, la herramienta no expresaba toda su funcionalidad a trav\'es de su interfaz, como es en el caso de la espeficicaci\'on de configuraciones (las cuales ser\'an abordadas a la secci\'on~\ref{sec:problema_dos}) con lo cual se desaprovechaba  parte del poder de CRefactory.
 
 En tercer lugar, en caso de que se generara un error durante el uso de la herramienta no se produc\'ia ning\'un tipo de retroalimentaci\'on explicando lo ocurrido ni se prove\'ia de alguna manera por la cual se pudiera volver a un estado funcional, la aplicaci\'on simplemente dejaba de funcionar, por ejemplo, si ocurr\'ia un error durante el parseo de un archivo, no se mostraba el contenido del mismo y por ende no mostraba la l\'inea de c\'odigo que produjo el error. Se necesitaba implementar una manera f\'acil y amigable que permitiera al usuario detectar el error y recuperarse del mismo.
@@ -292,7 +294,7 @@ En la Figura ~\ref{resaltado} se visualiza el resaltado de un error.
 \end{figure}
 
 
-\section{Instrucciones de instalaci\'on y uso}
+\section{Instrucciones de instalaci\'on}
 
 \begin{enumerate}
 \item Instalar VW7.8nc
@@ -312,6 +314,18 @@ En la Figura ~\ref{resaltado} se visualiza el resaltado de un error.
 
 \item Para correr la aplicaci\'on debemos ejecutar en el \'area de trabajo  {\it CRBrowser open}. 
 \end{enumerate}
+
+\section{Instrucciones de uso}
+
+Una vez abierta la aplicación, se nos aparecerá la ventana principal de la aplicación, la cual se divide en dos secciones. En la sección ubicada en la parte superior se ubican los archivos a los cuales se les está aplicando refactoring. Al hacer click en el nombre de un archivo, se visualiza su código en la sección inferior.
+
+Al seleccionar File - Open, se abrirá una ventana con cuatro pestañas.
+
+En la primer pestaña se debe seleccionar el o los archivos a los cuales se les quiere realizar refactoring. Se puede escribir el path del archivo, o seleccionarlo haciendo click en el botón "Browse Sources". Se puede seleccionar más de un archivo.
+
+En la segunda pestaña se pueden seleccionar las carpetas en las cuales se encuentran los directorios de inclusión. Ésto es necesario para poder realizar refactoring a archivos con include directories. Un directorio se puede marcar como de Sólo Lectura si es necesario.
+
+En la tercer pestaña se pueden seleccionar condiciones falsas y en la cuarta pestaña se pueden seleccionar macros.
 
 \section{Minutas}
 \label{sec:minutas}
