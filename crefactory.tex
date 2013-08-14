@@ -91,29 +91,43 @@ La refactorización del software es una parte importante del proceso de desarrol
 
 \subsection{Clases principales}
 
-A continuacion se explican las clases principales de la interfaz de CRefactory. En la figura ~\ref{diagrama_de_clases_2} se puede ver un diagrama de Clases simplificado.
+A continuacion se explican las clases principales de la interfaz de CRefactory. En las figuras ~\ref{diagrama_de_clases_excepciones}, ~\ref{diagrama_de_clases_vista} y ~\ref{diagrama_de_clases_extendidas} se pueden ver los diagramas de clases de la vista, del manejo de excepciones y de otras clases extendidas. Cabe aclarar que solo se muestran los m\'etodos m\'as importantes para simplificar el diagrama.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[scale=0.58]{images/diagrama_de_clases3.jpg}
-    \caption{Diagrama de clases}
-    \label{diagrama_de_clases_2}
+    \includegraphics[scale=0.50]{images/diagrama_clases_excepciones.eps}
+    \caption{Diagrama de clases de errores}
+    \label{diagrama_de_clases_excepciones}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.60]{images/diagrama_clases_vista.eps}
+    \caption{Diagrama de clases de la vista}
+    \label{diagrama_de_clases_vista}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[scale=0.60]{images/diagrama_clases_extendidas.eps}
+    \caption{Diagrama de otras clases extendidas}
+    \label{diagrama_de_clases_extendidas}
 \end{figure}
 
 \begin{description}
-\item[CRBrowser] Esta clase representa la ventana principal de la interfaz.
+\item[CRBrowser] Esta clase representa la ventana principal de la interfaz. No fue modificada durante el trabajo, pero representa una parte importante de la interfaz.
 
-\item[CRConfigurationView] En esta clase esta imeplementada la interfaz para la gesti\'on de la configuraci\'on.
+\item[CRConfigurationView] En esta clase esta implementada la interfaz para la gesti\'on de la configuraci\'on. Se realiza el manejo de las pestañas, as\'i como de toda la configuraci\'on que luego es pasada a una instancia de la clase CRConfiguration.
 
-\item[CRErrorView] Esta clase se encarga se encarga de mostrar los mensajes de error cada vez que se produce una excepci\'on.
+\item[CRErrorView] Esta clase se encarga de mostrar los mensajes de error cada vez que se produce una excepci\'on.
 
-\item[CRConfigurationError] Esta es la clase base para el manejo de las excepciones. Aqu\'i se tienen datos como el archivo en el que se produjo el error o el n\'umero de l\'inea.
+\item[CRConfigurationError] Es la clase base para el manejo de excepciones. Aqu\'i se tienen datos como el archivo en el que se produjo el error o la l\'inea de c\'odigo.
 
-\item[CRPreparserError] Aqu\'i se manejan las excepciones producidas por errores en el preparser.
+\item[CRPreParserError] Aqu\'i se manejan las excepciones producidas por errores en el preparser. Como por ejemplo un error con una macro.
 
-\item[CRParseError] Aqu\'i se manejan las excepciones producidas por errores en el parseo del c\'odigo fuente.
+\item[CRParseError] Aqu\'i se manejan las excepciones producidas por errores en el parseo del c\'odigo fuente. Por ejemplo por un tipo de dato no reconocido.
 
-\item[CRIncludeNotFound] Aqu\'i se manejan las excepciones producidas por no haber encontrado una cabecera necesario.
+\item[CRIncludeNotFound] Aqu\'i se manejan las excepciones producidas por no haber encontrado una cabecera necesaria.
 
 \end{description}
 
@@ -123,25 +137,18 @@ En la figura ~\ref{diagrama_de_secuencia_include_not_found} mostramos, a modo de
 
 \begin{figure}[htbp]
   \centering
-  \setlength{\unitlength}{\textwidth} 
-    \begin{picture}(1,0.5)
-       \put(-0.2,0){\includegraphics[width=1.4\unitlength]{images/secuencia_include_not_found.jpg}}
-    \end{picture}
-    \caption{Diagrama de Secuencia de directorio de inclusión no encontrado}
-    \label{diagrama_de_secuencia_include_not_found}
+  \includegraphics[scale=0.40, angle=270]{images/secuencia_include_not_found.eps}
+  \caption{Diagrama de Secuencia de directorio de inclusión no encontrado}
+  \label{diagrama_de_secuencia_include_not_found}
 \end{figure}
 
 La figura ~\ref{diagrama_de_secuencia_parser_error} se corresponde con un diagrama de secuencia en el que se explica lo que sucede en caso de un error de parseo.
 
 \begin{figure}[htbp]
   \centering
-  \setlength{\unitlength}{\textwidth} 
-    \begin{picture}(1,0.5)%in case your image is twice as wide as it is high
-                          %(otherwise change the 0.5 to your file's height/width).
-       \put(-0.2,0){\includegraphics[width=1.4\unitlength]{images/secuencia_parser_error.jpg}}
-    \end{picture}
-    \caption{Diagrama de Secuencia de error de parseo}
-    \label{diagrama_de_secuencia_parser_error}
+  \includegraphics[scale=0.40, angle=270]{images/secuencia_parser_error.eps}
+  \caption{Diagrama de Secuencia de error de parseo}
+  \label{diagrama_de_secuencia_parser_error}
 \end{figure}
 
 \clearpage
@@ -272,7 +279,7 @@ En la Figura~\ref{diagrama_clases_excepciones} se muestra la jerarqu\'ia de clas
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[scale=0.6]{images/diagrama_clases_excepciones.jpg}
+    \includegraphics[scale=0.5]{images/diagrama_clases_excepciones.eps}
     \caption{Jerarqu\'ia de excepciones}
     \label{diagrama_clases_excepciones}
 \end{figure}
