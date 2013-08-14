@@ -21,9 +21,13 @@
 \section{Organizaci\'on del documento}
 En la secci\'on~\ref{sec:intro} se pretende poner en contexto al lector, introduciendo de manera breve y consisa algunos conceptos necesarios para luego explicar cual es la motivaci\'on del trabajo y el problema que se intenta resolver. Se detallar\'an los objetivos planteados as\'i como tambi\'en la metodolog\'ia de trabajo del equipo.
 
+En la secci\'on~\ref{sec:testing} se ofrece una descripci\'on de la metodolog\'ia utilizada por el equipo en cuanto al testeo de la aplicaci\'on y las fundamentaciones que apoyaron la adopci\'on de dicha metodolog\'ia.
+
+La secci\'on~\ref{sec:frameworks_and_tools} detalla cuales fueron las herramientas y frameworks utilizadas durante el desarrollo, asi como una reseña del estado de CRefactory y como se utilizaba al momento de comenzar el proyecto.
+
 Una vez introducida a groso modo la situaci\'on inicial se presentar\'an los problemas concretos que debieron ser resueltos, se detallar\'an junto con ellos una breve introducci\'on, un contexto, que permita al lector comprender el estado de la aplicaci\'on al momento de abordar al problema, y la soluci\'on propuesta e implementada dando los justificativos pertinentes.
 
-En la secci\'on~\ref{sec:minutas} se listar\'an las minutas obtenidas a partir de cada reuni\'on con la profesora.
+En la secci\'on~\ref{sec:minutas} se listar\'an las minutas obtenidas a partir de cada reuni\'on con la profesora y que sirvieron como base para la planificaci\'on de cada interaci\'on o ciclo del proyecto.
 
 Por \'ultimo en la secci\'on~\ref{sec:conclusiones} se busca describir brevemente pensamientos y logros del equipo, tanto a nivel de resultados obtenidos en el diseño e implementaci\'on del trabajo como a nivel profesional. Dentro de esta \'ultima secci\'on tambi\'en se describen los puntos que creemos deben ser trabajados en el futuro.
 
@@ -65,7 +69,14 @@ Realizamos reuniones semanales con la profesora para que nos indique cuales eran
     \label{trello}
 \end{figure}
 
+\section{Testing}
+\label{sec:testing}
+Para poder minimizar la posibilidad de que alg\'un error fuera introducido durante el proceso de desarrollo el equipo tom\'o dos desiciones arquitect\'onicas. La primera fue practicar Test-driven development (TDD), lo que implica que ante cada nueva funcionalidad agregada deb\'iamos implementar la  nueva interface del objeto para inmediatamente despu\'es realizar un caso de prueba utilizando tests de unidad que probar\'an dicha interface, la historia de usuario asociada a dicha implementaci\'on no ser\'ia entonces terminada hasta que el test case pasase exitosamente. En segundo lugar dado que gran parte de nuestro aporte a CRefactory fue el de la implementaci\'on de parte de la interfaz gr\'afica de usuario se decidi\'o que cada vez que se agregue un nuevo elemento a la misma se haga un testeo manual, tanto de la parte nueva como de el resto de la aplicaci\'on, el testo manual fue cuidadosamente planificado para que \'este fuera fielmente reproducible y poder asegurar que la interface siempre fuese testeada de la misma manera, garantizando el perfecto funcionamiento de la interface.
+\'Estas decisiones fueron tomadas basadas en que el contar con casos de prueba para cada funcionalidad individual genera confianza en el c\'odigo escrito, ante cada cambio o refactoring se tiene seguridad en que si las pruebas pasan la implementaci\'on es correcta.
+
+
 \section{Frameworks y herramientas utilizadas}
+\label{sec:frameworks_and_tools}
 El proyecto est\'a implementado en Smalltalk, utilizando el entorno de desarrollo VisualWorks. Smalltalk es un lenguaje de programaci\'on orientado a objetos y de tipado din\'amico mientras que VisualWorks es una implementaci\'on multiplataforma de este lenguaje.
 
 Para realizar los tests de unidad utilizamos el framework SUnit.
@@ -73,7 +84,7 @@ Para realizar los tests de unidad utilizamos el framework SUnit.
 \subsection{CRefactory}
 CRefactory es un herramienta para realizar refactorizaci\'on de c\'odigo C de forma autom\'atica utilizando una interfaz gr\'afica.
 
-La refactorización del software es una parte importante del proceso de desarrollo de software, especialmente en la fase de mantenimiento. La refactorización es acerca de modificar software para que sea fácil de entender y cambiar, teniendo en cuenta que las modificaciones no alteran el comportamiento externo del sofware, sino que sólo comprende la manipulación sintáctica.
+La refactorización del software es una parte importante del proceso de desarrollo de software, especialmente en la fase de mantenimiento. La refactorización es acerca de modificar software para que sea fácil de entender y cambiar, teniendo en cuenta que las modificaciones no alteran el comportamiento externo del software, sino que sólo comprende la manipulación sintáctica.
 
 \subsection{Funcionabilidades B\'asicas}
 
