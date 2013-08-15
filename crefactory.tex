@@ -73,15 +73,14 @@ Realizamos reuniones semanales con la profesora para que nos indique cuales eran
 
 \section{Testing}
 \label{sec:testing}
-Para poder minimizar la posibilidad de que alg\'un error fuera introducido durante el proceso de desarrollo el equipo tom\'o dos desiciones arquitect\'onicas. La primera fue practicar Test-driven development (TDD), lo que implica que ante cada nueva funcionalidad agregada deb\'iamos implementar la  nueva interface del objeto para inmediatamente despu\'es realizar un caso de prueba utilizando tests de unidad que probar\'an dicha interface, la historia de usuario asociada a dicha implementaci\'on no ser\'ia entonces terminada hasta que el test case pasase exitosamente. En segundo lugar dado que gran parte de nuestro aporte a CRefactory fue el de la implementaci\'on de parte de la interfaz gr\'afica de usuario se decidi\'o que cada vez que se agregue un nuevo elemento a la misma se haga un testeo manual, tanto de la parte nueva como de el resto de la aplicaci\'on, el testo manual fue cuidadosamente planificado para que \'este fuera fielmente reproducible y poder asegurar que la interface siempre fuese testeada de la misma manera, garantizando el perfecto funcionamiento de la interface.
-\'Estas decisiones fueron tomadas basadas en que el contar con casos de prueba para cada funcionalidad individual genera confianza en el c\'odigo escrito, ante cada cambio o refactoring se tiene seguridad en que si las pruebas pasan la implementaci\'on es correcta.
-
+A lo largo del proyecto el equipo utiliz\'o Test-driven development (TDD). TDD es una t\'ecnica de programaci\'on que consiste en primero escribir tests de unidad que permitan verificar la correctitud de la funcionalidad a implementar para luego efectivamente implementarla, el ciclo de TDD termina cuando todos los tests pasen exitosamente. Se decidi\'o utilizar este enfoque para minimizar la posibilidad de introducir errores durante el proceso de codificaci\'on de nuevas funcionalidades y obtener mayor seguridad a la hora de refactorizar c\'odigo existente.
+TDD permiti\'o entonces el testeo unitario de cada clase, pero \'esto no es suficiente por dos razones; la primera es que no se probaba al sistema en su conjunto, la segunda es que TDD deja afuera de la prueba el funcionamiento de la interfaz gr\'afica. Para cubrir estos aspectos se decidi\'o que ante cada cambio no trivial no s\'olo deb\'ian pasar los tests de unidad sino que tambi\'en deb\'ia hacerce una prueba de integraci\'on, \'esto es, probar el funcionamiento del sistema como un todo, mediante la interfaz gr\'afica. El test de integraci\'on fue entonces diseñado como un test manual que abarque el funcionamiento de toda la interfaz; en orden de lograr un test completo y fielmente reproducible cada paso a realizar por el test fue detallado de manera escrita.
 
 \section{Frameworks y herramientas utilizadas}
 \label{sec:frameworks_and_tools}
 El proyecto est\'a implementado en Smalltalk, utilizando el entorno de desarrollo VisualWorks. Smalltalk es un lenguaje de programaci\'on orientado a objetos y de tipado din\'amico mientras que VisualWorks es una implementaci\'on multiplataforma de este lenguaje.
 
-Para realizar los tests de unidad utilizamos el framework SUnit.
+Para la realizaci\'on los tests de unidad utilizamos el framework SUnit.
 
 \subsection{CRefactory}
 CRefactory es un herramienta para realizar refactorizaci\'on de c\'odigo C de forma autom\'atica utilizando una interfaz gr\'afica.
