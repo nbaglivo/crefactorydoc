@@ -76,15 +76,34 @@ Realizamos reuniones semanales con la profesora para que nos indique cuales eran
 A lo largo del proyecto el equipo utiliz\'o Test-driven development (TDD). TDD es una t\'ecnica de programaci\'on que consiste en primero escribir tests de unidad que permitan verificar la correctitud de la funcionalidad a implementar para luego efectivamente implementarla, el ciclo de TDD termina cuando todos los tests pasen exitosamente. Se decidi\'o utilizar este enfoque para minimizar la posibilidad de introducir errores durante el proceso de codificaci\'on de nuevas funcionalidades y obtener mayor seguridad a la hora de refactorizar c\'odigo existente.
 TDD permiti\'o entonces el testeo unitario de cada clase, pero \'esto no es suficiente por dos razones; la primera es que no se probaba al sistema en su conjunto, la segunda es que TDD deja afuera de la prueba el funcionamiento de la interfaz gr\'afica. Para cubrir estos aspectos se decidi\'o que ante cada cambio no trivial no s\'olo deb\'ian pasar los tests de unidad sino que tambi\'en deb\'ia hacerce una prueba de integraci\'on, \'esto es, probar el funcionamiento del sistema como un todo, mediante la interfaz gr\'afica. El test de integraci\'on fue entonces diseñado como un test manual que abarque el funcionamiento de toda la interfaz; en orden de lograr un test completo y fielmente reproducible cada paso a realizar por el test fue detallado de manera escrita.
 
-\section{Frameworks y herramientas utilizadas}
+\section{Frameworks, herramientas utilizadas}
 \label{sec:frameworks_and_tools}
 El proyecto est\'a implementado en Smalltalk, utilizando el entorno de desarrollo VisualWorks. Smalltalk es un lenguaje de programaci\'on orientado a objetos y de tipado din\'amico mientras que VisualWorks es una implementaci\'on multiplataforma de este lenguaje.
 
 Para la realizaci\'on los tests de unidad se utiliz\'o el framework SUnit.
 
-\subsection{Clases principales}
+\subsection{Implementaci\'on de CRefactory}
 
-A continuacion se explican las clases principales de la interfaz de CRefactory. En las figuras ~\ref{diagrama_de_clases_excepciones}, ~\ref{diagrama_de_clases_vista} y ~\ref{diagrama_de_clases_extendidas} se pueden ver los diagramas de clases de la vista, del manejo de excepciones y de otras clases extendidas. Cabe aclarar que solo se muestran los m\'etodos m\'as importantes para simplificar el diagrama.
+\subsubsection{Clases principales}
+Las clases principales que componen a la implementaci\'on de la herramienta son:
+\begin{description}
+\item[CRBrowser:] Clase perteneciente a la vista; implementa al editor de archivos.
+
+\item[CRConfigurationView:] Clase perteneciente a la vista; permite la gesti\'on de la configuraci\'on.
+
+\item[CRConfiguration:] Clase del modelo que representa una configurac\'on de CRefactory.
+
+\item[CRErrorView] Clase perteneciente a la vista; exhibe la informaci\'on referida a errores generados durante la ejecuci\'on de CRefactory.
+
+\item[CRConfigurationError] Clase base del modelo de excepciones de CRefactory. Almacena informaci\'on generica sobre el error.
+
+\item[CRPreParserError] Clase perteneciente al modelo; representa los errores producidos en la clase \textit{Preparser}.
+
+\item[CRParseError] Clase perteneciente al modelo; representa los errores producidos durante el proceso de parseo.
+
+\item[CRIncludeNotFound] Clase perteneciente al modelo; representa la falta de un archivo inclu\'ido por el c\'odigo a refactorizar.
+
+\end{description}
 
 \begin{figure}[h!]
   \centering
@@ -107,40 +126,23 @@ A continuacion se explican las clases principales de la interfaz de CRefactory. 
     \label{diagrama_de_clases_extendidas}
 \end{figure}
 
-\begin{description}
-\item[CRBrowser] Esta clase representa la ventana principal de la interfaz. No fue modificada durante el trabajo, pero representa una parte importante de la interfaz.
+\subsubsection{Flujos de control importantes}
 
-\item[CRConfigurationView] En esta clase esta implementada la interfaz para la gesti\'on de la configuraci\'on. Se realiza el manejo de las pestañas, as\'i como de toda la configuraci\'on que luego es pasada a una instancia de la clase CRConfiguration.
-
-\item[CRErrorView] Esta clase se encarga de mostrar los mensajes de error cada vez que se produce una excepci\'on.
-
-\item[CRConfigurationError] Es la clase base para el manejo de excepciones. Aqu\'i se tienen datos como el archivo en el que se produjo el error o la l\'inea de c\'odigo.
-
-\item[CRPreParserError] Aqu\'i se manejan las excepciones producidas por errores en el preparser. Como por ejemplo un error con una macro.
-
-\item[CRParseError] Aqu\'i se manejan las excepciones producidas por errores en el parseo del c\'odigo fuente. Por ejemplo por un tipo de dato no reconocido.
-
-\item[CRIncludeNotFound] Aqu\'i se manejan las excepciones producidas por no haber encontrado una cabecera necesaria.
-
-\end{description}
-
-\subsection{Funcionabilidades B\'asicas}
-
-En la figura ~\ref{diagrama_de_secuencia_include_not_found} mostramos, a modo de ejemplo, un diagrama de secuencia simplificado del proceso de preprocesamiento para el caso en que no se encuentre alguno de los directorios de inclusión.
+La Figura \ref{diagrama_de_secuencia_include_not_found} muestra un diagrama de secuencia simplificado del parseo de un documento que contenga la inclusi\'on de alg\'un archivo que no se encuentre en alguno de los directorios de inclusión especficicados en la configuraci\'on.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[scale=0.40, angle=270]{images/secuencia_include_not_found.eps}
-  \caption{Diagrama de Secuencia de directorio de inclusión no encontrado}
+  \caption{Archivo inclu\'ido no encontrado}
   \label{diagrama_de_secuencia_include_not_found}
 \end{figure}
 
-La figura ~\ref{diagrama_de_secuencia_parser_error} se corresponde con un diagrama de secuencia en el que se explica lo que sucede en caso de un error de parseo.
+La Figura \ref{diagrama_de_secuencia_parser_error} presenta el diagrama de secuencia para el caso en que se procese un documento que genere alg\'un tipo de error de parseo.
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[scale=0.40, angle=270]{images/secuencia_parser_error.eps}
-  \caption{Diagrama de Secuencia de error de parseo}
+  \caption{Error de parseo}
   \label{diagrama_de_secuencia_parser_error}
 \end{figure}
 
@@ -267,15 +269,7 @@ El problema de la soluci\'on planteada en el punto anterior es que no mostraba e
      \label{ventana_de_error}
 \end{figure}
 
-La ventana de error deb\'ia ser capaz de mostrar toda la informaci\'on posible acerca del error producido, por ejemplo la l\'inea de c\'odigo que lo ocacion\'o, o el nombre de un archivo que haya sido incluido y sin embargo no pudo ser encontrado. Para lograr \'esto se implement\'o una serie de clases que extendieran el framework de colecciones de VisualWorks y que puedieran representar fielmente al error ocurrido siendo capaces de brindar la informaci\'on \'util de cada uno, estas clases ser\'ian entonces levantadas como excepciones cuando un error fuera producido. Dichas clases forman entonces una jerarqu\'ia, heredando todas de la clase base CRConfigurationError, esta \'ultima clase no s\'olo agrupa funcionalidad com\'un sino que define algunos m\'etodos abstractos que deben ser implementados por las subclases, especificando as\'i una API y garantizando que la ventana de error pudiera manejar todas las excepciones y conseguir toda la informaci\'on necesaria para ser mostrado haciendo uso de esa API.
-En la Figura~\ref{diagrama_clases_excepciones} se muestra la jerarqu\'ia de clases implementadas y como heredan de Error, clase base dentro del framework de excepciones de VisualWorks.
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[scale=0.5]{images/diagrama_clases_excepciones.eps}
-    \caption{Jerarqu\'ia de excepciones}
-    \label{diagrama_clases_excepciones}
-\end{figure}
+La ventana de error deb\'ia ser capaz de mostrar toda la informaci\'on posible acerca del error producido, por ejemplo la l\'inea de c\'odigo que lo ocacion\'o, o el nombre de un archivo que haya sido incluido y sin embargo no pudo ser encontrado. Para lograr \'esto se implement\'o una serie de clases que extendieran el framework de excepciones de VisualWorks y que puedieran representar fielmente al error ocurrido, siendo capaces de brindar la informaci\'on \'util de cada uno, estas clases ser\'ian entonces levantadas como excepciones cuando un error fuera producido. Dichas clases forman entonces una jerarqu\'ia, heredando todas de la clase base CRConfigurationError, esta \'ultima clase no s\'olo agrupa funcionalidad com\'un sino que define algunos m\'etodos abstractos que deben ser implementados por las subclases, especificando as\'i una API y garantizando que la ventana de error pudiera manejar todas las excepciones y conseguir toda la informaci\'on necesaria para ser mostrado haciendo uso de esa API.
 
 \section{Problema cinco: Highlight del error}
 
@@ -300,9 +294,9 @@ En la Figura ~\ref{resaltado} se visualiza el resaltado de un error.
 
 \begin{enumerate}
 \item Instalar VW7.8nc
-\item Abrir la imagen, guardarla con nuevo nombre y setear el VisualWorks home directory
+\item Configurar la variable \textit{VisualWorks home directory}.
 
-\item Desde el Parcel Manager cargar:
+\item Abrir el Parcel Manager y cargar los paquetes:
   \begin{itemize}
   \item All Advanced Tools
   \item RBSUnitExtensions
@@ -319,7 +313,7 @@ En la Figura ~\ref{resaltado} se visualiza el resaltado de un error.
 
 \section{Instrucciones de uso}
 
-Una vez abierta la aplicación, se nos aparecerá la ventana principal de la misma, la cual se divide en dos secciones. En la sección ubicada en la parte superior se ubican los archivos a los cuales se les está aplicando refactoring. Al hacer click en el nombre de un archivo, se visualiza su código en la sección inferior. [Figura ~\ref{inicio}].
+Una vez abierta la aplicación, se nos aparecerá la ventana principal de la misma, la cual se divide en dos secciones. En la sección ubicada en la parte superior, se encuentran los nombres de los archivos abiertos por la aplicaci\'on. Al hacer click en el nombre de un archivo, se visualiza su contenido en el editor. [Figura ~\ref{inicio}].
 
 \begin{figure}[h!]
   \centering
@@ -328,9 +322,9 @@ Una vez abierta la aplicación, se nos aparecerá la ventana principal de la mis
      \label{inicio}
 \end{figure}
 
-Al seleccionar File - Load, se abrirá una ventana con cuatro pestañas. 
+Al seleccionar la opci\'on \textit{File - Load}, se abrirá una ventana con cuatro pestañas, la ventana de configurac\'on.
 
-En la primer pestaña se debe seleccionar el o los archivos a los cuales se les quiere realizar refactoring. Se puede escribir el path del archivo, o seleccionarlo haciendo click en el botón "Browse Sources". Se puede seleccionar más de un archivo. [Figura ~\ref{file_names}].
+En la primer pestaña se debe elegir el o los archivos que se desean abrir. Se puede escribir la ruta del archivo, o seleccionarlo haciendo click en el botón "Browse Sources". [Figura ~\ref{file_names}].
 
 \begin{figure}[h!]
   \centering
@@ -339,7 +333,7 @@ En la primer pestaña se debe seleccionar el o los archivos a los cuales se les 
      \label{file_names}
 \end{figure}
 
-En la segunda pestaña se pueden seleccionar las carpetas en las cuales se encuentran los directorios de inclusión. Ésto es necesario para poder realizar refactoring a archivos con include directories. Un directorio se puede marcar como de Sólo Lectura si es necesario, haciendo click en el checkbox "Read Only". Los directorios de sólo lectura se mostrarán en el listado de la derecha, mientras que el resto se mostrarán en el listado de la izquierda. [Figura ~\ref{include_directories}].
+En la segunda pestaña se pueden seleccionar las carpetas en las cuales se encuentran los directorios de inclusión. Un directorio se puede marcar como de \textit{Sólo Lectura} haciendo click en el checkbox \textit{Read Only}. Los directorios de sólo lectura se mostrarán en el listado de la derecha, mientras que el resto se mostrarán en el listado de la izquierda. [Figura ~\ref{include_directories}].
 
 \begin{figure}[h!]
   \centering
@@ -348,7 +342,7 @@ En la segunda pestaña se pueden seleccionar las carpetas en las cuales se encue
      \label{include_directories}
 \end{figure}
 
-En la tercer pestaña se pueden agregar condiciones falsas y en la cuarta pestaña se pueden agregar macros.
+En la tercer pestaña se pueden especificar condiciones falsas y en la cuarta se pueden definir macros, la finalidad de \'estas opciones han sido explicadas en la secci\'on \ref{sec:problema_uno}
 
 Una vez seleccionadas todas las opciones necesarias, en caso de que no ocurra ningún error de configuraci\'on, se volver\'a a la ventana principal y se podrá refactorizar el c\'odigo. A modo de ejemplo mostramos en la Figura ~\ref{rename} c\'omo se podr\'ia aplicar el renombramiento de una variable.
 
@@ -360,6 +354,16 @@ Una vez seleccionadas todas las opciones necesarias, en caso de que no ocurra ni
 \end{figure}
 
 \clearpage
+
+\section{Funcionalidad b\'asica}
+Hasta el momento CRefactory permite la carga y configuraci\'on de archivos y la aplicaci\'on de los siguientes refactorings:
+
+\begin{itemize}
+\item{\textit{Variable rename}: Renombra una variable.}
+\item{\textit{Create struct from vars}: Crea una estructura con las variables seleccionadas.}
+\item{\textit{Field rename}: Renombra una variable miembro de una estructura.}
+\item{\textit{Function rename}: Renombra a una funci\'on.}
+\end{itemize}
 
 \section{Minutas}
 \label{sec:minutas}
